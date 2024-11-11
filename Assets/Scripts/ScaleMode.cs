@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 public class ScaleMode : MonoBehaviour
 {
-    public Slider scaleSlider;
-    public Button xButton;
-    public Button zButton;
+    [SerializeField] Slider scaleSlider;
+    [SerializeField] Button xButton;
+    [SerializeField] Button zButton;
 
     private GameObject targetObject;
     private string scaleAxis = "x";
@@ -14,6 +14,8 @@ public class ScaleMode : MonoBehaviour
     {
         targetObject = obj;
         scaleSlider.gameObject.SetActive(true);
+        xButton.gameObject.SetActive(true);
+        zButton.gameObject.SetActive(true);
         xButton.onClick.AddListener(() => SetScaleAxis("x"));
         zButton.onClick.AddListener(() => SetScaleAxis("z"));
         scaleSlider.onValueChanged.AddListener(UpdateScale);
