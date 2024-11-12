@@ -46,3 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _furnitureSpecs:
   - {fileID: 11400000, guid: 1c4b37ec5d18fb743aec9a482170b00d, type: 2}
+  - {fileID: 11400000, guid: 75b831dc8940c6d48a988d2846149457, type: 2}
+  - {fileID: 11400000, guid: b15f5aedf2748e142a93659ff920c2b8, type: 2}
+  - {fileID: 11400000, guid: 223203b494f5cbd41902996e9b181d8b, type: 2}
+  - {fileID: 11400000, guid: 1cc3133c732faed41a5a2e0685876b4a, type: 2}

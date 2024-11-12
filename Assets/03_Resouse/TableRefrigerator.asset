@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa888b186462fd3428564863bbdb80d2, type: 3}
-  m_Name: Cube
+  m_Name: TableRefrigerator
   m_EditorClassIdentifier: 
-  name: Cube
-  description: Cube
+  index: 3
+  name: TableRefrigerator
+  description: TableRefrigerator
   furnitureSprite: {fileID: 0}
-  furniturePrefeb: {fileID: 2171959056212844115, guid: b022d984a59f2bf41b29520d7885106f,
+  furniturePrefeb: {fileID: 919132149155446097, guid: 04825b6b09faa254b808912ce94cdaf8,
     type: 3}
