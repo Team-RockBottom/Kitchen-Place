@@ -16,5 +16,5 @@ MonoBehaviour:
   name: DoorTable
   description: DoorTable
   furnitureSprite: {fileID: 0}
-  furniturePrefeb: {fileID: 919132149155446097, guid: 121cdb80bbd9f15499c7ff587e12df54,
+  furniturePrefeb: {fileID: 3343714180317352304, guid: afb1acc6e5bb2094b96f57f7cdb33191,
     type: 3}

@@ -9,11 +9,11 @@ public class SelectName : MonoBehaviour
     private void Start()
     {
         Button = GetComponent<Button>();
-        Button.onClick.AddListener(OnSelected);
+        Button.onClick.AddListener(OnSelected); //버튼에 기능 추가
     }
     public void OnSelected()
     {
-        TouchInputManager.instance.TrueIsSelect();
-        TouchInputManager.instance.SetName(gameObject.name);
+        TouchInputManager.instance.TrueIsSelect(); //셀렉트 트루
+        TouchInputManager.instance.SetName(gameObject.name);//이름 전송
     }
 }

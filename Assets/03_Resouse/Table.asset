@@ -16,5 +16,5 @@ MonoBehaviour:
   name: Table
   description: Table
   furnitureSprite: {fileID: 0}
-  furniturePrefeb: {fileID: 919132149155446097, guid: 714492a0806eadf469f3d63b177abaf8,
+  furniturePrefeb: {fileID: 7055927808175639990, guid: 80bd0d2671e2ec64098f40ceb1f7bf58,
     type: 3}

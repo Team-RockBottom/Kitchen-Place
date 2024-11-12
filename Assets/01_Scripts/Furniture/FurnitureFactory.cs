@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
 namespace CP.Furniture
@@ -7,6 +8,7 @@ namespace CP.Furniture
     {
         [SerializeField] private FurnitureSpecRepository _repository;
         private GameObject _furnitures; //부모로 삼을 빈 오브젝트
+        private GraphicRaycaster _graycast;
 
         /// <summary>
         /// 오브젝트 생성 함수
@@ -23,10 +25,14 @@ namespace CP.Furniture
             if (furniture != null) //가구의 정보가 있다면
             {
                 obj = Instantiate(furniture.furniturePrefeb, position, furniture.furniturePrefeb.transform.rotation); //생성
-                //obj.transform.localScale = Vector3.one / 5; //생성후 조정(아직은 프리펩이 어떻게 될지몰라서 막아둠)
-                //float planeY = plane.gameObject.transform.position.y + (obj.transform.localScale.y / 2);
-                //obj.transform.position = new Vector3(position.x, planeY, position.z);
-                if(_furnitures == null) //부모로 삼을 빈 오브젝트없을시 생성
+                obj.transform.localScale = Vector3.one / 5; //생성후 조정(아직은 프리펩이 어떻게 될지몰라서 임의로 설정)
+                float planeY = plane.gameObject.transform.position.y + (obj.transform.localScale.y / 2);
+                if(name == "Table") //테이블은 피봇이 위에 있어서 예외처리
+                {
+                    planeY += (obj.transform.localScale.y / 3);
+                }
+                obj.transform.position = new Vector3(position.x, planeY, position.z);
+                if (_furnitures == null) //부모로 삼을 빈 오브젝트없을시 생성
                 {
                     _furnitures = new GameObject("Furnitures");
                 }
