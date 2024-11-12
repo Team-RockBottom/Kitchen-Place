@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa888b186462fd3428564863bbdb80d2, type: 3}
   m_Name: Cube
   m_EditorClassIdentifier: 
-  name: Cube
-  description: Cube
+  name: 
+  description: 
   furnitureSprite: {fileID: 0}
-  furniturePrefeb: {fileID: 2171959056212844115, guid: b022d984a59f2bf41b29520d7885106f,
-    type: 3}
+  furniturePrefeb: {fileID: 0}
