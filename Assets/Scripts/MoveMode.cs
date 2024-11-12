@@ -1,26 +1,62 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 
 public class MoveMode : MonoBehaviour
 {
-    private GameObject targetObject;
-    private bool isMoving = false;
+    [SerializeField] InputActionReference _inputActionReference;
+    [SerializeField] ARRaycastManager _arraycastManager;
+    [SerializeField] Camera _arCamera;
+    [SerializeField] LayerMask _furniture;
+    private GameObject _targetObject;
+    private bool _isMoving = false;
+    List<ARRaycastHit> _hits = new List<ARRaycastHit>();
 
-    public void Activate(GameObject obj)
+
+    //private void Start()
+    //{
+    //    _inputActionReference.action.performed += OnMoveClicked;
+    //}
+    private void OnEnable()
     {
-        targetObject = obj;
-        isMoving = true;
+        Debug.Log("MoveMode OnEnable");
+        _inputActionReference.action.performed += OnMoveClicked;
     }
 
-    void Update()
+    private void OnDisable()
     {
-        if (isMoving && Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, Camera.main.WorldToScreenPoint(targetObject.transform.position).z));
-            targetObject.transform.position = new Vector3(touchPosition.x, targetObject.transform.position.y, touchPosition.z);
+        Debug.Log("MoveMode OnDisable");
+        _inputActionReference.action.performed -= OnMoveClicked;
+    }
+    public void Activate(GameObject obj)
+    {
+        _targetObject = obj;
+        _isMoving = true;
+    }
 
-            if (touch.phase == TouchPhase.Ended)
-                isMoving = false;
+    private void OnMoveClicked(InputAction.CallbackContext context)
+    {
+        Debug.Log("OnmoveClicked Call");
+        Vector2 tapPosition = context.ReadValue<Vector2>();
+        Ray ray = Camera.main.ScreenPointToRay(tapPosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray,out hit,100f,_furniture))
+        {
+            Debug.Log("Move ray shot");
+            if(hit.transform.gameObject ==_targetObject)
+            {
+                Debug.Log("hit selected object");
+                if (tapPosition != null && _isMoving)
+                {
+                    Debug.Log("move trasnfor position");
+                    Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(tapPosition.x, tapPosition.y, Camera.main.WorldToScreenPoint(_targetObject.transform.position).z));
+                    _targetObject.transform.position = new Vector3(touchPosition.x, _targetObject.transform.position.y, touchPosition.z);
+                }
+            }
         }
     }
 }

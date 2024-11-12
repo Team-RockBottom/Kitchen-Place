@@ -7,14 +7,16 @@ public class UIPanelController : MonoBehaviour
     private GameObject targetObject;
     [SerializeField] Button _moveModeButton;
     [SerializeField] Button _rotateModeButton;
-    [SerializeField] Button _ScaleModeButton;
+    [SerializeField] Button _scaleModeButton;
+    [SerializeField] Button _backButton;
+    [SerializeField] GameObject _modeSelectedCanvas;
 
 
-    private void Awake()
+    private void Start()
     {
         _moveModeButton.onClick.AddListener(OnMoveButtonClicked);
         _rotateModeButton.onClick.AddListener(OnRotateButtonClicked);
-        _ScaleModeButton.onClick.AddListener(OnScaleButtonClicked);
+        _scaleModeButton.onClick.AddListener(OnScaleButtonClicked);
     }
 
     public void SetTargetObject(GameObject obj)
@@ -25,17 +27,18 @@ public class UIPanelController : MonoBehaviour
     public void OnMoveButtonClicked()
     {
         GetComponent<MoveMode>().Activate(targetObject);
+        _modeSelectedCanvas.SetActive(false);
     }
 
     public void OnRotateButtonClicked()
     {
-        Debug.Log("RotateButtonClicked");
-        Debug.Log(targetObject.transform.position);
         GetComponent<RotateMode>().Activate(targetObject);
+        _modeSelectedCanvas.SetActive(false);
     }
 
     public void OnScaleButtonClicked()
     {
         GetComponent<ScaleMode>().Activate(targetObject);
+        _modeSelectedCanvas.SetActive(false);
     }
 }

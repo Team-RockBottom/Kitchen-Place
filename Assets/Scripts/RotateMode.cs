@@ -6,8 +6,6 @@ public class RotateMode : MonoBehaviour
     [SerializeField] Slider rotationSlider;
     private GameObject targetObject;
 
-
-
     public void Activate(GameObject obj)
     {
         targetObject = obj;
