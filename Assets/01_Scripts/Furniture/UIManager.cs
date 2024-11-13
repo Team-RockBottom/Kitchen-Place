@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private FurnitureSpecRepository _repository;
-    [SerializeField] private Button _slotPrefeb;
+    [SerializeField] private GameObject _slotPrefeb;
     private RectTransform _contentTransform;
     private Dictionary<int, FurnitureSpec> _slotDic = new Dictionary<int, FurnitureSpec>();
 
@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
         }
         for (int i = 0; i < _slotDic.Count; i++)
         {
-            Button _slot;
+            GameObject _slot;
             _slot = Instantiate(_slotPrefeb);
             _slot.gameObject.name = _slotDic[i].name;
             _slot.gameObject.transform.SetParent(transform.GetChild(0).GetChild(0),true); //오브젝트 그룹의 자식으로 들어간다.

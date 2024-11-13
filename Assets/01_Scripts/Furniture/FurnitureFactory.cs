@@ -41,5 +41,24 @@ namespace CP.Furniture
             }
             return obj; //리턴
         }
+        public GameObject CreatePreviewFurniture(string name, Vector3 position)
+        {
+            FurnitureSpec furniture = _repository.GetSpec(name); //이름에 맞춰서 가구의 정보를 불러온다.
+            GameObject obj = null; //오브젝트 저장할 변수
+            if (furniture != null)
+            {
+                obj = Instantiate(furniture.furniturePrefeb, position, furniture.furniturePrefeb.transform.rotation); //생성
+                obj = Instantiate(furniture.furniturePrefeb, position, furniture.furniturePrefeb.transform.rotation); //생성
+                obj.transform.localScale = Vector3.one / 5; //생성후 조정(아직은 프리펩이 어떻게 될지몰라서 임의로 설정)
+                float planeY = obj.transform.localScale.y / 2;
+                if (name == "Table") //테이블은 피봇이 위에 있어서 예외처리
+                {
+                    planeY += (obj.transform.localScale.y / 3);
+                }
+                obj.transform.position = new Vector3(position.x, planeY, position.z);
+            }
+
+            return obj;
+        }
     }
 }
