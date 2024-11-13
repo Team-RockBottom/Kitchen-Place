@@ -3,47 +3,64 @@ using UnityEngine.UI;
 
 public class ScaleMode : MonoBehaviour
 {
-    [SerializeField] Slider scaleSlider;
-    [SerializeField] Button xButton;
-    [SerializeField] Button zButton;
+    [SerializeField] Slider _scaleSlider;
+    [SerializeField] Button _xButton;
+    [SerializeField] Button _zButton;
 
-    private GameObject targetObject;
-    private string scaleAxis = "x";
+    private GameObject _targetObject;
+    private string _scaleAxis = "x";
+
+    private float _sclaexValue;
 
     public void Activate(GameObject obj)
     {
-        targetObject = obj;
-        scaleSlider.gameObject.SetActive(true);
-        xButton.gameObject.SetActive(true);
-        zButton.gameObject.SetActive(true);
-        xButton.onClick.AddListener(() => SetScaleAxis("x"));
-        zButton.onClick.AddListener(() => SetScaleAxis("z"));
-        scaleSlider.onValueChanged.AddListener(UpdateScale);
+        _targetObject = obj;
+        _scaleSlider.gameObject.SetActive(true);
+        _xButton.gameObject.SetActive(true);
+        _zButton.gameObject.SetActive(true);
+        _xButton.onClick.AddListener(() => SetScaleAxis("x"));
+        _zButton.onClick.AddListener(() => SetScaleAxis("z"));
+        _scaleSlider.onValueChanged.AddListener(UpdateScale);
     }
 
     private void SetScaleAxis(string axis)
     {
-        scaleAxis = axis;
+        _scaleSlider.minValue = 0.5f;
+        _scaleSlider.maxValue = 2f;
+        _scaleAxis = axis;
+        if (axis == "x")
+            _scaleSlider.value = _targetObject.transform.localScale.x;
+
+        if (axis == "z")
+            _scaleSlider.value = _targetObject.transform.localScale.z;
     }
 
     private void UpdateScale(float value)
     {
-        if (targetObject != null)
+        value = Mathf.Clamp(value,_scaleSlider.minValue,_scaleSlider.maxValue);
+        if (_targetObject != null)
         {
-            Vector3 newScale = targetObject.transform.localScale;
-            if (scaleAxis == "x")
+            Vector3 newScale = _targetObject.transform.localScale;
+            if (_scaleAxis == "x")
+            {
                 newScale.x = value;
-            else if (scaleAxis == "z")
-                newScale.z = value;
+                //_scaleSlider.value = _targetObject.transform.localScale.x;
+            }
 
-            targetObject.transform.localScale = newScale;
+            else if (_scaleAxis == "z")
+            {
+                newScale.z = value;
+                //_scaleSlider.value = _targetObject.transform.localScale.z;
+            }
+
+            _targetObject.transform.localScale = newScale;
         }
     }
 
     private void OnDisable()
     {
-        scaleSlider.onValueChanged.RemoveListener(UpdateScale);
-        xButton.onClick.RemoveListener(() => SetScaleAxis("x"));
-        zButton.onClick.RemoveListener(() => SetScaleAxis("z"));
+        _scaleSlider.onValueChanged.RemoveListener(UpdateScale);
+        _xButton.onClick.RemoveListener(() => SetScaleAxis("x"));
+        _zButton.onClick.RemoveListener(() => SetScaleAxis("z"));
     }
 }

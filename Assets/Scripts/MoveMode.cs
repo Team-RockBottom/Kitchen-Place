@@ -30,10 +30,11 @@ public class MoveMode : MonoBehaviour
     private void OnDisable()
     {
         Debug.Log("MoveMode OnDisable");
+        _isMoving = false;
         _inputActionReference.action.performed -= OnMoveClicked;
     }
     public void Activate(GameObject obj)
-    {
+    {   
         _targetObject = obj;
         _isMoving = true;
     }
