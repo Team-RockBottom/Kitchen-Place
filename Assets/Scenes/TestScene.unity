@@ -1791,7 +1791,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 291096970}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.06415884
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9215,7 +9215,7 @@ PrefabInstance:
     - target: {fileID: 1582313012011846593, guid: d2c669e541734334fbc04dca33c3ecbf,
         type: 3}
       propertyPath: _furnitureSpecs.Array.size
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1582313012011846593, guid: d2c669e541734334fbc04dca33c3ecbf,
         type: 3}
