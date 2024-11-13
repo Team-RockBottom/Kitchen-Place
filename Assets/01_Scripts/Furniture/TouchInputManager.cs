@@ -43,8 +43,8 @@ namespace CP.Furniture
         private void Start()
         {
             //_furnitureFactory = new GameObject("FurnitureFactory").AddComponent<FurnitureFactory>();
-            _tapStartPosition.action.started += OnTouch;
-            _tapStartPosition.action.performed += OffTouch; //마우스를 뗐을때 bool형을 false로
+            //_tapStartPosition.action.started += OnTouch;
+            //_tapStartPosition.action.performed += OffTouch; //마우스를 뗐을때 bool형을 false로
             _ped = new PointerEventData(EventSystem.current);
             _rrList = new List<RaycastResult>(5);
         }
@@ -135,25 +135,25 @@ namespace CP.Furniture
         {
             isSelecte=true;
         }
-        //private void Update() //터치로도 해볼까 한 흔적
-        //{
-        //    if (Input.touchCount > 0)
-        //    {
-        //        Touch touch = Input.touches[0];
-        //        if (_arRaycastManager.Raycast(_xrCamera.ScreenPointToRay(touch.position),_hits,UnityEngine.XR.ARSubsystems.TrackableType.Planes))
-        //        {
-        //            if (_hits[0].trackable.TryGetComponent(out ARPlane plane))
-        //            {
-        //                if (plane.alignment != UnityEngine.XR.ARSubsystems.PlaneAlignment.Vertical)
-        //                {
-                           
-        //                    _furnitureFactory.CreateFurniture("Cube", _hits[0].pose.position, plane);
+        private void Update() //터치로도 해볼까 한 흔적
+        {
+            if (Input.touchCount > 0)
+            {
+                Touch touch = Input.touches[0];
+                if (_arRaycastManager.Raycast(_xrCamera.ScreenPointToRay(touch.position), _hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
+                {
+                    if (_hits[0].trackable.TryGetComponent(out ARPlane plane))
+                    {
+                        if (plane.alignment != UnityEngine.XR.ARSubsystems.PlaneAlignment.Vertical)
+                        {
 
-        //                }                    
-        //            }
-        //        }
-        //    }
-        //}
+                            _furnitureFactory.CreateFurniture("Cube", _hits[0].pose.position, plane);
+
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
