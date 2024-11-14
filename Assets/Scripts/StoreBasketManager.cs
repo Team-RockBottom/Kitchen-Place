@@ -27,9 +27,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     [Header("BasketSystem")]
     [SerializeField] GameObject _basketCanvas;  //장바구니 캔버스
+    [SerializeField] GameObject _basketUIPrefabs; //장바구니 UI 프리팹
     [SerializeField] Button _putInButton;       //담기 버튼
-    private List<FurnitureData> _baseketFurniture = new List<FurnitureData>(); //장바구니 리스트
-    private FurnitureData _selectFurniture;     //선택된 가구 저장
+
+    private Dictionary<FurnitureData, int> _baseketFurniture = new Dictionary<FurnitureData, int>(); //장바구니 리스트 
+    private FurnitureData _selectFurniture;     //선택된 가구 변수
     #endregion
     void Start()
     {
@@ -125,14 +127,19 @@ public class NewMonoBehaviourScript : MonoBehaviour
     void OnPutIn()
     {
         Debug.Log("Put In");
-        //리스트에 이미 담겨있다면 담지 않음
-        if (!_baseketFurniture.Contains(_selectFurniture))
+        //딕셔너리에 이미 담겨있다면 담지 않음
+        if (!_baseketFurniture.ContainsKey((_selectFurniture)))
         {
-            //리스트에 현재 선택된 가구 추가
-            _baseketFurniture.Add(_selectFurniture);
-            Debug.Log("What Furniture" + _selectFurniture);
+            //딕셔너리에 현재 선택된 가구 추가
+            _baseketFurniture.ContainsKey((_selectFurniture));
+            Debug.Log("Furniture Add : " + _selectFurniture.Name);
         }
-    }
+        //딕셔너리에 담겨있다면 수량 증가
+        else if (_baseketFurniture.ContainsKey((_selectFurniture)))
+        {
+            _baseketFurniture[_selectFurniture]++;
+        }
+    }   
     /// <summary>
     /// 상점 페이지 텍스트 함수
     /// </summary>
@@ -152,5 +159,15 @@ public class NewMonoBehaviourScript : MonoBehaviour
         furnitureDescriptionText.text = _selectFurniture.Description;
         furnitureSizeText.text = $"규격 : W: {_selectFurniture.Size.x}, D: {_selectFurniture.Size.z}, H: {_selectFurniture.Size.y}";
         furniturePriceText.text = $"가격 : {_selectFurniture.Price: ###,###,###} 원";
+    }
+    /// <summary>
+    /// 장바구니 UI 프리팹 초기화
+    /// </summary>
+    void BasketUILoad()
+    {
+        foreach (var item in _baseketFurniture)
+        {
+
+        }
     }
 }
