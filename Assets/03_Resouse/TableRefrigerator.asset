@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa888b186462fd3428564863bbdb80d2, type: 3}
   m_Name: TableRefrigerator
   m_EditorClassIdentifier: 
-  index: 3
-  name: TableRefrigerator
-  description: TableRefrigerator
-  furnitureSprite: {fileID: 0}
-  furniturePrefeb: {fileID: 7203944718949032412, guid: 1aa5eb706a392594e876963ec709e7ca,
+  <index>k__BackingField: 2
+  <name>k__BackingField: TableRefrigerator
+  <description>k__BackingField: TableRefrigerator
+  <furnitureSprite>k__BackingField: {fileID: 21300000, guid: e9735df2f45526f4987e40beb31b7d81,
+    type: 3}
+  <furniturePrefeb>k__BackingField: {fileID: 7203944718949032412, guid: 462b28bd92bb8564f96d7c9ff7a3afa9,
     type: 3}

@@ -3019,7 +3019,7 @@
                     "name": "Spawn Object",
                     "type": "Button",
                     "id": "1415f3c5-fc5f-4f58-a044-4a69560151f2",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -3039,9 +3039,9 @@
                 },
                 {
                     "name": "One Modifier",
-                    "id": "ccaca70d-b804-4cda-9dd1-ee9152fa6ec8",
+                    "id": "f3375fb2-923e-46c3-9e30-b2a8338908e1",
                     "path": "OneModifier",
-                    "interactions": "Tap",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Tap Start Position",
@@ -3050,8 +3050,8 @@
                 },
                 {
                     "name": "modifier",
-                    "id": "30c845d9-0972-4e51-92bf-2eee8171abc7",
-                    "path": "<Mouse>/press",
+                    "id": "fe5e5535-a41d-43ae-a527-5faa58e56768",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -3061,7 +3061,7 @@
                 },
                 {
                     "name": "binding",
-                    "id": "9ab23efd-1004-4423-b9b9-b070db6cde4e",
+                    "id": "8ea931fb-9304-4c4e-a710-a5aded1269bb",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa888b186462fd3428564863bbdb80d2, type: 3}
   m_Name: DoorTable
   m_EditorClassIdentifier: 
-  index: 1
-  name: DoorTable
-  description: DoorTable
-  furnitureSprite: {fileID: 0}
-  furniturePrefeb: {fileID: 3343714180317352304, guid: afb1acc6e5bb2094b96f57f7cdb33191,
+  <index>k__BackingField: 3
+  <name>k__BackingField: DoorTable
+  <description>k__BackingField: DoorTable
+  <furnitureSprite>k__BackingField: {fileID: 0}
+  <furniturePrefeb>k__BackingField: {fileID: 3343714180317352304, guid: a83483b801fc0f449ba39fe47e026f41,
     type: 3}
