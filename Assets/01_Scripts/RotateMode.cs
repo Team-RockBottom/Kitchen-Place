@@ -12,8 +12,8 @@ public class RotateMode : MonoBehaviour
         rotationSlider.gameObject.SetActive(true);
         rotationSlider.onValueChanged.AddListener(UpdateRotation);
         rotationSlider.value = obj.transform.localEulerAngles.y;
-        rotationSlider.minValue = -180;
-        rotationSlider.maxValue = 180;
+        rotationSlider.minValue = 0;
+        rotationSlider.maxValue = 360;
     }
 
     private void UpdateRotation(float value)
