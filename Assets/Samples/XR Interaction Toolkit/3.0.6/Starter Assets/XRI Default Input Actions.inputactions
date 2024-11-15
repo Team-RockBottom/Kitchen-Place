@@ -3038,6 +3038,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "67b68596-e87a-4a61-bdbb-40d6e9f9e25c",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tap Start Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "One Modifier",
                     "id": "f3375fb2-923e-46c3-9e30-b2a8338908e1",
                     "path": "OneModifier",

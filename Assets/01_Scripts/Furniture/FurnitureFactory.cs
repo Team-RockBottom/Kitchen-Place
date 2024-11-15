@@ -19,9 +19,9 @@ namespace CP.Furniture
         /// <summary>
         /// 오브젝트 생성 함수
         /// </summary>
-        /// <param name="name">불러올 가구 이름</param>
-        /// <param name="position">생성될 위치</param>
-        /// <param name="plane">평면 정보</param>
+        /// <param name="index"></param>
+        /// <param name="position"></param>
+        /// <param name="plane"></param>
         /// <returns></returns>
         public GameObject CreateFurniture(int index, Vector3 position, ARPlane plane)
         {
@@ -43,11 +43,17 @@ namespace CP.Furniture
                     _furnitures = new GameObject("Furnitures");
                 }
                 obj.transform.SetParent(_furnitures.transform, true); //자식으로 들어간다.
-                obj.SetActive(true);
+                obj.SetActive(true); // 활성화
 
             }
             return obj; //리턴
         }
+
+        /// <summary>
+        /// 미리보기용 오브젝트 생성
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public GameObject CreatePreviewFurniture(int index)
         {
             FurnitureSpec furniture = _repository.GetSpec(index); //가구 번호에 맞춰서 가구의 정보를 불러온다.

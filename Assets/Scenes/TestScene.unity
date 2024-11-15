@@ -788,7 +788,7 @@ MonoBehaviour:
     type: 3}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 8
   _graycast: {fileID: 2099970466}
   _previewImage: {fileID: 136389711}
   _scrollRect: {fileID: 1380979347}
@@ -831,7 +831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &659530591
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1407,7 +1407,7 @@ MonoBehaviour:
   m_Content: {fileID: 1494396259}
   m_Horizontal: 1
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135

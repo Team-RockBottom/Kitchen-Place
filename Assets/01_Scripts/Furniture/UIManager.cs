@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
             _slot = Instantiate(_slotPrefeb);
             FurnitureSlot furnitureSlot = _slot.GetComponent<FurnitureSlot>();
             _slot.gameObject.name = _slotDic[i].name;
+            //슬롯의 데이터를 채워준다.
             furnitureSlot.furnitureNameText = _slotDic[i].name;
             furnitureSlot.furnitureIcon = _slotDic[i].furnitureSprite;
             furnitureSlot.furniturePrefeb = _slotDic[i].furniturePrefeb;

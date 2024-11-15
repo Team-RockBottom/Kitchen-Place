@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class FurnitureSlot : MonoBehaviour
 {
+    // 슬롯데이터를 관리하는 스크립트
     public Sprite furnitureIcon
     {
         get => _furnitureIcon.sprite;
@@ -26,13 +27,8 @@ public class FurnitureSlot : MonoBehaviour
         set => _furniturePrefeb = value;
     }
 
-    [SerializeField] Image _furnitureIcon;
-    [SerializeField] TMP_Text _furnitureNameText;
-    private int _furnitureIndex;
-    private GameObject _furniturePrefeb;
-
-    public GameObject GetFurniturePrefeb()
-    {
-        return _furniturePrefeb;
-    }
+    [SerializeField] Image _furnitureIcon; // 스프라이트
+    [SerializeField] TMP_Text _furnitureNameText; // 이름
+    private int _furnitureIndex; // 가구 번호
+    private GameObject _furniturePrefeb; // 가구 프리펩
 }
