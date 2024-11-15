@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 7016238485688840090}
   - component: {fileID: -2141395848846213178}
   - component: {fileID: -8741806625361020690}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: TableCollider
   m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1937876463693779190
 Transform:
   m_ObjectHideFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7055927808175639990}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 672.29266, y: 542.04877, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

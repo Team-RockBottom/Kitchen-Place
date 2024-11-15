@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa888b186462fd3428564863bbdb80d2, type: 3}
   m_Name: Cube
   m_EditorClassIdentifier: 
-  name: Cube
-  description: Cube
-  furnitureSprite: {fileID: 0}
-  furniturePrefeb: {fileID: 2171959056212844115, guid: b022d984a59f2bf41b29520d7885106f,
+  <index>k__BackingField: 0
+  <name>k__BackingField: Cube
+  <description>k__BackingField: Cube
+  <furnitureSprite>k__BackingField: {fileID: 0}
+  <furniturePrefeb>k__BackingField: {fileID: 2171959056212844115, guid: b022d984a59f2bf41b29520d7885106f,
     type: 3}
