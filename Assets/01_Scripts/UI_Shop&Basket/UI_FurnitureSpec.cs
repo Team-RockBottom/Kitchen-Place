@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "FurnitureSpec", menuName = "Scriptable Objects/FurnitureSpec")]
+[CreateAssetMenu(fileName = "UI_FurnitureSpec", menuName = "Scriptable Objects/UI_FurnitureSpec")]
 public class UI_FurnitureSpec : ScriptableObject
 {
     [field: SerializeField] public int Index { get; private set; }

@@ -8,6 +8,7 @@ public class UI_BasketController : MonoBehaviour
 {
     #region
     [Header("BasketUI")]
+    [SerializeField] GameObject _mainMenuCanvas;
     [SerializeField] UI_FurnitureSpecRepository _uifurnitureSpecRepository;
     [SerializeField] GameObject _basketCanvas;  //장바구니 캔버스
     [SerializeField] Button _basketButton;      //장바구니 버튼
@@ -33,6 +34,7 @@ public class UI_BasketController : MonoBehaviour
     void OnBasket()
     {
         _basketCanvas.SetActive(true);
+        _mainMenuCanvas.SetActive(!_mainMenuCanvas.activeSelf);
         UpdateBasketUI();
     }
     /// <summary>

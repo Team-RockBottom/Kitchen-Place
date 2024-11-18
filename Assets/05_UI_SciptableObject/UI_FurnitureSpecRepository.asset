@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576cc601cbe0ea741b9c124ed9ba7032, type: 3}
+  m_Name: UI_FurnitureSpecRepository
+  m_EditorClassIdentifier: 
+  specs:
+  - {fileID: 11400000, guid: dcc9283e8df3ff74f9bb8e669825d53e, type: 2}
+  - {fileID: 11400000, guid: 8dbd4941e2a452342a010b317f1e7ac0, type: 2}

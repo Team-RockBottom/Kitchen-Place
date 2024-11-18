@@ -5,7 +5,7 @@ public class UI_StoreController : MonoBehaviour
 {
     #region
     [SerializeField] Button _shopButton;     //상점 버튼
-    [SerializeField] Button _basketButton;   //장바구니 버튼
+    [SerializeField] GameObject _mainMenuCanvas;
 
     [Header("ShopUI")]
     [SerializeField] GameObject[] _shopCanvasArray; //상점 캔버스 배열
@@ -17,7 +17,7 @@ public class UI_StoreController : MonoBehaviour
 
     [Header("FurnitureDataUI")]
     [SerializeField] GameObject _furnitureDataCanvas;       //가구 정보 캔버스
-    [SerializeField] UI_FurnitureSpec[] _furnitureDataArray;   //가구 데이터 배열
+    [SerializeField] UI_FurnitureSpec[] _furnitureDataArray;//가구 데이터 배열
     [SerializeField] Image furnitureImage;                  //가구 이미지
     [SerializeField] Text furnitureNameText;                //가구 이름 텍스트
     [SerializeField] Text furnitureDescriptionText;         //가구 정보
@@ -66,6 +66,7 @@ public class UI_StoreController : MonoBehaviour
     void OnShop()
     {
         _shopCanvasArray[0].SetActive(true);
+        _mainMenuCanvas.SetActive(!_mainMenuCanvas.activeSelf);
     }
     /// <summary>
     /// 가구 정보 버튼 함수
