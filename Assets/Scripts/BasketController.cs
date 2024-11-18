@@ -48,6 +48,7 @@ public class BasketController : MonoBehaviour
             if (_basketSlotsDataList[i].furnitureIndex == furnitureSpec.Index)
             {
                 found = true;
+                _basketSlotsDataList[i].furnitureCount++;
                 break;
             }
         }
