@@ -6,7 +6,7 @@ namespace CP.Furniture
 {
     public class FurnitureFactory : MonoBehaviour
     {
-        private FurnitureSpecRepository _repository;
+        private FurnitureSpecRepository _repository; 
         private GameObject _furnitures; //부모로 삼을 빈 오브젝트
         private GraphicRaycaster _graycast;
 
