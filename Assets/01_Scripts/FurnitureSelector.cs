@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
 
@@ -10,6 +11,10 @@ public class FurnitureSelector : MonoBehaviour
     [SerializeField] InputActionReference _tapStartPosition;
     [SerializeField] ARRaycastManager _raycastManager;
     [SerializeField] Camera _xrCamera;
+    [SerializeField] GameObject _gameSpawnUI;
+    [SerializeField] Button _furnitureSpawnButton;
+    [SerializeField] GameObject _furnitureSpawnUI;
+    [SerializeField] GameObject _mainMenuCanvas;
     private List<ARRaycastHit> _hits = new List<ARRaycastHit>();
     [SerializeField] LayerMask Furniture;
     //private bool isSelected = false;
@@ -27,6 +32,8 @@ public class FurnitureSelector : MonoBehaviour
     private void Start()
     {
         _tapStartPosition.action.started += OnTouch;
+        _furnitureSpawnButton.onClick.AddListener(FurnitureSpawnUIOnOff);
+        _furnitureSpawnUI.SetActive(false);
     }
 
     void OnTouch(InputAction.CallbackContext context)
@@ -61,11 +68,19 @@ public class FurnitureSelector : MonoBehaviour
     {
         Debug.Log("ActivateUIPanel");
         uiPanel.SetActive(true);
+
+        _gameSpawnUI.SetActive(false);
         uiPanel.GetComponent<UIPanelController>().SetTargetObject(selectedObject);
     }
 
     void DeActiveateUIPanel()
     {
         uiPanel.SetActive(false);
+    }
+
+    void FurnitureSpawnUIOnOff()
+    {
+        _mainMenuCanvas.SetActive(false);
+        _furnitureSpawnUI.SetActive(!_furnitureSpawnUI.activeSelf);
     }
 }
