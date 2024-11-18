@@ -37,7 +37,6 @@ public class ScaleMode : MonoBehaviour
 
     private void UpdateScale(float value)
     {
-        Debug.Log(_scaleSlider.value);
         value = Mathf.Clamp(value,_scaleSlider.minValue,_scaleSlider.maxValue);
         if (_targetObject != null)
         {
