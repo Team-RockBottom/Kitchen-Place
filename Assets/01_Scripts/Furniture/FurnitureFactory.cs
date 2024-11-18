@@ -7,7 +7,7 @@ namespace CP.Furniture
     public class FurnitureFactory : MonoBehaviour
     {
         private FurnitureSpecRepository _repository; 
-        private GameObject _furnitures; //ë¶€ëª¨ë¡œ ì‚¼ì„ ë¹ˆ ì˜¤ë¸Œì íŠ¸
+        private GameObject _furnitures; //ºÎ¸ğ·Î »ïÀ» ºó ¿ÀºêÁ§Æ®
         private GraphicRaycaster _graycast;
 
 
@@ -17,41 +17,41 @@ namespace CP.Furniture
         }
 
         /// <summary>
-        /// ì˜¤ë¸Œì íŠ¸ ìƒì„± í•¨ìˆ˜
+        /// ¿ÀºêÁ§Æ® »ı¼º ÇÔ¼ö
         /// </summary>
-        /// <param name="name">ë¶ˆëŸ¬ì˜¬ ê°€êµ¬ ì´ë¦„</param>
-        /// <param name="position">ìƒì„±ë  ìœ„ì¹˜</param>
-        /// <param name="plane">í‰ë©´ ì •ë³´</param>
+        /// <param name="name">ºÒ·¯¿Ã °¡±¸ ÀÌ¸§</param>
+        /// <param name="position">»ı¼ºµÉ À§Ä¡</param>
+        /// <param name="plane">Æò¸é Á¤º¸</param>
         /// <returns></returns>
         public GameObject CreateFurniture(int index, Vector3 position, ARPlane plane)
         {
             //_repository.IfurnitureDic.TryGetValue(name, out FurnitureSpec furniture);
-            FurnitureSpec furniture = _repository.GetSpec(index); //ê°€êµ¬ ë²ˆí˜¸ì— ë§ì¶°ì„œ ê°€êµ¬ì˜ ì •ë³´ë¥¼ ë¶ˆëŸ¬ì˜¨ë‹¤.
-            GameObject obj = null; //ì˜¤ë¸Œì íŠ¸ ì €ì¥í•  ë³€ìˆ˜
-            if (furniture != null) //ê°€êµ¬ì˜ ì •ë³´ê°€ ìˆë‹¤ë©´
+            FurnitureSpec furniture = _repository.GetSpec(index); //°¡±¸ ¹øÈ£¿¡ ¸ÂÃç¼­ °¡±¸ÀÇ Á¤º¸¸¦ ºÒ·¯¿Â´Ù.
+            GameObject obj = null; //¿ÀºêÁ§Æ® ÀúÀåÇÒ º¯¼ö
+            if (furniture != null) //°¡±¸ÀÇ Á¤º¸°¡ ÀÖ´Ù¸é
             {
-                obj = Instantiate(furniture.furniturePrefeb, position, furniture.furniturePrefeb.transform.rotation); //ìƒì„±
-                obj.transform.localScale = Vector3.one / 5; //ìƒì„±í›„ ì¡°ì •(ì•„ì§ì€ í”„ë¦¬í©ì´ ì–´ë–»ê²Œ ë ì§€ëª°ë¼ì„œ ì„ì˜ë¡œ ì„¤ì •)
+                obj = Instantiate(furniture.furniturePrefeb, position, furniture.furniturePrefeb.transform.rotation); //»ı¼º
+                obj.transform.localScale = Vector3.one / 5; //»ı¼ºÈÄ Á¶Á¤(¾ÆÁ÷Àº ÇÁ¸®ÆéÀÌ ¾î¶»°Ô µÉÁö¸ô¶ó¼­ ÀÓÀÇ·Î ¼³Á¤)
                 float planeY = plane.gameObject.transform.position.y + (obj.transform.localScale.y / 2);
-                if(index == 1) //í…Œì´ë¸”ì€ í”¼ë´‡ì´ ìœ„ì— ìˆì–´ì„œ ì˜ˆì™¸ì²˜ë¦¬
+                if(index == 1) //Å×ÀÌºíÀº ÇÇº¿ÀÌ À§¿¡ ÀÖ¾î¼­ ¿¹¿ÜÃ³¸®
                 {
                     planeY += (obj.transform.localScale.y / 3);
                 }
                 obj.transform.position = new Vector3(position.x, planeY, position.z);
-                if (_furnitures == null) //ë¶€ëª¨ë¡œ ì‚¼ì„ ë¹ˆ ì˜¤ë¸Œì íŠ¸ì—†ì„ì‹œ ìƒì„±
+                if (_furnitures == null) //ºÎ¸ğ·Î »ïÀ» ºó ¿ÀºêÁ§Æ®¾øÀ»½Ã »ı¼º
                 {
                     _furnitures = new GameObject("Furnitures");
                 }
-                obj.transform.SetParent(_furnitures.transform, true); //ìì‹ìœ¼ë¡œ ë“¤ì–´ê°„ë‹¤.
+                obj.transform.SetParent(_furnitures.transform, true); //ÀÚ½ÄÀ¸·Î µé¾î°£´Ù.
                 obj.SetActive(true);
 
             }
-            return obj; //ë¦¬í„´
+            return obj; //¸®ÅÏ
         }
         public GameObject CreatePreviewFurniture(int index)
         {
-            FurnitureSpec furniture = _repository.GetSpec(index); //ê°€êµ¬ ë²ˆí˜¸ì— ë§ì¶°ì„œ ê°€êµ¬ì˜ ì •ë³´ë¥¼ ë¶ˆëŸ¬ì˜¨ë‹¤.
-            GameObject obj = null; //ì˜¤ë¸Œì íŠ¸ ì €ì¥í•  ë³€ìˆ˜
+            FurnitureSpec furniture = _repository.GetSpec(index); //°¡±¸ ¹øÈ£¿¡ ¸ÂÃç¼­ °¡±¸ÀÇ Á¤º¸¸¦ ºÒ·¯¿Â´Ù.
+            GameObject obj = null; //¿ÀºêÁ§Æ® ÀúÀåÇÒ º¯¼ö
             if (furniture != null)
             {
                 obj = Instantiate(furniture.furniturePrefeb);
