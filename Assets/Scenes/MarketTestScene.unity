@@ -12416,11 +12416,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74d6afaa41dbc14fb637a5e0c4ce335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tryapplicationExitButton: {fileID: 0}
   _applicationExitButton: {fileID: 0}
+  _applicationExitCansleButton: {fileID: 0}
   _modeSelectExitButton: {fileID: 2054681309}
   _moveModeExitButton: {fileID: 303872314}
   _rotateModeExitButton: {fileID: 569245391}
   _scaleModeExitButton: {fileID: 1565676894}
+  _tryExitCanvas: {fileID: 0}
   _modeSelectCanvas: {fileID: 6002976698056125201}
   _moveModeCanvas: {fileID: 7544534420071258083}
   _rotateModeCanvas: {fileID: 5857639890954856346}
@@ -14670,8 +14673,11 @@ MonoBehaviour:
   _moveModeButton: {fileID: 5161320107884641399}
   _rotateModeButton: {fileID: 774493079633417437}
   _scaleModeButton: {fileID: 4575179812109691595}
-  _backButton: {fileID: 0}
+  _DeletedButton: {fileID: 0}
   _modeSelectedCanvas: {fileID: 0}
+  _moveModeCanvas: {fileID: 0}
+  _rotateModeCanvas: {fileID: 0}
+  _scaleModeCanvas: {fileID: 0}
 --- !u!222 &3606753069734791499
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16072,9 +16078,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7420a5dc3bb5f34dbe0493221199a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleSlider: {fileID: 7705958193995476295}
-  xButton: {fileID: 8673666208066434374}
-  zButton: {fileID: 3216272910851560219}
+  _scaleSlider: {fileID: 0}
+  _xButton: {fileID: 0}
+  _zButton: {fileID: 0}
 --- !u!114 &8565887190110343855
 MonoBehaviour:
   m_ObjectHideFlags: 0
