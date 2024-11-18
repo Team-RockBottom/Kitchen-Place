@@ -13,6 +13,7 @@ public class UIPanelController : MonoBehaviour
     [SerializeField] GameObject _moveModeCanvas;
     [SerializeField] GameObject _rotateModeCanvas;
     [SerializeField] GameObject _scaleModeCanvas;
+    [SerializeField] GameObject _mainMenuCanvas;
 
     private void Start()
     {
@@ -52,5 +53,6 @@ public class UIPanelController : MonoBehaviour
     {
         Destroy(_targetObject);
         _modeSelectedCanvas.SetActive(false);
+        _mainMenuCanvas.SetActive(true);
     }
 }
