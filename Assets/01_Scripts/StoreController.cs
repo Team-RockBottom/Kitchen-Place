@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_StoreController : MonoBehaviour
+public class StoreController : MonoBehaviour
 {
     #region
     [SerializeField] Button _shopButton;     //상점 버튼
@@ -17,20 +17,20 @@ public class UI_StoreController : MonoBehaviour
 
     [Header("FurnitureDataUI")]
     [SerializeField] GameObject _furnitureDataCanvas;       //가구 정보 캔버스
-    [SerializeField] UI_FurnitureSpec[] _furnitureDataArray;   //가구 데이터 배열
+    [SerializeField] FurnitureSpec[] _furnitureDataArray;   //가구 데이터 배열
     [SerializeField] Image furnitureImage;                  //가구 이미지
     [SerializeField] Text furnitureNameText;                //가구 이름 텍스트
     [SerializeField] Text furnitureDescriptionText;         //가구 정보
     [SerializeField] Text furnitureSizeText;                //가구 사이즈
     [SerializeField] Text furniturePriceText;               //가구 가격
 
-    UI_BasketController _uibasketController;
-    private UI_FurnitureSpec _selectFurniture;     //선택된 가구 저장
+    BasketController _basketController;
+    private FurnitureSpec _selectFurniture;     //선택된 가구 저장
     [SerializeField] Button _putInButton;       //담기 버튼
     #endregion
     void Start()
     {
-        _uibasketController = GetComponent<UI_BasketController>();
+        _basketController = GetComponent<BasketController>();
         _shopButton.onClick.AddListener(OnShop);
         _putInButton.onClick.AddListener(OnPutIn);
         for (int i = 0;i < _nextButtonArray.Length; i++)
@@ -122,7 +122,7 @@ public class UI_StoreController : MonoBehaviour
     /// </summary>
     void OnPutIn()
     {
-        _uibasketController.AddFurnitureBasket(_selectFurniture);
+        _basketController.AddFurnitureBasket(_selectFurniture);
         /*foreach (var i in _basketController._basketSlotsDataList)
         {
             Debug.Log($"FurnitureIndex: {i.furnitureIndex}, FurnitureCount: {i.furnitureCount}");
