@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BasketSlot : MonoBehaviour
+public class UI_BasketSlot : MonoBehaviour
 {
     #region
     public int _index;
@@ -43,7 +43,7 @@ public class BasketSlot : MonoBehaviour
         set => _nameText.text = value;
     }
 
-    BasketController _basketController;
+    UI_BasketController _uibasketController;
 
     [SerializeField] Image _image;
     [SerializeField] Text _nameText;
@@ -59,7 +59,7 @@ public class BasketSlot : MonoBehaviour
     #endregion
     private void Awake()
     {
-        _basketController = FindObjectOfType<BasketController>();
+        _uibasketController = FindObjectOfType<UI_BasketController>();
 
         if (_image == null)
         {
@@ -102,16 +102,16 @@ public class BasketSlot : MonoBehaviour
     void OnPlus()
     {
         FurnitureCount++;
-        _basketController.UpdateBasketCount(FurnitureIndex, FurnitureCount);
-        _basketController.TotalPrice();
+        _uibasketController.UpdateBasketCount(FurnitureIndex, FurnitureCount);
+        _uibasketController.TotalPrice();
     }
     void OnMinus()
     {
         if (FurnitureCount > 1)
         {
             FurnitureCount--;
-            _basketController.UpdateBasketCount(FurnitureIndex, FurnitureCount);
-            _basketController.TotalPrice();
+            _uibasketController.UpdateBasketCount(FurnitureIndex, FurnitureCount);
+            _uibasketController.TotalPrice();
         }
     }
     /// <summary>
@@ -119,8 +119,8 @@ public class BasketSlot : MonoBehaviour
     /// </summary>
     void OnDelete()
     {
-        _basketController.DeleteBasket(FurnitureIndex);
-        _basketController.TotalPrice();
+        _uibasketController.DeleteBasket(FurnitureIndex);
+        _uibasketController.TotalPrice();
     }
 
     public void UpdatePrice()

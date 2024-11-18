@@ -2,20 +2,20 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static FurnitureSlotDataModel;
+using static UI_FurnitureSlotDataModel;
 
-public class BasketController : MonoBehaviour
+public class UI_BasketController : MonoBehaviour
 {
     #region
     [Header("BasketUI")]
-    [SerializeField] FurnitureSpecRepository _furnitureSpecRepository;
+    [SerializeField] UI_FurnitureSpecRepository _uifurnitureSpecRepository;
     [SerializeField] GameObject _basketCanvas;  //장바구니 캔버스
     [SerializeField] Button _basketButton;      //장바구니 버튼
     [SerializeField] Transform _basketContent;  //장바구니 스크롤뷰 부모 오브젝트
     [SerializeField] GameObject _basketUIPrefab;//장바구니 UI 프리팹 
 
-    List<BasketSlot> _basketSlots; //추가된 장바구니 슬롯 리스트
-    public List<FurnitureSlotData> _basketSlotsDataList; //장바구니 데이터
+    List<UI_BasketSlot> _basketSlots; //추가된 장바구니 슬롯 리스트
+    public List<UI_FurnitureSlotData> _uibasketSlotsDataList; //장바구니 데이터
 
     [SerializeField] Text _totalPrice; //총 가격 텍스트
 
@@ -24,8 +24,8 @@ public class BasketController : MonoBehaviour
     {
         _basketCanvas.SetActive(false);
         _basketButton.onClick.AddListener(OnBasket);
-        _basketSlots = new List<BasketSlot>();
-        _basketSlotsDataList = new List<FurnitureSlotData>();
+        _basketSlots = new List<UI_BasketSlot>();
+        _uibasketSlotsDataList = new List<UI_FurnitureSlotData>();
     }
     /// <summary>
     /// 장바구니 UI 버튼
@@ -39,16 +39,16 @@ public class BasketController : MonoBehaviour
     /// 장바구니 리스트에 담기
     /// </summary>
     /// <param name="furnitureSpec"></param>
-    public void AddFurnitureBasket(FurnitureSpec furnitureSpec)
+    public void AddFurnitureBasket(UI_FurnitureSpec furnitureSpec)
     {
         bool found = false;
         //리스트에 같은 항목이 있으면 멈춤
-        for (int i = 0; i < _basketSlotsDataList.Count; i++)
+        for (int i = 0; i < _uibasketSlotsDataList.Count; i++)
         {
-            if (_basketSlotsDataList[i].furnitureIndex == furnitureSpec.Index)
+            if (_uibasketSlotsDataList[i].furnitureIndex == furnitureSpec.Index)
             {
                 found = true;
-                _basketSlotsDataList[i].furnitureCount++;
+                _uibasketSlotsDataList[i].furnitureCount++;
                 break;
             }
         }
@@ -56,14 +56,14 @@ public class BasketController : MonoBehaviour
         if (!found)
         {
             //_basketSlotsDataList 에 추가
-            FurnitureSlotData slot = new FurnitureSlotData();
+            UI_FurnitureSlotData slot = new UI_FurnitureSlotData();
             slot.furnitureIndex = furnitureSpec.Index;
             slot.furnitureCount = 1;
-            _basketSlotsDataList.Add(slot);
+            _uibasketSlotsDataList.Add(slot);
 
             //_basketSlots 프리팹 생성 및 리스트 추가
             GameObject instantiantePrefabs = Instantiate(_basketUIPrefab, _basketContent);
-            BasketSlot newSlot = instantiantePrefabs.AddComponent<BasketSlot>();
+            UI_BasketSlot newSlot = instantiantePrefabs.AddComponent<UI_BasketSlot>();
             newSlot._index = furnitureSpec.Index;
             newSlot._count = 1;
             _basketSlots.Add(newSlot);
@@ -75,10 +75,10 @@ public class BasketController : MonoBehaviour
     /// <param name="basketData"></param>
     void UpdateBasketUI()
     {
-        for (int i = 0; i < _basketSlotsDataList.Count; i++)
+        for (int i = 0; i < _uibasketSlotsDataList.Count; i++)
         {
-            FurnitureSlotData slotData = _basketSlotsDataList[i];
-            FurnitureSpec furnitureSpec = _furnitureSpecRepository.Get(slotData.furnitureIndex);
+            UI_FurnitureSlotData slotData = _uibasketSlotsDataList[i];
+            UI_FurnitureSpec furnitureSpec = _uifurnitureSpecRepository.Get(slotData.furnitureIndex);
 
             _basketSlots[i].FurnitureImage = furnitureSpec.Image;
             _basketSlots[i].FurnitureName = furnitureSpec.Name;
@@ -89,11 +89,11 @@ public class BasketController : MonoBehaviour
     }
     public void UpdateBasketCount(int furnitureIndex, int furnitureCount)
     {
-        for (int i = 0; i < _basketSlotsDataList.Count; i++)
+        for (int i = 0; i < _uibasketSlotsDataList.Count; i++)
         {
-            if (_basketSlotsDataList[i].furnitureIndex == furnitureIndex)
+            if (_uibasketSlotsDataList[i].furnitureIndex == furnitureIndex)
             {
-                _basketSlotsDataList[i].furnitureCount = furnitureCount;
+                _uibasketSlotsDataList[i].furnitureCount = furnitureCount;
                 _basketSlots[i].FurnitureCount = furnitureCount;
                 break;
             }   
@@ -105,11 +105,11 @@ public class BasketController : MonoBehaviour
     /// <param name="furnitureIndex"></param>
     public void DeleteBasket(int furnitureIndex)
     {
-        for (int i = 0; i < _basketSlotsDataList.Count; i++)
+        for (int i = 0; i < _uibasketSlotsDataList.Count; i++)
         {
-            if (_basketSlotsDataList[i].furnitureIndex == furnitureIndex)
+            if (_uibasketSlotsDataList[i].furnitureIndex == furnitureIndex)
             {
-                _basketSlotsDataList.RemoveAt(i);
+                _uibasketSlotsDataList.RemoveAt(i);
 
                 Destroy(_basketSlots[i].gameObject);
                 _basketSlots.RemoveAt(i);
@@ -123,9 +123,9 @@ public class BasketController : MonoBehaviour
     public void TotalPrice()
     {
         int totalPrice = 0;
-        foreach (var slotData in _basketSlotsDataList)
+        foreach (var slotData in _uibasketSlotsDataList)
         {
-            FurnitureSpec furnitureSpec = _furnitureSpecRepository.Get(slotData.furnitureIndex);
+            UI_FurnitureSpec furnitureSpec = _uifurnitureSpecRepository.Get(slotData.furnitureIndex);
             totalPrice += furnitureSpec.Price * slotData.furnitureCount;
         }
         _totalPrice.text = $"Total Price : {totalPrice:n0} 원 ";

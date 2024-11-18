@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FurnitureSlotDataModel : MonoBehaviour
+public class UI_FurnitureSlotDataModel : MonoBehaviour
 {
     [Serializable]
-    public class FurnitureSlotData
+    public class UI_FurnitureSlotData
     {
         public int furnitureIndex;
         public int furnitureCount;
@@ -16,9 +16,9 @@ public class FurnitureSlotDataModel : MonoBehaviour
     {
         public BasketData(int capacity)
         {
-            slotDataList = new List<FurnitureSlotData>(capacity);
+            slotDataList = new List<UI_FurnitureSlotData>(capacity);
         }
 
-        public List<FurnitureSlotData> slotDataList;
+        public List<UI_FurnitureSlotData> slotDataList;
     }
 }
