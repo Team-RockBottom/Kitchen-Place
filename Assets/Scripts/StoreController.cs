@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class StoreController : MonoBehaviour
 {
     #region
     [SerializeField] Button _shopButton;     //상점 버튼
@@ -18,56 +17,55 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     [Header("FurnitureDataUI")]
     [SerializeField] GameObject _furnitureDataCanvas;       //가구 정보 캔버스
-    [SerializeField] FurnitureData[] _furnitureDataArray;   //가구 데이터 배열
+    [SerializeField] FurnitureSpec[] _furnitureDataArray;   //가구 데이터 배열
     [SerializeField] Image furnitureImage;                  //가구 이미지
     [SerializeField] Text furnitureNameText;                //가구 이름 텍스트
     [SerializeField] Text furnitureDescriptionText;         //가구 정보
     [SerializeField] Text furnitureSizeText;                //가구 사이즈
     [SerializeField] Text furniturePriceText;               //가구 가격
 
-    [Header("BasketSystem")]
-    [SerializeField] GameObject _basketCanvas;  //장바구니 캔버스
+    BasketController _basketController;
+    private FurnitureSpec _selectFurniture;     //선택된 가구 저장
     [SerializeField] Button _putInButton;       //담기 버튼
-    private List<FurnitureData> _baseketFurniture = new List<FurnitureData>(); //장바구니 리스트
-    private FurnitureData _selectFurniture;     //선택된 가구 저장
     #endregion
     void Start()
     {
+        _basketController = GetComponent<BasketController>();
         _shopButton.onClick.AddListener(OnShop);
-        _basketButton.onClick.AddListener(OnBasket);
-        _furnitureDataCanvas.SetActive(false);
         _putInButton.onClick.AddListener(OnPutIn);
-        
-        for(int i = 0; i < _shopCanvasArray.Length; i++)
+        for (int i = 0;i < _nextButtonArray.Length; i++)
         {
-            _shopCanvasArray[i].SetActive(false);
+            _nextButtonArray[i].onClick.AddListener(OnNext);
         }
-        _basketCanvas.SetActive(false);
+
+        for (int i = 0; i < _previousButtonArray.Length; i++)
+        {
+            _previousButtonArray[i].onClick.AddListener(OnPrivious);
+        }
+
         for (int i = 0;i < _furnitureButtonArray.Length; i++)
         {
             int index = i;
             _furnitureButtonArray[i].onClick.AddListener(() => OnFurniture(index));
         }
-        for (int i = 0;i < _nextButtonArray.Length; i++)
+
+        _furnitureDataCanvas.SetActive(false);
+        
+        for(int i = 0; i < _shopCanvasArray.Length; i++)
         {
-            _nextButtonArray[i].onClick.AddListener(OnNext);
-        }
-        for (int i = 0; i < _previousButtonArray.Length; i++)
-        {
-            _previousButtonArray[i].onClick.AddListener(OnPrivious);
+            _shopCanvasArray[i].SetActive(false);
         }
     }
     private void Update()
     {
         PageCountUpdate();
     }
+    /// <summary>
+    /// 상점 UI 버튼 함수
+    /// </summary>
     void OnShop()
     {
         _shopCanvasArray[0].SetActive(true);
-    }
-    void OnBasket()
-    {
-        _basketCanvas.SetActive(true);
     }
     /// <summary>
     /// 가구 정보 버튼 함수
@@ -120,18 +118,15 @@ public class NewMonoBehaviourScript : MonoBehaviour
         _shopCanvasArray[pageCount].SetActive(true);
     }
     /// <summary>
-    /// 장바구니 담기 버튼 함수
+    /// 담기 버튼 함수
     /// </summary>
     void OnPutIn()
     {
-        Debug.Log("Put In");
-        //리스트에 이미 담겨있다면 담지 않음
-        if (!_baseketFurniture.Contains(_selectFurniture))
+        _basketController.AddFurnitureBasket(_selectFurniture);
+        /*foreach (var i in _basketController._basketSlotsDataList)
         {
-            //리스트에 현재 선택된 가구 추가
-            _baseketFurniture.Add(_selectFurniture);
-            Debug.Log("What Furniture" + _selectFurniture);
-        }
+            Debug.Log($"FurnitureIndex: {i.furnitureIndex}, FurnitureCount: {i.furnitureCount}");
+        }*/
     }
     /// <summary>
     /// 상점 페이지 텍스트 함수
@@ -151,6 +146,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
         furnitureNameText.text = _selectFurniture.Name;
         furnitureDescriptionText.text = _selectFurniture.Description;
         furnitureSizeText.text = $"규격 : W: {_selectFurniture.Size.x}, D: {_selectFurniture.Size.z}, H: {_selectFurniture.Size.y}";
-        furniturePriceText.text = $"가격 : {_selectFurniture.Price: ###,###,###} 원";
+        furniturePriceText.text = $"가격 : {_selectFurniture.Price:n0} 원";
     }
 }
