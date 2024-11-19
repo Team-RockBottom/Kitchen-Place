@@ -2,6 +2,14 @@ using UnityEngine;
 
 public class FurnitureColliderCheck : MonoBehaviour
 {
+    public int Index
+    {
+        get => _index;
+        set => _index = value;
+    }
+
+    private int _index;
+
     //private Rigidbody rb;
 
 

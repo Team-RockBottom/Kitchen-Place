@@ -53,11 +53,10 @@ namespace CP.Furniture
             }
             _furnitureFactory = GetComponent<FurnitureFactory>();
             _tapStartPosition.action.started += OnTouch;
-
+            
             _dragCurrentPosition.action.started += OnTouch;
             //_dragCurrentPosition.action.performed += OnTouch;
             _dragCurrentPosition.action.canceled += OffTouch;
-            
             _ped = new PointerEventData(EventSystem.current);
             _rrListStart = new List<RaycastResult>(5);
 
@@ -70,10 +69,10 @@ namespace CP.Furniture
 
         private void OnTouch(InputAction.CallbackContext context)
         {
-            if (_text != null)
-            {
-                _text.text = "ONTouch" + num++;
-            }
+            //if (_text != null)
+            //{
+            //    _text.text = "ONTouch" + num++;
+            //}
             
             Vector2 tapPostion = context.ReadValue<Vector2>();
             _ped.position = tapPostion; // 레이캐스트 위치설정
@@ -176,6 +175,11 @@ namespace CP.Furniture
 
         private void Update()
         {
+            if (_text != null)
+            {
+                _text.text = _dragCurrentPosition.action.IsPressed().ToString();
+            }
+            
             _mousePosi = _dragCurrentPosition.action.ReadValue<Vector2>();
             if (_selectedSlot)
             {

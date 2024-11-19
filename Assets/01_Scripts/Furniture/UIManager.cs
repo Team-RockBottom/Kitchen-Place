@@ -32,10 +32,10 @@ public class UIManager : MonoBehaviour
 
             _slot.gameObject.transform.SetParent(transform.GetChild(0).GetChild(0),true); //오브젝트 그룹의 자식으로 들어간다.
         }
-        if (_slotDic.Count > 13) //슬롯이 스크롤 뷰보다 많아져서 안보여지면
+        if (_slotDic.Count > 7) //슬롯이 스크롤 뷰보다 많아져서 안보여지면
         {
             Vector2 size = _contentTransform.sizeDelta;
-            size.x -= (150*(13-_slotDic.Count)); //넘은 갯수만큼 늘려준다.
+            size.x -= (200*(7-_slotDic.Count)); //넘은 갯수만큼 늘려준다.
             _contentTransform.sizeDelta = size;
         }
     }

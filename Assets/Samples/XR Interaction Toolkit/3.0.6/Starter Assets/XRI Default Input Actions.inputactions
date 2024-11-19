@@ -2940,7 +2940,7 @@
                     "id": "0f53f821-ec5d-472c-bd12-fb5ce515ae59",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Tap",
                     "initialStateCheck": true
                 },
                 {
@@ -2949,7 +2949,7 @@
                     "id": "07fd51be-2a34-4531-939c-ff750fcf8e4d",
                     "expectedControlType": "Touch",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": true
                 },
                 {

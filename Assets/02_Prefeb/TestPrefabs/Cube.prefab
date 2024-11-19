@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2593759787403227276}
   - component: {fileID: 6049915057621423096}
   - component: {fileID: 4536115257433000777}
+  - component: {fileID: 6548612988225835068}
   m_Layer: 3
   m_Name: Cube
   m_TagString: Furniture
@@ -108,3 +109,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6548612988225835068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124742524650962852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb926002eee60ea4092b0476dced3eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
