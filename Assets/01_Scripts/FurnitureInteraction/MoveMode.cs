@@ -10,8 +10,8 @@ public class MoveMode : MonoBehaviour
 {
     [SerializeField] InputActionReference _inputActionReference;
     [SerializeField] LayerMask _furniture;
-    ARRaycastManager _arraycastManager;
-    Camera _arCamera;
+    [SerializeField] ARRaycastManager _arraycastManager;
+    [SerializeField] Camera _arCamera;
     private GameObject _targetObject;
     private bool _isMoving = false;
     List<ARRaycastHit> _hits = new List<ARRaycastHit>();

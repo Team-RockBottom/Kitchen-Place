@@ -17,7 +17,7 @@ MonoBehaviour:
   <Description>k__BackingField: Cylinder Description
   <Sprite>k__BackingField: {fileID: 21300000, guid: 1c72e2211b1ba47d7baf8d6ee5a5daf5,
     type: 3}
-  <Prefeb>k__BackingField: {fileID: 5239885138427989381, guid: c0dbe8b19eefe8042a4f7b4404adf050,
+  <Prefeb>k__BackingField: {fileID: 1376912563179590828, guid: 9aeefa4ef94cdbd4da361273fdf3d43b,
     type: 3}
   <Size>k__BackingField: {x: 2.5, y: 2.5, z: 10}
   <Price>k__BackingField: 15000

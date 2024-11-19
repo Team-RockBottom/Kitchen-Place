@@ -40,21 +40,6 @@ public class FurnitureSelector : MonoBehaviour
         RaycastHit hit;
         Vector2 tapposition = context.ReadValue<Vector2>(); 
 
-        if(Physics.Raycast(_xrCamera.ScreenPointToRay(tapposition),out hit, 100f, Furniture))
-        {
-            if (hit.collider.tag == "Furniture")
-            {
-                obj = hit.transform.gameObject;
-                ActivateUIPanel(obj);
-                Renderer renderer = obj.GetComponent<Renderer>();
-                if (renderer != null)
-                {
-                    Material material = renderer.material;
-                    Color color = material.color;
-                }
-            }
-        }
-
         if (!_isInteraction)
         {
             if (Physics.Raycast(_xrCamera.ScreenPointToRay(tapposition), out hit, 100f, Furniture))
@@ -73,7 +58,6 @@ public class FurnitureSelector : MonoBehaviour
                 }
             }
         }
-
     }
 
     void ActivateUIPanel(GameObject selectedObject)
@@ -84,18 +68,16 @@ public class FurnitureSelector : MonoBehaviour
         _gameSpawnUI.SetActive(false);
         uiPanel.GetComponent<UIPanelController>().SetTargetObject(selectedObject);
     }
-
+        
     void DeActiveateUIPanel()
     {
         uiPanel.SetActive(false);
     }
-
     void FurnitureSpawnUIOnOff()
     {
         _mainMenuCanvas.SetActive(false);
         _furnitureSpawnUI.SetActive(!_furnitureSpawnUI.activeSelf);
     }
-
     public void FunitureInteraction()
     {
         _isInteraction = !_isInteraction;

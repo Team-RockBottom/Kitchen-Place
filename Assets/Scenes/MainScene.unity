@@ -2903,7 +2903,6 @@ MonoBehaviour:
   _basketContent: {fileID: 1363456016}
   _basketUIPrefab: {fileID: 4183427022903530751, guid: b4e103affe3c4964db3ed32975f52f3b,
     type: 3}
-  _uibasketSlotsDataList: []
   _totalPrice: {fileID: 1137542738}
 --- !u!114 &592204146
 MonoBehaviour:
@@ -5550,7 +5549,7 @@ MonoBehaviour:
     type: 3}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   _graycast: {fileID: 760987820}
   _previewImage: {fileID: 533073005}
   _scrollRect: {fileID: 1666924262}
@@ -9530,11 +9529,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputActionReference: {fileID: -7530398834462728267, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  _arraycastManager: {fileID: 331264287}
-  _arCamera: {fileID: 37359470}
   _furniture:
     serializedVersion: 2
     m_Bits: 8
+  _arraycastManager: {fileID: 331264287}
+  _arCamera: {fileID: 37359470}
 --- !u!114 &1863405536
 MonoBehaviour:
   m_ObjectHideFlags: 0
