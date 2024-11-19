@@ -17,7 +17,7 @@ MonoBehaviour:
   <Description>k__BackingField: Cube Test Descroption
   <Sprite>k__BackingField: {fileID: 21300000, guid: 930e939e9def94ef69711892eaa9af81,
     type: 3}
-  <Prefeb>k__BackingField: {fileID: 613292779795284151, guid: d6c4dd4bee71d894abf358825cedec79,
+  <Prefeb>k__BackingField: {fileID: 124742524650962852, guid: dd2250a57b251514980fdee36bf411d0,
     type: 3}
   <Size>k__BackingField: {x: 5, y: 5, z: 5}
   <Price>k__BackingField: 10000
