@@ -17,7 +17,6 @@ public class FurnitureSelector : MonoBehaviour
     [SerializeField] GameObject _mainMenuCanvas;
     private List<ARRaycastHit> _hits = new List<ARRaycastHit>();
     [SerializeField] LayerMask Furniture;
-    //private bool isSelected = false;
     private GameObject obj;
     private bool _isInteraction = false;
 
@@ -28,7 +27,6 @@ public class FurnitureSelector : MonoBehaviour
         TransformChange
     }
     UIState currentUIState;
-
 
     private void Start()
     {
@@ -41,7 +39,22 @@ public class FurnitureSelector : MonoBehaviour
     {
         RaycastHit hit;
         Vector2 tapposition = context.ReadValue<Vector2>(); 
-        
+
+        if(Physics.Raycast(_xrCamera.ScreenPointToRay(tapposition),out hit, 100f, Furniture))
+        {
+            if (hit.collider.tag == "Furniture")
+            {
+                obj = hit.transform.gameObject;
+                ActivateUIPanel(obj);
+                Renderer renderer = obj.GetComponent<Renderer>();
+                if (renderer != null)
+                {
+                    Material material = renderer.material;
+                    Color color = material.color;
+                }
+            }
+        }
+
         if (!_isInteraction)
         {
             if (Physics.Raycast(_xrCamera.ScreenPointToRay(tapposition), out hit, 100f, Furniture))

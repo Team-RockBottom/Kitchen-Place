@@ -9,9 +9,9 @@ using UnityEngine.XR.ARSubsystems;
 public class MoveMode : MonoBehaviour
 {
     [SerializeField] InputActionReference _inputActionReference;
-    [SerializeField] ARRaycastManager _arraycastManager;
-    [SerializeField] Camera _arCamera;
     [SerializeField] LayerMask _furniture;
+    ARRaycastManager _arraycastManager;
+    Camera _arCamera;
     private GameObject _targetObject;
     private bool _isMoving = false;
     List<ARRaycastHit> _hits = new List<ARRaycastHit>();
