@@ -26,9 +26,10 @@ public class BackButtonManager : MonoBehaviour
     [SerializeField] GameObject _furnitureData;
     [SerializeField] GameObject _furnitureSpawnUI;
     [SerializeField] GameObject _mainMenuCanvas;
-    
+    [SerializeField] FurnitureSelector _furnitureSelector;
     void Start()
     {
+        //_furnitureSelector = GetComponent<FurnitureSelector>();
         _tryapplicationExitButton.onClick.AddListener(OnTryApplicationExitButton);
         _applicationExitButton.onClick.AddListener(OnApplicationExitButton);
         _applicationExitCansleButton.onClick.AddListener(OnCansleApplicationExit);
@@ -62,6 +63,7 @@ public class BackButtonManager : MonoBehaviour
     }
     private void OnModeSelectExitButton()
     {
+        _furnitureSelector.FunitureInteraction();
         _furnitureSpawnUI.SetActive(true);
         _modeSelectCanvas.SetActive(false);
     }

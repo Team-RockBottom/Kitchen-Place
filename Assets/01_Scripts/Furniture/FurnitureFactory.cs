@@ -34,6 +34,7 @@ namespace CP.Furniture
                 obj = Instantiate(furniture.Prefeb, position, furniture.Prefeb.transform.rotation); //생성
                 _basketController.AddFurnitureBasket(furniture); //장바구니 리스트에 생성
                 obj.transform.localScale = Vector3.one / 5; //생성후 조정(아직은 프리펩이 어떻게 될지몰라서 임의로 설정)
+
                 float planeY = plane.gameObject.transform.position.y + (obj.transform.localScale.y / 2);
                 if(index == 1) //테이블은 피봇이 위에 있어서 예외처리
                 {

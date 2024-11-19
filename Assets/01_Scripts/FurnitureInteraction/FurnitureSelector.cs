@@ -18,6 +18,7 @@ public class FurnitureSelector : MonoBehaviour
     private List<ARRaycastHit> _hits = new List<ARRaycastHit>();
     [SerializeField] LayerMask Furniture;
     private GameObject obj;
+    private bool _isInteraction = false;
 
     public enum UIState
     {
@@ -26,7 +27,6 @@ public class FurnitureSelector : MonoBehaviour
         TransformChange
     }
     UIState currentUIState;
-
 
     private void Start()
     {
@@ -39,6 +39,7 @@ public class FurnitureSelector : MonoBehaviour
     {
         RaycastHit hit;
         Vector2 tapposition = context.ReadValue<Vector2>(); 
+
         if(Physics.Raycast(_xrCamera.ScreenPointToRay(tapposition),out hit, 100f, Furniture))
         {
             if (hit.collider.tag == "Furniture")
@@ -53,11 +54,32 @@ public class FurnitureSelector : MonoBehaviour
                 }
             }
         }
-        
+
+        if (!_isInteraction)
+        {
+            if (Physics.Raycast(_xrCamera.ScreenPointToRay(tapposition), out hit, 100f, Furniture))
+            {
+                if (hit.collider.tag == "Furniture")
+                {
+                    obj = hit.transform.gameObject;
+                    ActivateUIPanel(obj);
+                    Debug.Log(hit.transform.gameObject.name);
+                    Renderer renderer = obj.GetComponent<Renderer>();
+                    if (renderer != null)
+                    {
+                        Material material = renderer.material;
+                        Color color = material.color;
+                    }
+                }
+            }
+        }
+
     }
 
     void ActivateUIPanel(GameObject selectedObject)
     {
+        _mainMenuCanvas.SetActive(false);
+        FunitureInteraction();
         uiPanel.SetActive(true);
         _gameSpawnUI.SetActive(false);
         uiPanel.GetComponent<UIPanelController>().SetTargetObject(selectedObject);
@@ -72,5 +94,10 @@ public class FurnitureSelector : MonoBehaviour
     {
         _mainMenuCanvas.SetActive(false);
         _furnitureSpawnUI.SetActive(!_furnitureSpawnUI.activeSelf);
+    }
+
+    public void FunitureInteraction()
+    {
+        _isInteraction = !_isInteraction;
     }
 }
