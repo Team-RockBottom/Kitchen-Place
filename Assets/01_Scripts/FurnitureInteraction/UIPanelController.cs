@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.XR.Interaction.Toolkit.Interactors.XRRayInteractor;
-
 public class UIPanelController : MonoBehaviour
 {
     private GameObject _targetObject;
@@ -14,9 +13,11 @@ public class UIPanelController : MonoBehaviour
     [SerializeField] GameObject _rotateModeCanvas;
     [SerializeField] GameObject _scaleModeCanvas;
     [SerializeField] GameObject _mainMenuCanvas;
+    FurnitureSelector _furnitureSelector;
 
     private void Start()
     {
+        _furnitureSelector = GetComponentInParent<FurnitureSelector>();
         _moveModeButton.onClick.AddListener(OnMoveButtonClicked);
         _rotateModeButton.onClick.AddListener(OnRotateButtonClicked);
         _scaleModeButton.onClick.AddListener(OnScaleButtonClicked);
@@ -51,6 +52,7 @@ public class UIPanelController : MonoBehaviour
 
     private void OnFurnitureDeletedButton()
     {
+        _furnitureSelector.FunitureInteraction();
         Destroy(_targetObject);
         _modeSelectedCanvas.SetActive(false);
         _mainMenuCanvas.SetActive(true);

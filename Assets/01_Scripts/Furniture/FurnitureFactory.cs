@@ -31,7 +31,7 @@ namespace CP.Furniture
             if (furniture != null) //가구의 정보가 있다면
             {
                 obj = Instantiate(furniture.furniturePrefeb, position, furniture.furniturePrefeb.transform.rotation); //생성
-                obj.transform.localScale = Vector3.one / 5; //생성후 조정(아직은 프리펩이 어떻게 될지몰라서 임의로 설정)
+                //obj.transform.localScale = Vector3.one / 5; //생성후 조정(아직은 프리펩이 어떻게 될지몰라서 임의로 설정)
                 float planeY = plane.gameObject.transform.position.y + (obj.transform.localScale.y / 2);
                 if(index == 1) //테이블은 피봇이 위에 있어서 예외처리
                 {

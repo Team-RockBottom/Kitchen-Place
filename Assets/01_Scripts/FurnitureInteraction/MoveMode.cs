@@ -41,21 +41,26 @@ public class MoveMode : MonoBehaviour
 
     private void OnMoveClicked(InputAction.CallbackContext context)
     {
-        Debug.Log("OnmoveClicked Call");
         Vector2 tapPosition = context.ReadValue<Vector2>();
         Ray ray = Camera.main.ScreenPointToRay(tapPosition);
         RaycastHit hit;
         if (Physics.Raycast(ray,out hit,100f,_furniture))
         {
-            Debug.Log("Move ray shot");
             if(hit.transform.gameObject ==_targetObject)
             {
-                Debug.Log("hit selected object");
                 if (tapPosition != null && _isMoving)
                 {
-                    Debug.Log("move trasnfor position");
-                    Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(tapPosition.x, tapPosition.y, Camera.main.WorldToScreenPoint(_targetObject.transform.position).z));
-                    _targetObject.transform.position = new Vector3(touchPosition.x, _targetObject.transform.position.y, touchPosition.z);
+                    //if(phyray,out hit,100f,)
+                    //Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(tapPosition.x, tapPosition.y, Camera.main.WorldToScreenPoint(_targetObject.transform.position).z));
+                    //_targetObject.transform.position = new Vector3(touchPosition.x, _targetObject.transform.position.y, touchPosition.z);
+
+                    if (_arraycastManager.Raycast(ray, _hits, TrackableType.Planes))
+                    {
+                        if(_hits[0].trackable.TryGetComponent(out ARPlane plane))
+                        {
+                            _targetObject.transform.position = new Vector3(_hits[0].pose.position.x, _targetObject.transform.position.y, _hits[0].pose.position.z);
+                        }
+                    }
                 }
             }
         }

@@ -19,6 +19,7 @@ public class FurnitureSelector : MonoBehaviour
     [SerializeField] LayerMask Furniture;
     //private bool isSelected = false;
     private GameObject obj;
+    private bool _isInteraction = false;
 
     public enum UIState
     {
@@ -38,37 +39,35 @@ public class FurnitureSelector : MonoBehaviour
 
     void OnTouch(InputAction.CallbackContext context)
     {
-        Debug.Log("OnTouch Call");
         RaycastHit hit;
         Vector2 tapposition = context.ReadValue<Vector2>(); 
-        if(Physics.Raycast(_xrCamera.ScreenPointToRay(tapposition),out hit, 100f, Furniture))
-        {
-            if (hit.collider.tag == "Furniture")
-            {
-                obj = hit.transform.gameObject;
-                Debug.Log("Hit Furniture");
-                ActivateUIPanel(obj);
-                Debug.Log("ActivateUIPanel");
-                Debug.Log(hit.transform.gameObject.name);
-                Renderer renderer = obj.GetComponent<Renderer>();
-                if (renderer != null)
-                {
-                    Material material = renderer.material;
-                    Color color = material.color;
-                }
-                Debug.Log("end ray");
-            }
-            else
-                Debug.Log("else");
-        }
         
+        if (!_isInteraction)
+        {
+            if (Physics.Raycast(_xrCamera.ScreenPointToRay(tapposition), out hit, 100f, Furniture))
+            {
+                if (hit.collider.tag == "Furniture")
+                {
+                    obj = hit.transform.gameObject;
+                    ActivateUIPanel(obj);
+                    Debug.Log(hit.transform.gameObject.name);
+                    Renderer renderer = obj.GetComponent<Renderer>();
+                    if (renderer != null)
+                    {
+                        Material material = renderer.material;
+                        Color color = material.color;
+                    }
+                }
+            }
+        }
+
     }
 
     void ActivateUIPanel(GameObject selectedObject)
     {
-        Debug.Log("ActivateUIPanel");
+        _mainMenuCanvas.SetActive(false);
+        FunitureInteraction();
         uiPanel.SetActive(true);
-
         _gameSpawnUI.SetActive(false);
         uiPanel.GetComponent<UIPanelController>().SetTargetObject(selectedObject);
     }
@@ -82,5 +81,10 @@ public class FurnitureSelector : MonoBehaviour
     {
         _mainMenuCanvas.SetActive(false);
         _furnitureSpawnUI.SetActive(!_furnitureSpawnUI.activeSelf);
+    }
+
+    public void FunitureInteraction()
+    {
+        _isInteraction = !_isInteraction;
     }
 }
