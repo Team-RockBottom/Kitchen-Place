@@ -25,8 +25,7 @@ public class UIManager : MonoBehaviour
             GameObject _slot;
             _slot = Instantiate(_slotPrefeb);
             FurnitureSlot furnitureSlot = _slot.GetComponent<FurnitureSlot>();
-            _slot.gameObject.name = _slotDic[i].name;
-            furnitureSlot.furnitureNameText = _slotDic[i].name;
+            furnitureSlot.furnitureNameText = _slotDic[i].Name;
             furnitureSlot.furnitureIcon = _slotDic[i].Sprite;
             furnitureSlot.furniturePrefeb = _slotDic[i].Prefeb;
             furnitureSlot.furnitureIndex = i;

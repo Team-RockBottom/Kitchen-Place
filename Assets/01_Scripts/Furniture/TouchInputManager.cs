@@ -25,7 +25,6 @@ namespace CP.Furniture
         [SerializeField] private GraphicRaycaster _graycast; //UI에 있는 그래픽 레이캐스트를 가져온다.
         private PointerEventData _ped; //그래픽 레이캐스트에 필요한 포인트이벤트 데이터
         private List<RaycastResult> _rrListStart; //레이캐스트 결과를 저장할 리스트
-        private bool _isUI = false;
         private FurnitureSlot _selectedSlot;
         [SerializeField] private Image _previewImage;
         [SerializeField] private ScrollRect _scrollRect;
