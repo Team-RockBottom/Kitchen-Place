@@ -19,5 +19,5 @@ MonoBehaviour:
     type: 3}
   <Prefeb>k__BackingField: {fileID: 1376912563179590828, guid: 9aeefa4ef94cdbd4da361273fdf3d43b,
     type: 3}
-  <Size>k__BackingField: {x: 2.5, y: 2.5, z: 10}
+  <Size>k__BackingField: {x: 400, y: 2.5, z: 600}
   <Price>k__BackingField: 15000

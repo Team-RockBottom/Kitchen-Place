@@ -1,7 +1,14 @@
 using UnityEngine;
 
-public class FurnitureColliderCheck : MonoBehaviour
+public class FurnitureObject : MonoBehaviour
 {
+    public FurnitureSpec Spec
+    {
+        get => _spec;
+        set => _spec = value;
+    }
+
+    private FurnitureSpec _spec;
     //private Rigidbody rb;
 
 

@@ -41,6 +41,11 @@ namespace CP.Furniture
                     planeY += (obj.transform.localScale.y / 3);
                 }
                 obj.transform.position = new Vector3(position.x, planeY, position.z);
+                if(obj.TryGetComponent(out FurnitureObject furobj))
+                {
+                    furobj.Spec = furniture;
+                }
+
                 if (_furnitures == null) //부모로 삼을 빈 오브젝트없을시 생성
                 {
                     _furnitures = new GameObject("Furnitures");

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 545416574340586878}
   - component: {fileID: 7650816184673567173}
   - component: {fileID: 5473974456970909545}
+  - component: {fileID: 6077918525249378741}
   m_Layer: 3
   m_Name: Sphere
   m_TagString: Furniture
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.157991, y: 1.6779312, z: -5.202505}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,3 +109,15 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6077918525249378741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508357803314102448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb926002eee60ea4092b0476dced3eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
