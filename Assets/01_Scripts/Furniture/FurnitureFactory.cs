@@ -32,15 +32,20 @@ namespace CP.Furniture
             if (furniture != null) //가구의 정보가 있다면
             {
                 obj = Instantiate(furniture.Prefeb, position, furniture.Prefeb.transform.rotation); //생성
-                _basketController.AddFurnitureBasket(furniture); //장바구니 리스트에 생성
+
+                if(_basketController)
+                {
+                    _basketController.AddFurnitureBasket(furniture); //장바구니 리스트에 생성
+                }
                 //obj.transform.localScale = Vector3.one / 5; //생성후 조정(아직은 프리펩이 어떻게 될지몰라서 임의로 설정)
 
-                float planeY = plane.gameObject.transform.position.y + (obj.transform.localScale.y / 2);
-                if(index == 1) //테이블은 피봇이 위에 있어서 예외처리
-                {
-                    planeY += (obj.transform.localScale.y / 3);
-                }
-                obj.transform.position = new Vector3(position.x, planeY, position.z);
+                //float planeY = plane.gameObject.transform.position.y + (obj.transform.localScale.y / 2);
+                //if(index == 1) //테이블은 피봇이 위에 있어서 예외처리
+                //{
+                //    planeY += (obj.transform.localScale.y / 3);
+                //}
+                //obj.transform.position = new Vector3(position.x, planeY, position.z);
+                obj.transform.position = position;
                 if (_furnitures == null) //부모로 삼을 빈 오브젝트없을시 생성
                 {
                     _furnitures = new GameObject("Furnitures");
@@ -57,7 +62,7 @@ namespace CP.Furniture
             if (furniture != null)
             {
                 obj = Instantiate(furniture.Prefeb);
-                obj.transform.localScale = Vector3.one / 5;
+                //obj.transform.localScale = Vector3.one / 5;
             }
             return obj;
         }

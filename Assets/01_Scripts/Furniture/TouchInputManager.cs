@@ -1,5 +1,6 @@
 using CP.Furniture;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -30,6 +31,8 @@ namespace CP.Furniture
         [SerializeField] private ScrollRect _scrollRect;
         private Vector2 _mousePosi;
         private GameObject _previewPrefeb;
+        [SerializeField] private TMP_Text _text;
+        private int num = 0;
         
         private void Awake()
         {
@@ -49,7 +52,9 @@ namespace CP.Furniture
                 _xrCamera = Camera.main;
             }
             _furnitureFactory = GetComponent<FurnitureFactory>();
-            _tapStartPosition.action.started += OnTouch;
+            //_tapStartPosition.action.started += OnTouch;
+
+            _dragCurrentPosition.action.started += OnTouch;
             _dragCurrentPosition.action.canceled += OffTouch;
             
             _ped = new PointerEventData(EventSystem.current);
@@ -58,6 +63,7 @@ namespace CP.Furniture
 
         private void OnTouch(InputAction.CallbackContext context)
         {
+            _text.text = "ONTouch" + num++;
             Vector2 tapPostion = context.ReadValue<Vector2>();
             _ped.position = tapPostion; // 레이캐스트 위치설정
             _rrListStart.Clear(); //리스트 클리어
@@ -77,6 +83,7 @@ namespace CP.Furniture
                         isSlot = true;
                         _previewPrefeb = _furnitureFactory.CreatePreviewFurniture(slot.furnitureIndex);
                         _previewPrefeb.layer = 0;
+                        _previewPrefeb.gameObject.SetActive(false);
                     }
                 }
                 else
@@ -98,6 +105,7 @@ namespace CP.Furniture
                         isSlot = true;
                         _previewPrefeb = _furnitureFactory.CreatePreviewFurniture(slot.furnitureIndex);
                         _previewPrefeb.layer = 0;
+                        _previewPrefeb.gameObject.SetActive(false);
 
                     }
                 }
@@ -156,7 +164,7 @@ namespace CP.Furniture
             }
         }
 
-        private void Update() //터치로도 해볼까 한 흔적
+        private void Update()
         {
             _mousePosi = _dragCurrentPosition.action.ReadValue<Vector2>();
             if (_selectedSlot)
@@ -169,6 +177,10 @@ namespace CP.Furniture
 
                     if (_rrListStart.Count > 1)
                     {
+                        if (_previewPrefeb)
+                        {
+                            _previewPrefeb.SetActive(false);
+                        }
                         _previewImage.enabled = true;
                         _previewImage.transform.position = _mousePosi;
                         return;
@@ -177,7 +189,10 @@ namespace CP.Furniture
                     {
                         if (_hits[0].trackable.TryGetComponent(out ARPlane plane))
                         {
-                            _previewPrefeb.SetActive(true);
+                            if(_previewPrefeb)
+                            {
+                                _previewPrefeb.SetActive(true);
+                            }
                             _previewImage.enabled = false;
                             _previewPrefeb.transform.position = _hits[0].pose.position;
                         }
