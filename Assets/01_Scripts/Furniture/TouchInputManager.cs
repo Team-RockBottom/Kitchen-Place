@@ -52,18 +52,29 @@ namespace CP.Furniture
                 _xrCamera = Camera.main;
             }
             _furnitureFactory = GetComponent<FurnitureFactory>();
-            //_tapStartPosition.action.started += OnTouch;
+            _tapStartPosition.action.started += OnTouch;
 
             _dragCurrentPosition.action.started += OnTouch;
+            //_dragCurrentPosition.action.performed += OnTouch;
             _dragCurrentPosition.action.canceled += OffTouch;
             
             _ped = new PointerEventData(EventSystem.current);
             _rrListStart = new List<RaycastResult>(5);
+
+            int defaultValue = EventSystem.current.pixelDragThreshold;
+            EventSystem.current.pixelDragThreshold =
+                    Mathf.Max(
+                         defaultValue,
+                         (int)(defaultValue * Screen.dpi / 160f));
         }
 
         private void OnTouch(InputAction.CallbackContext context)
         {
-            _text.text = "ONTouch" + num++;
+            if (_text != null)
+            {
+                _text.text = "ONTouch" + num++;
+            }
+            
             Vector2 tapPostion = context.ReadValue<Vector2>();
             _ped.position = tapPostion; // 레이캐스트 위치설정
             _rrListStart.Clear(); //리스트 클리어
@@ -78,7 +89,6 @@ namespace CP.Furniture
                     {
                         _selectedSlot = slot;
                         _previewImage.sprite = slot.furnitureIcon;
-                        Debug.Log(slot.name);
                         _scrollRect.enabled = false;
                         isSlot = true;
                         _previewPrefeb = _furnitureFactory.CreatePreviewFurniture(slot.furnitureIndex);
@@ -202,5 +212,3 @@ namespace CP.Furniture
         }
     }
 }
-
-

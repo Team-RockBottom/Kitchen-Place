@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 136389712}
   - component: {fileID: 136389711}
   m_Layer: 5
-  m_Name: Image
+  m_Name: PrefebImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 303575596}
   - component: {fileID: 303575595}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: DebugText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -931,7 +931,7 @@ MonoBehaviour:
     type: 3}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   _graycast: {fileID: 2099970466}
   _previewImage: {fileID: 136389711}
   _scrollRect: {fileID: 1380979347}
@@ -1040,7 +1040,7 @@ GameObject:
   - component: {fileID: 800367935}
   - component: {fileID: 800367934}
   m_Layer: 5
-  m_Name: Image
+  m_Name: DebugTextImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1499,7 +1499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28f8cda05fabdd4e801ddeb475b0557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _repository: {fileID: 0}
+  _repository: {fileID: 1861598829}
   _slotPrefeb: {fileID: 2213076959048043209, guid: d80726f3d38bbb94da7f376494d42a4a,
     type: 3}
   _InputManager: {fileID: 636873598}
@@ -1518,7 +1518,7 @@ MonoBehaviour:
   m_Content: {fileID: 1494396259}
   m_Horizontal: 1
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -1721,6 +1721,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793541219}
   m_CullTransparentMesh: 1
+--- !u!114 &1861598829 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1034740236876103330, guid: 1a8caf8286e1aaa4b9613c41bbafab07,
+    type: 3}
+  m_PrefabInstance: {fileID: 2111728931}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1dd12ae1b4a0447a5c463db46dc22a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2001374502 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6402244310720262706, guid: 48cb3fb68c91eb94999fd99957eb0cae,
