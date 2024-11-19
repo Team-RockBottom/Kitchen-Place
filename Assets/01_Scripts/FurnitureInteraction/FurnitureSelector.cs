@@ -17,7 +17,6 @@ public class FurnitureSelector : MonoBehaviour
     [SerializeField] GameObject _mainMenuCanvas;
     private List<ARRaycastHit> _hits = new List<ARRaycastHit>();
     [SerializeField] LayerMask Furniture;
-    //private bool isSelected = false;
     private GameObject obj;
 
     public enum UIState
@@ -38,7 +37,6 @@ public class FurnitureSelector : MonoBehaviour
 
     void OnTouch(InputAction.CallbackContext context)
     {
-        Debug.Log("OnTouch Call");
         RaycastHit hit;
         Vector2 tapposition = context.ReadValue<Vector2>(); 
         if(Physics.Raycast(_xrCamera.ScreenPointToRay(tapposition),out hit, 100f, Furniture))
@@ -46,29 +44,21 @@ public class FurnitureSelector : MonoBehaviour
             if (hit.collider.tag == "Furniture")
             {
                 obj = hit.transform.gameObject;
-                Debug.Log("Hit Furniture");
                 ActivateUIPanel(obj);
-                Debug.Log("ActivateUIPanel");
-                Debug.Log(hit.transform.gameObject.name);
                 Renderer renderer = obj.GetComponent<Renderer>();
                 if (renderer != null)
                 {
                     Material material = renderer.material;
                     Color color = material.color;
                 }
-                Debug.Log("end ray");
             }
-            else
-                Debug.Log("else");
         }
         
     }
 
     void ActivateUIPanel(GameObject selectedObject)
     {
-        Debug.Log("ActivateUIPanel");
         uiPanel.SetActive(true);
-
         _gameSpawnUI.SetActive(false);
         uiPanel.GetComponent<UIPanelController>().SetTargetObject(selectedObject);
     }

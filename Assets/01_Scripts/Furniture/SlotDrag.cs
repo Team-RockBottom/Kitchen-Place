@@ -18,6 +18,7 @@ public class SlotDrag : MonoBehaviour
         _image = GetComponent<Image>();
         //_currentDragPosition.action.started += OnDrag;
     }
+
     //public void OnBeginDrag(PointerEventData eventData)
     //{
     //    _beingDraggedIcon = gameObject;

@@ -11,7 +11,7 @@ using System.Collections.Generic;
         {
             foreach (var spec in _furnitureSpecs)
             {
-                _furnitureDic.Add(spec.index, spec);
+                _furnitureDic.Add(spec.Index, spec);
             }
         }
         public FurnitureSpec GetSpec(int index)

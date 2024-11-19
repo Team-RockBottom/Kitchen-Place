@@ -19,13 +19,11 @@ public class FurnitureSlot : MonoBehaviour
         get => _furnitureIndex;
         set => _furnitureIndex = value;
     }
-
     public GameObject furniturePrefeb
     {
         get => _furniturePrefeb.gameObject;
         set => _furniturePrefeb = value;
     }
-
     [SerializeField] Image _furnitureIcon;
     [SerializeField] TMP_Text _furnitureNameText;
     private int _furnitureIndex;

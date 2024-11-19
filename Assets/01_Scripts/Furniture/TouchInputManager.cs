@@ -30,9 +30,8 @@ namespace CP.Furniture
         [SerializeField] private Image _previewImage;
         [SerializeField] private ScrollRect _scrollRect;
         private Vector2 _mousePosi;
-        [SerializeField] private GameObject _previewPrefeb;
+        private GameObject _previewPrefeb;
         
-
         private void Awake()
         {
             if (instance == null)
@@ -51,9 +50,7 @@ namespace CP.Furniture
                 _xrCamera = Camera.main;
             }
             _furnitureFactory = GetComponent<FurnitureFactory>();
-            //_furnitureFactory = new GameObject("FurnitureFactory").AddComponent<FurnitureFactory>();
             _tapStartPosition.action.started += OnTouch;
-            //_dragCurrentPosition.action.started += OnDrag;
             _dragCurrentPosition.action.canceled += OffTouch;
             
             _ped = new PointerEventData(EventSystem.current);
@@ -62,8 +59,6 @@ namespace CP.Furniture
 
         private void OnTouch(InputAction.CallbackContext context)
         {
-            //Debug.Log(context.ReadValueAsButton());
-            Debug.Log(context.phase);
             Vector2 tapPostion = context.ReadValue<Vector2>();
             _ped.position = tapPostion; // 레이캐스트 위치설정
             _rrListStart.Clear(); //리스트 클리어
@@ -84,14 +79,9 @@ namespace CP.Furniture
                         _previewPrefeb = _furnitureFactory.CreatePreviewFurniture(slot.furnitureIndex);
                         _previewPrefeb.layer = 0;
                     }
-                    else
-                    {
-                        
-                    }
                 }
                 else
                 {
-                    
                     _selectedSlot = null;
                 }
             }
@@ -112,10 +102,6 @@ namespace CP.Furniture
 
                     }
                 }
-                else
-                {
-
-                }
             }
         }
         private void OnDrag(InputAction.CallbackContext context)
@@ -123,12 +109,10 @@ namespace CP.Furniture
             
         }
 
-
         private void OffTouch(InputAction.CallbackContext context)
         {
             _scrollRect.enabled = true;
             isSlot = false;
-
 
             _ped.position = _mousePosi; // 레이캐스트 위치설정
             _rrListStart.Clear(); //리스트 클리어
@@ -143,8 +127,6 @@ namespace CP.Furniture
 
             if (Physics.Raycast(_xrCamera.ScreenPointToRay(_mousePosi), out _hit, 100f, _layerMask)) //가구를 인식하고 설치를 할수 없게하는 레이캐스트
             {
-                Debug.Log("일반 레이캐스트");
-
                 _previewImage.enabled=false;
                 Destroy(_previewPrefeb);
 
@@ -153,16 +135,12 @@ namespace CP.Furniture
 
             if (_arRaycastManager.Raycast(_xrCamera.ScreenPointToRay(_mousePosi), _hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
             {
-                Debug.Log("AR레이캐스트");
                 if (_hits[0].trackable.TryGetComponent(out ARPlane plane))
                 {
-                    Debug.Log("플레인 인식");
                     if (plane.alignment != UnityEngine.XR.ARSubsystems.PlaneAlignment.Vertical) //평면인식기능으로 벽에서는 생성 안되게
                     {
-                        Debug.Log("평면 인식");
                         if (_selectedSlot)
                         {
-                            Debug.Log("생성");
                             _previewImage.enabled = false;
                             Destroy(_previewPrefeb);
                             _objs[_listIndex] = _furnitureFactory.CreateFurniture(_selectedSlot.furnitureIndex, _hits[0].pose.position, plane);
@@ -198,7 +176,6 @@ namespace CP.Furniture
                     }
                     if (_arRaycastManager.Raycast(_xrCamera.ScreenPointToRay(_mousePosi), _hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
                     {
-                        Debug.Log("AR레이캐스트");
                         if (_hits[0].trackable.TryGetComponent(out ARPlane plane))
                         {
                             _previewPrefeb.SetActive(true);
@@ -209,26 +186,6 @@ namespace CP.Furniture
                 }
             }
         }
-            
-            //Debug.Log(_tapStartPosition.action.phase);
-
-            //if (Input.touchCount > 0)
-            //{
-            //    Touch touch = Input.touches[0];
-            //    if (_arRaycastManager.Raycast(_xrCamera.ScreenPointToRay(touch.position), _hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
-            //    {
-            //        if (_hits[0].trackable.TryGetComponent(out ARPlane plane))
-            //        {
-            //            if (plane.alignment != UnityEngine.XR.ARSubsystems.PlaneAlignment.Vertical)
-            //            {
-
-            //                _furnitureFactory.CreateFurniture("Cube", _hits[0].pose.position, plane);
-
-            //            }
-            //        }
-            //    }
-            //}
-        
     }
 }
 

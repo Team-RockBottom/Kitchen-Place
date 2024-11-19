@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
         _contentTransform = transform.GetChild(0).GetChild(0).GetComponent<RectTransform>();
         foreach(var spec in _repository.IfurnitureDic.Values)
         {
-            _slotDic.Add(spec.index, spec);
+            _slotDic.Add(spec.Index, spec);
         }
         for (int i = 0; i < _slotDic.Count; i++)
         {
@@ -27,8 +27,8 @@ public class UIManager : MonoBehaviour
             FurnitureSlot furnitureSlot = _slot.GetComponent<FurnitureSlot>();
             _slot.gameObject.name = _slotDic[i].name;
             furnitureSlot.furnitureNameText = _slotDic[i].name;
-            furnitureSlot.furnitureIcon = _slotDic[i].furnitureSprite;
-            furnitureSlot.furniturePrefeb = _slotDic[i].furniturePrefeb;
+            furnitureSlot.furnitureIcon = _slotDic[i].Sprite;
+            furnitureSlot.furniturePrefeb = _slotDic[i].Prefeb;
             furnitureSlot.furnitureIndex = i;
 
             _slot.gameObject.transform.SetParent(transform.GetChild(0).GetChild(0),true); //오브젝트 그룹의 자식으로 들어간다.
