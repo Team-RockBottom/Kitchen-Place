@@ -3071,6 +3071,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "One Modifier",
+                    "id": "65533717-7769-4aa5-930c-b36ed5ba301a",
+                    "path": "OneModifier",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tap Start Position",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "81c979e2-545d-4179-8bad-d55fce01e1d5",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tap Start Position",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "3963dfd6-aa30-449e-b79e-df512fbde618",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tap Start Position",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "eb175a82-fad6-4249-bc9f-a6c9acee4436",
                     "path": "<TouchscreenGestureInputController>/dragCurrentPosition",
@@ -3107,6 +3140,39 @@
                     "name": "binding",
                     "id": "7e88eed9-d5b6-4c3a-9dd7-ac83c45fced3",
                     "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag Current Position",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "63acdc1f-8dda-4ea9-b0c8-7856ed95e819",
+                    "path": "OneModifier",
+                    "interactions": "Press(pressPoint=0.025)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag Current Position",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "e95d4c1d-4a4c-44db-82ae-6cf7b86a1468",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag Current Position",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "ddcf9de6-9157-4a97-ad7b-c77bb602e710",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

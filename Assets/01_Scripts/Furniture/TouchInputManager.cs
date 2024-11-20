@@ -49,7 +49,9 @@ namespace CP.Furniture
                 _xrCamera = Camera.main;
             }
             _furnitureFactory = GetComponent<FurnitureFactory>();
-            _tapStartPosition.action.started += OnTouch;
+            //_tapStartPosition.action.started += OnTouch;
+
+            _dragCurrentPosition.action.started += OnTouch;
             _dragCurrentPosition.action.canceled += OffTouch;
             
             _ped = new PointerEventData(EventSystem.current);
