@@ -122,14 +122,20 @@ namespace CP.Furniture
             if (_rrListStart.Count > 1)
             {
                 _previewImage.enabled=false;
-                Destroy(_previewPrefeb);
+                if (_previewPrefeb)
+                {
+                    Destroy(_previewPrefeb);
+                }
                 return;
             }
 
             if (Physics.Raycast(_xrCamera.ScreenPointToRay(_mousePosi), out _hit, 100f, _layerMask)) //가구를 인식하고 설치를 할수 없게하는 레이캐스트
             {
                 _previewImage.enabled=false;
-                Destroy(_previewPrefeb);
+                if (_previewPrefeb)
+                {
+                    Destroy(_previewPrefeb);
+                }
 
                 return;
             }
@@ -143,7 +149,10 @@ namespace CP.Furniture
                         if (_selectedSlot)
                         {
                             _previewImage.enabled = false;
-                            Destroy(_previewPrefeb);
+                            if (_previewPrefeb)
+                            {
+                                Destroy(_previewPrefeb);
+                            }
                             _objs[_listIndex] = _furnitureFactory.CreateFurniture(_selectedSlot.furnitureIndex, _hits[0].pose.position, plane);
                             _selectedSlot = null;
                             _listIndex++;
@@ -153,7 +162,10 @@ namespace CP.Furniture
                 else
                 {
                     _previewImage.enabled = false;
-                    Destroy(_previewPrefeb);
+                    if(_previewPrefeb)
+                    {
+                        Destroy(_previewPrefeb);
+                    }
                 }
             }
         }
@@ -171,6 +183,10 @@ namespace CP.Furniture
 
                     if (_rrListStart.Count > 1)
                     {
+                        if (_previewPrefeb)
+                        {
+                            _previewPrefeb.SetActive(false);
+                        }
                         _previewImage.enabled = true;
                         _previewImage.transform.position = _mousePosi;
                         return;
@@ -179,7 +195,10 @@ namespace CP.Furniture
                     {
                         if (_hits[0].trackable.TryGetComponent(out ARPlane plane))
                         {
-                            _previewPrefeb.SetActive(true);
+                            if(_previewPrefeb)
+                            {
+                                _previewPrefeb.SetActive(true);
+                            }
                             _previewImage.enabled = false;
                             _previewPrefeb.transform.position = _hits[0].pose.position;
                         }
