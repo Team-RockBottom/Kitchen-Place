@@ -46,12 +46,10 @@ public class BackButtonManager : MonoBehaviour
 
     private void OnTryApplicationExitButton()
     {
-        _mainMenuCanvas.SetActive(false);
         _tryExitCanvas.SetActive(true);
     }
     private void OnCansleApplicationExit()
     {
-        _mainMenuCanvas.SetActive(true);
         _tryExitCanvas.SetActive(false);
     }
     private void OnApplicationExitButton()
