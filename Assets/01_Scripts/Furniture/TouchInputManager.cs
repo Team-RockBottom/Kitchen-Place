@@ -170,7 +170,7 @@ namespace CP.Furniture
             }
         }
 
-        private void Update() //터치로도 해볼까 한 흔적
+        private void Update()
         {
             _mousePosi = _dragCurrentPosition.action.ReadValue<Vector2>();
             if (_selectedSlot)
