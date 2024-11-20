@@ -14,6 +14,9 @@ public class UIPanelController : MonoBehaviour
     [SerializeField] GameObject _scaleModeCanvas;
     [SerializeField] GameObject _mainMenuCanvas;
     FurnitureSelector _furnitureSelector;
+    [SerializeField] UI_BasketController _basketController;
+    private int _furnitureIndex;
+    
 
     private void Start()
     {
@@ -27,6 +30,7 @@ public class UIPanelController : MonoBehaviour
     public void SetTargetObject(GameObject obj)
     {
         _targetObject = obj;
+        _furnitureIndex = _targetObject.GetComponent<FurnitureObject>().Spec.Index;
     }
 
     private void OnMoveButtonClicked()
@@ -52,7 +56,14 @@ public class UIPanelController : MonoBehaviour
 
     private void OnFurnitureDeletedButton()
     {
-        _furnitureSelector.FunitureInteraction();
+
+        if (_basketController._uibasketSlotsDataList.Count > 0)
+        {
+            _basketController._uibasketSlotsDataList[_furnitureIndex].furnitureCount--;
+        }
+        else
+            _basketController.DeleteBasket(_furnitureIndex);
+
         Destroy(_targetObject);
         _modeSelectedCanvas.SetActive(false);
         _mainMenuCanvas.SetActive(true);

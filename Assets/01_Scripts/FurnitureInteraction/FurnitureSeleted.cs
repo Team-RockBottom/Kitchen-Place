@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
 
-public class FurnitureSelector : MonoBehaviour
+public class FurnitureSelected : MonoBehaviour
 {
     [SerializeField] GameObject uiPanel;  // 움직임, 회전, 크기 조절 UI 패널
     [SerializeField] InputActionReference _tapStartPosition;
@@ -20,18 +20,24 @@ public class FurnitureSelector : MonoBehaviour
     [SerializeField] LayerMask Furniture;
     private GameObject obj;
     private bool _isInteraction = false;
-    //[SerializeField] GraphicRaycaster _graphicRaycaster;
+    [SerializeField] GraphicRaycaster _graphicRaycaster;
     private PointerEventData _pointerEventData;
-    [SerializeField] List<GraphicRaycaster> _graphicsRaycasters;
 
     private void Start()
     {
-        _tapStartPosition.action.started += OnTouch;
         _furnitureSpawnButton.onClick.AddListener(FurnitureSpawnUIOnOff);
         _pointerEventData = new PointerEventData(EventSystem.current);
     }
 
+    private void OnEnable()
+    {
+        _tapStartPosition.action.started += OnTouch;
+    }
 
+    private void OnDisable()
+    {
+        _tapStartPosition.action.started -= OnTouch;
+    }
     void OnTouch(InputAction.CallbackContext context)
     {
         Debug.Log("OnTouch Call");
@@ -39,8 +45,8 @@ public class FurnitureSelector : MonoBehaviour
         Vector2 tapposition = context.ReadValue<Vector2>();
         _pointerEventData.position = tapposition;
         List<RaycastResult> results = new List<RaycastResult>();
-        //_graphicRaycasters.Raycast(_pointerEventData, results);
-        
+        _graphicRaycaster.Raycast(_pointerEventData, results);
+
 
         if (true)
         {
@@ -77,39 +83,16 @@ public class FurnitureSelector : MonoBehaviour
         {
 
         }
-    
-
-
-
-        //if (!_isInteraction)
-        //{
-        //    if (Physics.Raycast(_xrCamera.ScreenPointToRay(tapposition), out hit, 100f, Furniture))
-        //    {
-        //        if (hit.collider.tag == "Furniture")
-        //        {
-        //            obj = hit.transform.gameObject;
-        //            ActivateUIPanel(obj);
-        //            Debug.Log(hit.transform.gameObject.name);
-        //            Renderer renderer = obj.GetComponent<Renderer>();
-        //            if (renderer != null)
-        //            {
-        //                Material material = renderer.material;
-        //                Color color = material.color;
-        //            }
-        //        }
-        //    }
-        //}
     }
 
     void ActivateUIPanel(GameObject selectedObject)
     {
-        _mainMenuCanvas.SetActive(false);
-        FunitureInteraction();
         uiPanel.SetActive(true);
         _gameSpawnUI.SetActive(false);
         uiPanel.GetComponent<UIPanelController>().SetTargetObject(selectedObject);
+        _mainMenuCanvas.SetActive(false);
     }
-        
+
     void DeActiveateUIPanel()
     {
         uiPanel.SetActive(false);
@@ -117,10 +100,10 @@ public class FurnitureSelector : MonoBehaviour
     void FurnitureSpawnUIOnOff()
     {
         _mainMenuCanvas.SetActive(false);
-        _furnitureSpawnUI.SetActive(!_furnitureSpawnUI.activeSelf);
+        _furnitureSpawnUI.SetActive(true);
     }
-    public void FunitureInteraction()
-    {
-        _isInteraction = !_isInteraction;
-    }
+    //public void FunitureInteraction()
+    //{
+    //    _isInteraction = !_isInteraction;
+    //}
 }
