@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
         Debug.Log(_layoutGroup.cellSize.y);
         Debug.Log(_layoutGroup.spacing.x);
         Vector2 size = _contentTransform.sizeDelta;
-        size.x -= (_slotDistance*(4-_slotDic.Count)); //넘은 갯수만큼 늘려준다.
+        size.x += (_slotDistance*_slotDic.Count); //넘은 갯수만큼 늘려준다.
         _contentTransform.sizeDelta = size;
     }
 }
