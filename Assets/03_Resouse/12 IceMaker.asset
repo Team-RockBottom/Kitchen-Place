@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa888b186462fd3428564863bbdb80d2, type: 3}
-  m_Name: 9 1Door HotBox
+  m_Name: 12 IceMaker
   m_EditorClassIdentifier: 
-  <Index>k__BackingField: 9
-  <Name>k__BackingField: "1\uAD6C \uD56B\uBC15\uC2A4"
-  <Description>k__BackingField: "1\uAD6C \uD56B\uBC15\uC2A4\uC774\uB2E4."
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 54b06fd64914dc04d897c77873bec3ab,
+  <Index>k__BackingField: 12
+  <Name>k__BackingField: "\uC81C\uBE59\uAE30"
+  <Description>k__BackingField: "\uC81C\uBE59\uAE30\uC774\uB2E4."
+  <Sprite>k__BackingField: {fileID: 21300000, guid: f43b4fde4fc27a34ca57f3b02df27a41,
     type: 3}
-  <Prefeb>k__BackingField: {fileID: 7327746714033995457, guid: 11d96246345eeeb4db2beb9b3b38b259,
+  <Prefeb>k__BackingField: {fileID: 1903278143603908835, guid: 69d578dc0baf60143a2d114f67f285b7,
     type: 3}
-  <Size>k__BackingField: {x: 900, y: 1900, z: 755}
+  <Size>k__BackingField: {x: 1200, y: 1900, z: 755}
   <Price>k__BackingField: 15000
   <URL>k__BackingField: 

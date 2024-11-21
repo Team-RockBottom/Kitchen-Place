@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa888b186462fd3428564863bbdb80d2, type: 3}
-  m_Name: 11 Freezer
+  m_Name: 0 Table
   m_EditorClassIdentifier: 
-  <Index>k__BackingField: 11
-  <Name>k__BackingField: "\uB0C9\uC7A5\uACE0"
-  <Description>k__BackingField: "\uB0C9\uC7A5\uACE0\uC774\uB2E4."
-  <Sprite>k__BackingField: {fileID: 21300000, guid: f43b4fde4fc27a34ca57f3b02df27a41,
+  <Index>k__BackingField: 0
+  <Name>k__BackingField: "\uD14C\uC774\uBE14"
+  <Description>k__BackingField: "\uD14C\uC774\uBE14\uC774\uB2E4"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: c11cd2ad61b56b748bfba68ad1db3743,
     type: 3}
-  <Prefeb>k__BackingField: {fileID: 1622806667842456721, guid: efaf7681ff9941347be1ec414479f6cf,
+  <Prefeb>k__BackingField: {fileID: 6284696828663165326, guid: 89f73f14dfb6a6340868d4ace320a10d,
     type: 3}
-  <Size>k__BackingField: {x: 1200, y: 1900, z: 755}
+  <Size>k__BackingField: {x: 1800, y: 800, z: 500}
   <Price>k__BackingField: 15000
+  <URL>k__BackingField: 

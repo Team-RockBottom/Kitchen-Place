@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa888b186462fd3428564863bbdb80d2, type: 3}
-  m_Name: 10 2Door HotBox
+  m_Name: 6 1Door HotBox
   m_EditorClassIdentifier: 
-  <Index>k__BackingField: 10
-  <Name>k__BackingField: "2\uAD6C \uD56B\uBC15\uC2A4"
-  <Description>k__BackingField: "2\uAD6C \uD56B\uBC15\uC2A4\uC774\uB2E4."
-  <Sprite>k__BackingField: {fileID: 21300000, guid: f43b4fde4fc27a34ca57f3b02df27a41,
+  <Index>k__BackingField: 6
+  <Name>k__BackingField: "1\uAD6C \uD56B\uBC15\uC2A4"
+  <Description>k__BackingField: "1\uAD6C \uD56B\uBC15\uC2A4\uC774\uB2E4."
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 54b06fd64914dc04d897c77873bec3ab,
     type: 3}
-  <Prefeb>k__BackingField: {fileID: 5677803275240296697, guid: 88a7f42aeeed42c4f886fe6a46f061c7,
+  <Prefeb>k__BackingField: {fileID: 7327746714033995457, guid: 11d96246345eeeb4db2beb9b3b38b259,
     type: 3}
-  <Size>k__BackingField: {x: 1200, y: 1900, z: 755}
+  <Size>k__BackingField: {x: 900, y: 1900, z: 755}
   <Price>k__BackingField: 15000
   <URL>k__BackingField: 

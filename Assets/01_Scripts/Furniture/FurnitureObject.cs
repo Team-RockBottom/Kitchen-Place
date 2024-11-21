@@ -19,6 +19,7 @@ public class FurnitureObject : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
+        Debug.Log("콜라이전 익스트");
         rb.linearVelocity = Vector3.zero; //떨어졌을때 움직이지 않게
     }
 }

@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: UI_FurnitureSpecRepository
   m_EditorClassIdentifier: 
   specs:
-  - {fileID: 11400000, guid: 578309f5fe1347248b3e9a057f314e0a, type: 2}
-  - {fileID: 11400000, guid: 6d07caabf0b17ad4d83ca098f4c1dfcf, type: 2}
-  - {fileID: 11400000, guid: 464834997fbe428408787c708d63dca5, type: 2}
   - {fileID: 11400000, guid: ca4cf8b3c3d864b47b2970e84f28205b, type: 2}
   - {fileID: 11400000, guid: a6b6fd3b73929464b9df88ea829f92d6, type: 2}
   - {fileID: 11400000, guid: 730b73513515b334a8d8694a711b4e1f, type: 2}

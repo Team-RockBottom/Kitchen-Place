@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa888b186462fd3428564863bbdb80d2, type: 3}
-  m_Name: 7 4Door Refrigerator
+  m_Name: 2 TableRefrigerator
   m_EditorClassIdentifier: 
-  <Index>k__BackingField: 7
-  <Name>k__BackingField: "4\uAD6C \uB0C9\uC7A5\uACE0"
-  <Description>k__BackingField: "4\uAD6C \uB0C9\uC7A5\uACE0\uC774\uB2E4."
-  <Sprite>k__BackingField: {fileID: 21300000, guid: f5827e1d305d5d54b9727740e4c961db,
+  <Index>k__BackingField: 2
+  <Name>k__BackingField: "\uD14C\uC774\uBE14 \uB0C9\uC7A5\uACE0"
+  <Description>k__BackingField: "\uD14C\uC774\uBE14 \uB0C9\uC7A5\uACE0\uB2E4."
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 382d45dbe80d63844a1403f49f8d4096,
     type: 3}
-  <Prefeb>k__BackingField: {fileID: 5940029730225953318, guid: 64c6bc325dff854498cbe70eed4c9aab,
+  <Prefeb>k__BackingField: {fileID: 257675008834815883, guid: cd46e6c5112c44344b106f460678a2c4,
     type: 3}
-  <Size>k__BackingField: {x: 1260, y: 1900, z: 800}
+  <Size>k__BackingField: {x: 1500, y: 800, z: 700}
   <Price>k__BackingField: 15000
   <URL>k__BackingField: 

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa888b186462fd3428564863bbdb80d2, type: 3}
-  m_Name: 2 TestCylinder
+  m_Name: 5 Shelf
   m_EditorClassIdentifier: 
-  <Index>k__BackingField: 2
-  <Name>k__BackingField: Cylinder
-  <Description>k__BackingField: Cylinder Description
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 1c72e2211b1ba47d7baf8d6ee5a5daf5,
+  <Index>k__BackingField: 5
+  <Name>k__BackingField: "\uC120\uBC18"
+  <Description>k__BackingField: "\uC120\uBC18\uC774\uB2E4."
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 9d660c048b8661c4ead0786a4adab9b4,
     type: 3}
-  <Prefeb>k__BackingField: {fileID: 1376912563179590828, guid: 9aeefa4ef94cdbd4da361273fdf3d43b,
+  <Prefeb>k__BackingField: {fileID: 1492565151586883096, guid: 77566ce1a04d77647b8650f0b0981992,
     type: 3}
-  <Size>k__BackingField: {x: 400, y: 2.5, z: 600}
+  <Size>k__BackingField: {x: 1500, y: 1800, z: 600}
   <Price>k__BackingField: 15000
-  <URL>k__BackingField: https://www.daum.net/
+  <URL>k__BackingField: 
