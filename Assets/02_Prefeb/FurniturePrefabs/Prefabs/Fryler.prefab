@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5002109382320685366}
   - component: {fileID: 338700469491051197}
   - component: {fileID: 5533907689106218279}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,9 +97,11 @@ GameObject:
   - component: {fileID: 836424757317732668}
   - component: {fileID: 611017220483599045}
   - component: {fileID: 7908843172085703579}
-  m_Layer: 0
+  - component: {fileID: 8443509560752594702}
+  - component: {fileID: 6677306400740985962}
+  m_Layer: 3
   m_Name: Fryler
-  m_TagString: Untagged
+  m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,6 +176,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8443509560752594702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3010548107926658403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb926002eee60ea4092b0476dced3eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &6677306400740985962
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3010548107926658403}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6017977, y: 0.9928175, z: 0.6004478}
+  m_Center: {x: -0.0016535968, y: 0.49640876, z: 0.00006888807}
 --- !u!1 &3613391025781408581
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +220,7 @@ GameObject:
   - component: {fileID: 7005191569739143738}
   - component: {fileID: 98767308575185949}
   - component: {fileID: 6765162978180375406}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}

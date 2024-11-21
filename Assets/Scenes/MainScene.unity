@@ -1438,7 +1438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.69411767}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3866,7 +3866,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 150, y: 150}
-  m_Spacing: {x: 50, y: 10}
+  m_Spacing: {x: 100, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &1162592019
@@ -5223,6 +5223,7 @@ MonoBehaviour:
   _slotPrefeb: {fileID: 2213076959048043209, guid: fd5ba3050c4af4741b6c89028b683406,
     type: 3}
   _InputManager: {fileID: 951654026}
+  _layoutGroup: {fileID: 1153812169}
 --- !u!114 &1666924262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5237,11 +5238,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1153812168}
   m_Horizontal: 1
-  m_Vertical: 1
+  m_Vertical: 0
   m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
-  m_DecelerationRate: 0.135
+  m_DecelerationRate: 0.1
   m_ScrollSensitivity: 1
   m_Viewport: {fileID: 675358409}
   m_HorizontalScrollbar: {fileID: 901651287}

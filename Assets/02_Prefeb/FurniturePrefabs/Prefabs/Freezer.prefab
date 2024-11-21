@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4114954164337846941}
   - component: {fileID: 6945454643464275222}
   - component: {fileID: 8662326631675986548}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,9 +97,11 @@ GameObject:
   - component: {fileID: 7487080355015616534}
   - component: {fileID: 1858657787293648580}
   - component: {fileID: 3315356694459063511}
-  m_Layer: 0
+  - component: {fileID: -2351528175611467031}
+  - component: {fileID: 8599453951153907912}
+  m_Layer: 3
   m_Name: Freezer
-  m_TagString: Untagged
+  m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,6 +176,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-2351528175611467031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622806667842456721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb926002eee60ea4092b0476dced3eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &8599453951153907912
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622806667842456721}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.84608805, z: 0.65}
+  m_Center: {x: -0.00007843971, y: 0.4332131, z: 0.000000074505806}
 --- !u!1 &6864022559597630956
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +220,7 @@ GameObject:
   - component: {fileID: 2393616593728795081}
   - component: {fileID: 9079165049396980772}
   - component: {fileID: 6194221638444210573}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}

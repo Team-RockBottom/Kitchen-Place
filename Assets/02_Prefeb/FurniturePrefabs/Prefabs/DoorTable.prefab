@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3980339596552121025}
   - component: {fileID: 4481619375104565990}
   - component: {fileID: 7525997534506788367}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,9 +97,11 @@ GameObject:
   - component: {fileID: 8324445462759626693}
   - component: {fileID: 683790744518042889}
   - component: {fileID: 7642003234944508808}
-  m_Layer: 0
+  - component: {fileID: 4859374329835835915}
+  - component: {fileID: -7720220768733879944}
+  m_Layer: 3
   m_Name: DoorTable
-  m_TagString: Untagged
+  m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,6 +176,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4859374329835835915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541898706583062944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb926002eee60ea4092b0476dced3eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &-7720220768733879944
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541898706583062944}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8, y: 0.8034966, z: 0.5}
+  m_Center: {x: 0.00048556924, y: 0.4002148, z: 0.000010669231}
 --- !u!1 &2080145463397993784
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +220,7 @@ GameObject:
   - component: {fileID: 2790206835202467241}
   - component: {fileID: 3739583343067837429}
   - component: {fileID: 2534409169048588055}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
