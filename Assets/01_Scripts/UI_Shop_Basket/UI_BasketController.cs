@@ -14,13 +14,19 @@ public class UI_BasketController : MonoBehaviour
     [SerializeField] Button _basketButton;      //장바구니 버튼
     [SerializeField] Transform _basketContent;  //장바구니 스크롤뷰 부모 오브젝트
     [SerializeField] GameObject _basketUIPrefab;//장바구니 UI 프리팹 
+    [SerializeField] Text _totalPrice; //총 가격 텍스트
 
     List<UI_BasketSlot> _basketSlots; //추가된 장바구니 슬롯 리스트
     public List<UI_FurnitureSlotData> _uibasketSlotsDataList; //장바구니 리스트 데이터
 
-    [SerializeField] Text _totalPrice; //총 가격 텍스트
-
+    [Header("SaveSystem")]
+    string _basketDataPath; //장바구니 데이터 파일 경로
     #endregion
+    private void Awake()
+    {
+        //장바구니 데이터 파일 경로 설정
+        _basketDataPath = Application.persistentDataPath + "/BasketData.json";
+    }
     private void Start()
     {
         _basketCanvas.SetActive(false);
