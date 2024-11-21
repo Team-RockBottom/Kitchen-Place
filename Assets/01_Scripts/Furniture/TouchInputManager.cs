@@ -28,6 +28,7 @@ namespace CP.Furniture
         private FurnitureSlot _selectedSlot;
         [SerializeField] private Image _previewImage;
         [SerializeField] private ScrollRect _scrollRect;
+        [SerializeField] private GameObject _scrollDummyUI;
         private Vector2 _mousePosi;
         private GameObject _previewPrefeb;
         
@@ -153,6 +154,7 @@ namespace CP.Furniture
                             {
                                 Destroy(_previewPrefeb);
                             }
+                            _scrollRect.gameObject.SetActive(true);
                             _objs[_listIndex] = _furnitureFactory.CreateFurniture(_selectedSlot.FurnitureIndex, _hits[0].pose.position, plane);
                             _selectedSlot = null;
                             _listIndex++;
@@ -183,6 +185,11 @@ namespace CP.Furniture
 
                     if (_rrListStart.Count > 1)
                     {
+                        if (!_scrollRect.gameObject.activeSelf)
+                        {
+                            _scrollRect.gameObject.SetActive(true);
+                            _scrollDummyUI.gameObject.SetActive(false);
+                        }
                         if (_previewPrefeb)
                         {
                             _previewPrefeb.SetActive(false);
@@ -195,6 +202,11 @@ namespace CP.Furniture
                     {
                         if (_hits[0].trackable.TryGetComponent(out ARPlane plane))
                         {
+                            if(_scrollRect.gameObject.activeSelf)
+                            {
+                                _scrollRect.gameObject.SetActive(false);
+                                _scrollDummyUI.SetActive(true);
+                            }
                             if(_previewPrefeb)
                             {
                                 _previewPrefeb.SetActive(true);
