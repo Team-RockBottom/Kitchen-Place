@@ -25,7 +25,14 @@ public class ScaleMode : MonoBehaviour
         _xButton.onClick.AddListener(() => SetScaleAxis("x"));
         _zButton.onClick.AddListener(() => SetScaleAxis("z"));
         _scaleSlider.onValueChanged.AddListener(UpdateScale);
-        _scaleSlider.value = _targetObject.transform.localScale.x;
+        if (_scaleAxis == "x")
+        {
+            _scaleSlider.value = _targetObject.transform.localScale.x;
+
+        }
+        else
+            _scaleSlider.value = _targetObject.transform.localScale.z;
+
         _xvalueText.text = $"{_size.x * _targetObject.transform.localScale.x:W #,###}mm";
         _zvalueText.text = $"{_size.z * _targetObject.transform.localScale.z:D #,###}mm";
     }
