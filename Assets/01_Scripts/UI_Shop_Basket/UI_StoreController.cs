@@ -24,6 +24,11 @@ public class UI_StoreController : MonoBehaviour
     [SerializeField] Text furnitureSizeText;                //가구 사이즈
     [SerializeField] Text furniturePriceText;               //가구 가격
 
+    [Header("PopUpUI")]
+    [SerializeField] GameObject _popUpImage;        //팝업 창 게임오브젝트
+    [SerializeField] Button _popUpShoppingButton;   //팝업 쇼핑하기 버튼
+    [SerializeField] Button _popUpBasketButton;     //팝업 장바구니 버튼
+
     UI_BasketController _uibasketController;
     private FurnitureSpec _selectFurniture;     //선택된 가구 저장
     [SerializeField] Button _putInButton;       //담기 버튼
@@ -35,6 +40,9 @@ public class UI_StoreController : MonoBehaviour
         _shopButton.onClick.AddListener(OnShop);
         _putInButton.onClick.AddListener(OnPutIn);
         _urlButton.onClick.AddListener(OnURL);
+        _popUpShoppingButton.onClick.AddListener(OnPopUpDelete);
+        _popUpBasketButton.onClick.AddListener(OnPopUpBasket);
+        _popUpImage.SetActive(false);
         for (int i = 0;i < _nextButtonArray.Length; i++)
         {
             _nextButtonArray[i].onClick.AddListener(OnNext);
@@ -126,11 +134,19 @@ public class UI_StoreController : MonoBehaviour
     void OnPutIn()
     {
         _uibasketController.AddFurnitureBasket(_selectFurniture);
+        _popUpImage.gameObject.SetActive(true);
     }
+    /// <summary>
+    /// 버튼 URL 이동 함수 
+    /// </summary>
     public void OnURL()
     {
         OpenURL(_selectFurniture);
     }
+    /// <summary>
+    /// URL 이동 함수
+    /// </summary>
+    /// <param name="furnitureSpec"></param>
     public void OpenURL(FurnitureSpec furnitureSpec)
     {
         if (furnitureSpec.URL == null)
@@ -141,6 +157,22 @@ public class UI_StoreController : MonoBehaviour
         {
             Application.OpenURL(furnitureSpec.URL);
         }
+    }
+    /// <summary>
+    /// 팝업 창 닫기 버튼 함수
+    /// </summary>
+    void OnPopUpDelete()
+    {
+        _popUpImage.gameObject.SetActive(false);
+    }
+    /// <summary>
+    /// 팝업 창에서 장바구니 이동 시 함수
+    /// </summary>
+    void OnPopUpBasket()
+    {
+        _uibasketController._basketCanvas.SetActive(true);
+        _popUpImage.SetActive(false);
+        _furnitureDataCanvas.SetActive(false);
     }
     /// <summary>
     /// 상점 페이지 텍스트 함수

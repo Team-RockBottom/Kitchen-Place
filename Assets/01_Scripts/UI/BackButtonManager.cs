@@ -27,6 +27,8 @@ public class BackButtonManager : MonoBehaviour
     [SerializeField] GameObject _furnitureSpawnUI;
     [SerializeField] GameObject _mainMenuCanvas;
     [SerializeField] FurnitureSelector _furnitureSelector;
+    [SerializeField] UI_BasketController _uIBasketController;
+
     void Start()
     {
         //_furnitureSelector = GetComponent<FurnitureSelector>();
@@ -55,6 +57,7 @@ public class BackButtonManager : MonoBehaviour
         //_furnitureSelector.FunitureInteraction();
         _tryExitCanvas.SetActive(false);
         _mainMenuCanvas.SetActive(true);
+        _uIBasketController.TotalBasketCount();
     }
     private void OnApplicationExitButton()
     {
@@ -65,6 +68,7 @@ public class BackButtonManager : MonoBehaviour
     {
         _furnitureSpawnUI.SetActive(false);
         _mainMenuCanvas.SetActive(true);
+        _uIBasketController.TotalBasketCount();
     }
     private void OnModeSelectExitButton()
     {
@@ -97,11 +101,13 @@ public class BackButtonManager : MonoBehaviour
     {
         _shop2.SetActive(false);
         _mainMenuCanvas.SetActive(true);
+        _uIBasketController.TotalBasketCount();
     }
     private void OnBasketExit()
     {
         _basket.SetActive(false);
         _mainMenuCanvas.SetActive(true);
+        _uIBasketController.TotalBasketCount();
     }
     private void OnFurnitureDataExit()
     {

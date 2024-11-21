@@ -119,6 +119,7 @@ public class UI_BasketSlot : MonoBehaviour
         _uibasketController.UpdateBasketCount(FurnitureIndex, FurnitureCount);
         _uibasketController.TotalPrice();
     }
+
     void OnMinus()
     {
         if (FurnitureCount > 1)
@@ -136,6 +137,9 @@ public class UI_BasketSlot : MonoBehaviour
         _uibasketController.DeleteBasket(FurnitureIndex);
         _uibasketController.TotalPrice();
     }
+    /// <summary>
+    /// URL 이동 버튼 함수
+    /// </summary>
     void OnPay()
     {
         if (FurnitureURL == null)
@@ -147,6 +151,9 @@ public class UI_BasketSlot : MonoBehaviour
             Application.OpenURL(FurnitureURL);
         }
     }
+    /// <summary>
+    /// 총 가격 업데이트 함수
+    /// </summary>
     public void UpdatePrice()
     {
         _priceText.text = $"{(_price * _count):n0} 원";
