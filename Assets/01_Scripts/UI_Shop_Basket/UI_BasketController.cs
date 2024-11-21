@@ -16,7 +16,7 @@ public class UI_BasketController : MonoBehaviour
     [SerializeField] GameObject _basketUIPrefab;//장바구니 UI 프리팹 
 
     List<UI_BasketSlot> _basketSlots; //추가된 장바구니 슬롯 리스트
-    private List<UI_FurnitureSlotData> _uibasketSlotsDataList; //장바구니 리스트 데이터
+    public List<UI_FurnitureSlotData> _uibasketSlotsDataList; //장바구니 리스트 데이터
 
     [SerializeField] Text _totalPrice; //총 가격 텍스트
 
@@ -83,12 +83,18 @@ public class UI_BasketController : MonoBehaviour
             FurnitureSpec furnitureSpec = _uifurnitureSpecRepository.Get(slotData.furnitureIndex);
 
             _basketSlots[i].FurnitureImage = furnitureSpec.Sprite;
-            _basketSlots[i].FurnitureName = furnitureSpec.name;
+            _basketSlots[i].FurnitureName = furnitureSpec.Name;
             _basketSlots[i].FurnitureCount = slotData.furnitureCount;
             _basketSlots[i].FurniturePrice = furnitureSpec.Price;
+            _basketSlots[i].FurnitureURL = furnitureSpec.URL;
         }
         TotalPrice();
     }
+    /// <summary>
+    /// 리스트에 담긴 장바구니 갯수 갱신
+    /// </summary>
+    /// <param name="furnitureIndex"></param>
+    /// <param name="furnitureCount"></param>
     public void UpdateBasketCount(int furnitureIndex, int furnitureCount)
     {
         for (int i = 0; i < _uibasketSlotsDataList.Count; i++)

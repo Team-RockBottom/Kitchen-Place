@@ -5,9 +5,9 @@ public class UI_StoreController : MonoBehaviour
 {
     #region
     [SerializeField] Button _shopButton;     //상점 버튼
-    [SerializeField] GameObject _mainMenuCanvas;
 
     [Header("ShopUI")]
+    [SerializeField] GameObject _mainMenuCanvas;    //메인메뉴 캔버스
     [SerializeField] GameObject[] _shopCanvasArray; //상점 캔버스 배열
     [SerializeField] Button[] _furnitureButtonArray;//가구 버튼 배열
     [SerializeField] Button[] _previousButtonArray; //이전 버튼 배열
@@ -17,7 +17,7 @@ public class UI_StoreController : MonoBehaviour
 
     [Header("FurnitureDataUI")]
     [SerializeField] GameObject _furnitureDataCanvas;       //가구 정보 캔버스
-    [SerializeField] FurnitureSpec[] _furnitureDataArray;//가구 데이터 배열
+    [SerializeField] FurnitureSpec[] _furnitureDataArray;   //가구 데이터 배열
     [SerializeField] Image furnitureImage;                  //가구 이미지
     [SerializeField] Text furnitureNameText;                //가구 이름 텍스트
     [SerializeField] Text furnitureDescriptionText;         //가구 정보
@@ -27,12 +27,14 @@ public class UI_StoreController : MonoBehaviour
     UI_BasketController _uibasketController;
     private FurnitureSpec _selectFurniture;     //선택된 가구 저장
     [SerializeField] Button _putInButton;       //담기 버튼
+    [SerializeField] Button _urlButton;         //URL 버튼
     #endregion
     void Start()
     {
         _uibasketController = GetComponent<UI_BasketController>();
         _shopButton.onClick.AddListener(OnShop);
         _putInButton.onClick.AddListener(OnPutIn);
+        _urlButton.onClick.AddListener(OnURL);
         for (int i = 0;i < _nextButtonArray.Length; i++)
         {
             _nextButtonArray[i].onClick.AddListener(OnNext);
@@ -124,10 +126,21 @@ public class UI_StoreController : MonoBehaviour
     void OnPutIn()
     {
         _uibasketController.AddFurnitureBasket(_selectFurniture);
-        /*foreach (var i in _basketController._basketSlotsDataList)
+    }
+    public void OnURL()
+    {
+        OpenURL(_selectFurniture);
+    }
+    public void OpenURL(FurnitureSpec furnitureSpec)
+    {
+        if (furnitureSpec.URL == null)
         {
-            Debug.Log($"FurnitureIndex: {i.furnitureIndex}, FurnitureCount: {i.furnitureCount}");
-        }*/
+            Debug.Log("URL Not Found");
+        }
+        else
+        {
+            Application.OpenURL(furnitureSpec.URL);
+        }
     }
     /// <summary>
     /// 상점 페이지 텍스트 함수
