@@ -29,6 +29,7 @@ public class FurnitureSelector : MonoBehaviour
         _tapStartPosition.action.started += OnTouch;
         _furnitureSpawnButton.onClick.AddListener(FurnitureSpawnUIOnOff);
         _pointerEventData = new PointerEventData(EventSystem.current);
+        _mainMenuCanvas.SetActive(true);
     }
 
 
