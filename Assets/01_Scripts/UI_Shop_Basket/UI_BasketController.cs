@@ -83,7 +83,7 @@ public class UI_BasketController : MonoBehaviour
             FurnitureSpec furnitureSpec = _uifurnitureSpecRepository.Get(slotData.furnitureIndex);
 
             _basketSlots[i].FurnitureImage = furnitureSpec.Sprite;
-            _basketSlots[i].FurnitureName = furnitureSpec.name;
+            _basketSlots[i].FurnitureName = furnitureSpec.Name;
             _basketSlots[i].FurnitureCount = slotData.furnitureCount;
             _basketSlots[i].FurniturePrice = furnitureSpec.Price;
             _basketSlots[i].FurnitureURL = furnitureSpec.URL;
