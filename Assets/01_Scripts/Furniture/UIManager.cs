@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
             furnitureSlot.FurniturePrefeb = _slotDic[i].Prefeb;
             furnitureSlot.FurnitureIndex = i;
             furnitureSlot.FurnitureSize = _slotDic[i].Size;
-            furnitureSlot.FurnitureSizeText = $"{_slotDic[i].Size.x} X {_slotDic[i].Size.z} X {_slotDic[i].Size.y}";
+            furnitureSlot.FurnitureSizeText = $"W : {_slotDic[i].Size.x}\nD : {_slotDic[i].Size.z} \nH : {_slotDic[i].Size.y}";
 
             _slot.gameObject.transform.SetParent(transform.GetChild(0).GetChild(0),true); //오브젝트 그룹의 자식으로 들어간다.
         }
