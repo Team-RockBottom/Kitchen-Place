@@ -46,16 +46,21 @@ public class BackButtonManager : MonoBehaviour
 
     private void OnTryApplicationExitButton()
     {
+        //_furnitureSelector.FunitureInteraction();
         _tryExitCanvas.SetActive(true);
+        _mainMenuCanvas.SetActive(false);
     }
     private void OnCansleApplicationExit()
     {
+        //_furnitureSelector.FunitureInteraction();
         _tryExitCanvas.SetActive(false);
+        _mainMenuCanvas.SetActive(true);
     }
     private void OnApplicationExitButton()
     {
         Application.Quit();
     }
+    //========================================
     private void OnFurnitureSpawnExit()
     {
         _furnitureSpawnUI.SetActive(false);
@@ -63,7 +68,7 @@ public class BackButtonManager : MonoBehaviour
     }
     private void OnModeSelectExitButton()
     {
-        _furnitureSelector.FunitureInteraction();
+        //_furnitureSelector.FunitureInteraction();
         _furnitureSpawnUI.SetActive(true);
         _modeSelectCanvas.SetActive(false);
     }
