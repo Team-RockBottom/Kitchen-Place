@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 13 Sink_Door
   m_EditorClassIdentifier: 
   <Index>k__BackingField: 13
-  <Name>k__BackingField: "\uBB38\uB2EC\uB9B0 \\n\uC2F1\uD06C\uB300"
+  <Name>k__BackingField: "\uBB38\uB2EC\uB9B0 \uC2F1\uD06C\uB300"
   <Description>k__BackingField: "\uBB38\uB2EC\uB9B0 \uC2F1\uD06C\uB300\uC774\uB2E4."
   <Sprite>k__BackingField: {fileID: 21300000, guid: f43b4fde4fc27a34ca57f3b02df27a41,
     type: 3}
@@ -21,3 +21,4 @@ MonoBehaviour:
     type: 3}
   <Size>k__BackingField: {x: 1200, y: 1900, z: 755}
   <Price>k__BackingField: 15000
+  <URL>k__BackingField: 

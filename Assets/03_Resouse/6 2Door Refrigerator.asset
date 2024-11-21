@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 6 2Door Refrigerator
   m_EditorClassIdentifier: 
   <Index>k__BackingField: 6
-  <Name>k__BackingField: "2\uAD6C \\n\uB0C9\uC7A5\uACE0"
+  <Name>k__BackingField: "2\uAD6C \uB0C9\uC7A5\uACE0"
   <Description>k__BackingField: "2\uAD6C \uB0C9\uC7A5\uACE0\uC774\uB2E4."
   <Sprite>k__BackingField: {fileID: 21300000, guid: d5efccb1508a13146b1988c4593ca811,
     type: 3}
@@ -21,3 +21,4 @@ MonoBehaviour:
     type: 3}
   <Size>k__BackingField: {x: 627, y: 1900, z: 800}
   <Price>k__BackingField: 15000
+  <URL>k__BackingField: 
