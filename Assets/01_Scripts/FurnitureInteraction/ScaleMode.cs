@@ -26,8 +26,8 @@ public class ScaleMode : MonoBehaviour
         _zButton.onClick.AddListener(() => SetScaleAxis("z"));
         _scaleSlider.onValueChanged.AddListener(UpdateScale);
         _scaleSlider.value = _targetObject.transform.localScale.x;
-        _xvalueText.text = $"{_size.x * _targetObject.transform.localScale.x: ####.#}mm";
-        _zvalueText.text = $"{_size.z * _targetObject.transform.localScale.z: ####.#}mm";
+        _xvalueText.text = $"{_size.x * _targetObject.transform.localScale.x: #,####} mm";
+        _zvalueText.text = $"{_size.z * _targetObject.transform.localScale.z: #,####} mm";
     }
 
     private void SetScaleAxis(string axis)
@@ -44,8 +44,8 @@ public class ScaleMode : MonoBehaviour
 
     private void UpdateScale(float value)
     {
-        _xvalueText.text = $"{_size.x * _targetObject.transform.localScale.x : ###.#}mm";
-        _zvalueText.text = $"{_size.z * _targetObject.transform.localScale.z : ###.#}mm";
+        _xvalueText.text = $"{_size.x * _targetObject.transform.localScale.x : #,###} mm";
+        _zvalueText.text = $"{_size.z * _targetObject.transform.localScale.z : #,###} mm";
         value = Mathf.Clamp(value,_scaleSlider.minValue,_scaleSlider.maxValue);
         if (_targetObject != null)
         {
