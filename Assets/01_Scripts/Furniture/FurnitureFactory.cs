@@ -40,7 +40,10 @@ namespace CP.Furniture
                 {
                     furobj.Spec = furniture;
                 }
-
+                Vector3 direction = Camera.main.transform.position - position; //카메라와의 방향 계산
+                direction.y = 0; //Y축 회전을 고정하여 UI가 위아래로 기울어지지 않도록 함
+                Quaternion rotation = Quaternion.LookRotation(direction); //UI가 카메라를 바라보도록 회전
+                obj.transform.rotation = rotation; //UIImage 회전 적용
                 if (_furnitures == null) //부모로 삼을 빈 오브젝트없을시 생성
                 {
                     _furnitures = new GameObject("Furnitures");
@@ -52,12 +55,14 @@ namespace CP.Furniture
         }
         public GameObject CreatePreviewFurniture(int index)
         {
+
             FurnitureSpec furniture = _repository.GetSpec(index); //가구 번호에 맞춰서 가구의 정보를 불러온다.
             GameObject obj = null; //오브젝트 저장할 변수
             if (furniture != null)
             {
                 obj = Instantiate(furniture.Prefeb);
                 obj.transform.localScale = Vector3.one / 2;
+
             }
             return obj;
         }

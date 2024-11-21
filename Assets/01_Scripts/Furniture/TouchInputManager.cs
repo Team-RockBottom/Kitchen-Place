@@ -160,6 +160,14 @@ namespace CP.Furniture
                             _listIndex++;
                         }
                     }
+                    else
+                    {
+                        _previewImage.enabled = false;
+                        if (_previewPrefeb)
+                        {
+                            Destroy(_previewPrefeb);
+                        }
+                    }
                 }
                 else
                 {
@@ -211,6 +219,10 @@ namespace CP.Furniture
                             {
                                 _previewPrefeb.SetActive(true);
                             }
+                            Vector3 direction = Camera.main.transform.position - _hits[0].pose.position; //카메라와의 방향 계산
+                            direction.y = 0; //Y축 회전을 고정하여 UI가 위아래로 기울어지지 않도록 함
+                            Quaternion rotation = Quaternion.LookRotation(direction); //UI가 카메라를 바라보도록 회전
+                            _previewPrefeb.transform.rotation = rotation; //UIImage 회전 적용
                             _previewImage.enabled = false;
                             _previewPrefeb.transform.position = _hits[0].pose.position;
                         }
