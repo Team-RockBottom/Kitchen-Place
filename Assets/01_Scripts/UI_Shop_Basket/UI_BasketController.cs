@@ -10,11 +10,13 @@ public class UI_BasketController : MonoBehaviour
     [Header("BasketUI")]
     [SerializeField] GameObject _mainMenuCanvas;
     [SerializeField] UI_FurnitureSpecRepository _uifurnitureSpecRepository;
-    [SerializeField] GameObject _basketCanvas;  //장바구니 캔버스
+    [SerializeField] public GameObject _basketCanvas;  //장바구니 캔버스
     [SerializeField] Button _basketButton;      //장바구니 버튼
     [SerializeField] Transform _basketContent;  //장바구니 스크롤뷰 부모 오브젝트
     [SerializeField] GameObject _basketUIPrefab;//장바구니 UI 프리팹 
     [SerializeField] Text _totalPrice; //총 가격 텍스트
+    [SerializeField] GameObject _totalBasketImage; //총 장바구니 게임오브젝트 
+    [SerializeField] Text _totalBasketCount; //총 장바구니 담긴 갯수 텍스트
 
     List<UI_BasketSlot> _basketSlots; //추가된 장바구니 슬롯 리스트
     public List<UI_FurnitureSlotData> _uibasketSlotsDataList; //장바구니 리스트 데이터
@@ -33,6 +35,7 @@ public class UI_BasketController : MonoBehaviour
         _basketButton.onClick.AddListener(OnBasket);
         _basketSlots = new List<UI_BasketSlot>();
         _uibasketSlotsDataList = new List<UI_FurnitureSlotData>();
+        _totalBasketImage.SetActive(false);
     }
     /// <summary>
     /// 장바구니 UI 버튼
@@ -81,7 +84,7 @@ public class UI_BasketController : MonoBehaviour
     /// 장바구니 UI 업데이트 함수
     /// </summary>
     /// <param name="basketData"></param>
-    void UpdateBasketUI()
+    public void UpdateBasketUI()
     {
         for (int i = 0; i < _uibasketSlotsDataList.Count; i++)
         {
@@ -143,5 +146,26 @@ public class UI_BasketController : MonoBehaviour
             totalPrice += furnitureSpec.Price * slotData.furnitureCount;
         }
         _totalPrice.text = $"Total Price : {totalPrice:n0} 원 ";
+    }
+
+    /// <summary>
+    /// 총 장바구니 갯수 텍스트 함수
+    /// </summary>
+    public void TotalBasketCount()
+    {
+        int totalBasketCount = 0;
+        foreach (var slotData in _uibasketSlotsDataList)
+        {
+            totalBasketCount += slotData.furnitureCount; 
+        }
+        if (totalBasketCount < 1)
+        {
+            _totalBasketImage.SetActive(false);
+        }
+        else
+        {
+            _totalBasketImage.SetActive(true);
+            _totalBasketCount.text = totalBasketCount.ToString();
+        }
     }
 }
