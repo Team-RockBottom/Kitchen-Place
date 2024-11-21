@@ -28,6 +28,7 @@ namespace CP.Furniture
         private FurnitureSlot _selectedSlot;
         [SerializeField] private Image _previewImage;
         [SerializeField] private ScrollRect _scrollRect;
+        [SerializeField] private GameObject _scrollDummyUI;
         private Vector2 _mousePosi;
         private GameObject _previewPrefeb;
         
@@ -148,6 +149,11 @@ namespace CP.Furniture
                     {
                         if (_selectedSlot)
                         {
+                            if (!_scrollRect.gameObject.activeSelf)
+                            {
+                                _scrollRect.gameObject.SetActive(true);
+                                _scrollDummyUI.SetActive(false);
+                            }
                             _previewImage.enabled = false;
                             if (_previewPrefeb)
                             {
@@ -183,6 +189,11 @@ namespace CP.Furniture
 
                     if (_rrListStart.Count > 1)
                     {
+                        if (!_scrollRect.gameObject.activeSelf)
+                        {
+                            _scrollRect.gameObject.SetActive(true);
+                            _scrollDummyUI.SetActive(false);
+                        }
                         if (_previewPrefeb)
                         {
                             _previewPrefeb.SetActive(false);
@@ -195,7 +206,16 @@ namespace CP.Furniture
                     {
                         if (_hits[0].trackable.TryGetComponent(out ARPlane plane))
                         {
-                            if(_previewPrefeb)
+                            Vector3 direction = Camera.main.transform.position - _hits[0].pose.position; //카메라와의 방향 계산
+                            direction.y = 0; //Y축 회전을 고정하여 UI가 위아래로 기울어지지 않도록 함
+                            Quaternion rotation = Quaternion.LookRotation(direction); //UI가 카메라를 바라보도록 회전
+                            _previewPrefeb.transform.rotation = rotation; //UIImage 회전 적용
+                            if (_scrollRect.gameObject.activeSelf)
+                            {
+                                _scrollRect.gameObject.SetActive(false);
+                                _scrollDummyUI.SetActive(true);
+                            }
+                            if (_previewPrefeb)
                             {
                                 _previewPrefeb.SetActive(true);
                             }

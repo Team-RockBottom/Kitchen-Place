@@ -35,6 +35,10 @@ namespace CP.Furniture
                 _basketController.AddFurnitureBasket(furniture); //장바구니 리스트에 생성
                 //obj.transform.localScale = Vector3.one / 5; //생성후 조정(아직은 프리펩이 어떻게 될지몰라서 임의로 설정)
 
+                Vector3 direction = Camera.main.transform.position - position; //카메라와의 방향 계산
+                direction.y = 0; //Y축 회전을 고정하여 UI가 위아래로 기울어지지 않도록 함
+                Quaternion rotation = Quaternion.LookRotation(direction); //UI가 카메라를 바라보도록 회전
+                obj.transform.rotation = rotation; //UIImage 회전 적용
                 obj.transform.position = position;
                 if(obj.TryGetComponent(out FurnitureObject furobj))
                 {
