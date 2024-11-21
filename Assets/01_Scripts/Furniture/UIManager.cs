@@ -28,19 +28,21 @@ public class UIManager : MonoBehaviour
             GameObject _slot;
             _slot = Instantiate(_slotPrefeb);
             FurnitureSlot furnitureSlot = _slot.GetComponent<FurnitureSlot>();
-            furnitureSlot.furnitureNameText = _slotDic[i].Name;
-            furnitureSlot.furnitureIcon = _slotDic[i].Sprite;
-            furnitureSlot.furniturePrefeb = _slotDic[i].Prefeb;
-            furnitureSlot.furnitureIndex = i;
+            furnitureSlot.FurnitureNameText = _slotDic[i].Name;
+            furnitureSlot.FurnitureIcon = _slotDic[i].Sprite;
+            furnitureSlot.FurniturePrefeb = _slotDic[i].Prefeb;
+            furnitureSlot.FurnitureIndex = i;
+            furnitureSlot.FurnitureSize = _slotDic[i].Size;
+            furnitureSlot.FurnitureSizeText = $"{_slotDic[i].Size.x} X {_slotDic[i].Size.z} X {_slotDic[i].Size.y}";
 
             _slot.gameObject.transform.SetParent(transform.GetChild(0).GetChild(0),true); //오브젝트 그룹의 자식으로 들어간다.
         }
-        if (_slotDic.Count > 7) //슬롯이 스크롤 뷰보다 많아져서 안보여지면
-        {
-            _slotDistance = _layoutGroup.cellSize.x + _layoutGroup.spacing.x;
-            Vector2 size = _contentTransform.sizeDelta;
-            size.x -= (_slotDistance*(7-_slotDic.Count)); //넘은 갯수만큼 늘려준다.
-            _contentTransform.sizeDelta = size;
-        }
+
+        _slotDistance = _layoutGroup.cellSize.x + _layoutGroup.spacing.x;
+        Debug.Log(_layoutGroup.cellSize.y);
+        Debug.Log(_layoutGroup.spacing.x);
+        Vector2 size = _contentTransform.sizeDelta;
+        size.x -= (_slotDistance*(4-_slotDic.Count)); //넘은 갯수만큼 늘려준다.
+        _contentTransform.sizeDelta = size;
     }
 }

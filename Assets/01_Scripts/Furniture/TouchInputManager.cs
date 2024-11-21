@@ -73,11 +73,11 @@ namespace CP.Furniture
                     if (_rrListStart[0].gameObject.TryGetComponent(out FurnitureSlot slot))
                     {
                         _selectedSlot = slot;
-                        _previewImage.sprite = slot.furnitureIcon;
+                        _previewImage.sprite = slot.FurnitureIcon;
                         Debug.Log(slot.name);
                         _scrollRect.enabled = false;
                         isSlot = true;
-                        _previewPrefeb = _furnitureFactory.CreatePreviewFurniture(slot.furnitureIndex);
+                        _previewPrefeb = _furnitureFactory.CreatePreviewFurniture(slot.FurnitureIndex);
                         _previewPrefeb.layer = 0;
                     }
                 }
@@ -94,11 +94,11 @@ namespace CP.Furniture
                     if (_rrListStart[0].gameObject.TryGetComponent(out FurnitureSlot slot))
                     {
                         _selectedSlot = slot;
-                        _previewImage.sprite = slot.furnitureIcon;
+                        _previewImage.sprite = slot.FurnitureIcon;
                         Debug.Log(slot.name);
                         _scrollRect.enabled = false;
                         isSlot = true;
-                        _previewPrefeb = _furnitureFactory.CreatePreviewFurniture(slot.furnitureIndex);
+                        _previewPrefeb = _furnitureFactory.CreatePreviewFurniture(slot.FurnitureIndex);
                         _previewPrefeb.layer = 0;
 
                     }
@@ -153,7 +153,7 @@ namespace CP.Furniture
                             {
                                 Destroy(_previewPrefeb);
                             }
-                            _objs[_listIndex] = _furnitureFactory.CreateFurniture(_selectedSlot.furnitureIndex, _hits[0].pose.position, plane);
+                            _objs[_listIndex] = _furnitureFactory.CreateFurniture(_selectedSlot.FurnitureIndex, _hits[0].pose.position, plane);
                             _selectedSlot = null;
                             _listIndex++;
                         }
