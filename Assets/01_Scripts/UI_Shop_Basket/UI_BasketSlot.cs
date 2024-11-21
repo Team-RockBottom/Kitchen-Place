@@ -138,7 +138,6 @@ public class UI_BasketSlot : MonoBehaviour
     }
     void OnPay()
     {
-        Debug.Log(FurnitureURL);
         if (FurnitureURL == null)
         {
             Debug.Log("URL Not Found");

@@ -129,7 +129,6 @@ public class UI_StoreController : MonoBehaviour
     }
     public void OnURL()
     {
-        Debug.Log("OnURL");
         OpenURL(_selectFurniture);
     }
     public void OpenURL(FurnitureSpec furnitureSpec)
