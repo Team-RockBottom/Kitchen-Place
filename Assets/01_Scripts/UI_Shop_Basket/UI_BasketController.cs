@@ -84,7 +84,7 @@ public class UI_BasketController : MonoBehaviour
     /// 장바구니 UI 업데이트 함수
     /// </summary>
     /// <param name="basketData"></param>
-    void UpdateBasketUI()
+    public void UpdateBasketUI()
     {
         for (int i = 0; i < _uibasketSlotsDataList.Count; i++)
         {

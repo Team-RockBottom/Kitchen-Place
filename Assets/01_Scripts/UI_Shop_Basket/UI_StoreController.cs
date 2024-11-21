@@ -173,6 +173,7 @@ public class UI_StoreController : MonoBehaviour
         _uibasketController._basketCanvas.SetActive(true);
         _popUpImage.SetActive(false);
         _furnitureDataCanvas.SetActive(false);
+        _uibasketController.UpdateBasketUI();
     }
     /// <summary>
     /// 상점 페이지 텍스트 함수
