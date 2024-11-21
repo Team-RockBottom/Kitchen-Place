@@ -59,7 +59,22 @@ public class UIPanelController : MonoBehaviour
 
         if (_basketController._uibasketSlotsDataList.Count > 0)
         {
-            _basketController._uibasketSlotsDataList[_furnitureIndex].furnitureCount--;
+            for (int i = 0; i < _basketController._uibasketSlotsDataList.Count; i++)
+            {
+                if (_basketController._uibasketSlotsDataList[i].furnitureIndex == _furnitureIndex)
+                {
+                    _basketController._uibasketSlotsDataList[i].furnitureCount--;
+                    if (_basketController._uibasketSlotsDataList[i].furnitureCount <= 0)
+                    {
+                        _basketController.DeleteBasket(_furnitureIndex);
+                    }
+                }
+            }
+            //_basketController._uibasketSlotsDataList[_furnitureIndex].furnitureCount--;
+            //if (_basketController._uibasketSlotsDataList[_furnitureIndex].furnitureCount == 0)
+            //{
+            //    _basketController.DeleteBasket(_furnitureIndex);
+            //}
         }
         else
             _basketController.DeleteBasket(_furnitureIndex);
