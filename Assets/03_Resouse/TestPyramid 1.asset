@@ -21,3 +21,4 @@ MonoBehaviour:
     type: 3}
   <Size>k__BackingField: {x: 3, y: 10, z: 5}
   <Price>k__BackingField: 5000
+  <URL>k__BackingField: https://www.google.com/

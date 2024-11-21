@@ -86,9 +86,15 @@ public class UI_BasketController : MonoBehaviour
             _basketSlots[i].FurnitureName = furnitureSpec.name;
             _basketSlots[i].FurnitureCount = slotData.furnitureCount;
             _basketSlots[i].FurniturePrice = furnitureSpec.Price;
+            _basketSlots[i].FurnitureURL = furnitureSpec.URL;
         }
         TotalPrice();
     }
+    /// <summary>
+    /// 리스트에 담긴 장바구니 갯수 갱신
+    /// </summary>
+    /// <param name="furnitureIndex"></param>
+    /// <param name="furnitureCount"></param>
     public void UpdateBasketCount(int furnitureIndex, int furnitureCount)
     {
         for (int i = 0; i < _uibasketSlotsDataList.Count; i++)
