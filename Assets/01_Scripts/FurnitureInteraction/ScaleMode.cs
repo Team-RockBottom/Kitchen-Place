@@ -31,6 +31,7 @@ public class ScaleMode : MonoBehaviour
         }
         else
         {
+            _targetObject = obj;
             OnCheckButton();
         }
 
