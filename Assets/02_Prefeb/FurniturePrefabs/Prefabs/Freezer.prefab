@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3315356694459063511}
   - component: {fileID: -2351528175611467031}
   - component: {fileID: 8599453951153907912}
+  - component: {fileID: -3453405726879309709}
   m_Layer: 3
   m_Name: Freezer
   m_TagString: Furniture
@@ -209,6 +210,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.84608805, z: 0.65}
   m_Center: {x: -0.00007843971, y: 0.4332131, z: 0.000000074505806}
+--- !u!114 &-3453405726879309709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622806667842456721}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.9618751, b: 0, a: 1}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6864022559597630956
 GameObject:
   m_ObjectHideFlags: 0
