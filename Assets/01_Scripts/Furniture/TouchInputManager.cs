@@ -75,7 +75,6 @@ namespace CP.Furniture
                     {
                         _selectedSlot = slot;
                         _previewImage.sprite = slot.FurnitureIcon;
-                        Debug.Log(slot.name);
                         _scrollRect.enabled = false;
                         isSlot = true;
                         _previewPrefeb = _furnitureFactory.CreatePreviewFurniture(slot.FurnitureIndex);
@@ -96,7 +95,6 @@ namespace CP.Furniture
                     {
                         _selectedSlot = slot;
                         _previewImage.sprite = slot.FurnitureIcon;
-                        Debug.Log(slot.name);
                         _scrollRect.enabled = false;
                         isSlot = true;
                         _previewPrefeb = _furnitureFactory.CreatePreviewFurniture(slot.FurnitureIndex);

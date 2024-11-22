@@ -28,6 +28,7 @@ public class BackButtonManager : MonoBehaviour
     [SerializeField] GameObject _mainMenuCanvas;
     [SerializeField] FurnitureSelector _furnitureSelector;
     [SerializeField] UI_BasketController _uIBasketController;
+    [SerializeField] UI_StoreController _uiStoreController;
 
     private GameObject _selectedFurniture;
 
@@ -116,6 +117,7 @@ public class BackButtonManager : MonoBehaviour
     {
         _furnitureData.SetActive(false);
         _shop1.SetActive(true);
+        _uiStoreController.pageCount = 0;
     }
     //==========================================================
 }

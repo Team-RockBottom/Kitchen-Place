@@ -23,13 +23,11 @@ public class MoveMode : MonoBehaviour
     //}
     private void OnEnable()
     {
-        Debug.Log("MoveMode OnEnable");
         _inputActionReference.action.performed += OnMoveClicked;
     }
 
     private void OnDisable()
     {
-        Debug.Log("MoveMode OnDisable");
         _isMoving = false;
         _inputActionReference.action.performed -= OnMoveClicked;
     }
