@@ -202,7 +202,7 @@ public class UI_StoreController : MonoBehaviour
         _selectFurniture = _furnitureDataArray[index];
         furnitureImage.sprite = _selectFurniture.Sprite;
         furnitureNameText.text = _selectFurniture.Name;
-        furnitureDescriptionText.text = _selectFurniture.Description;
+        furnitureDescriptionText.text = _selectFurniture.Description.Replace("\\n", "\n");
         furnitureSizeText.text = $"규격 : W: {_selectFurniture.Size.x}, D: {_selectFurniture.Size.z}, H: {_selectFurniture.Size.y}";
         furniturePriceText.text = $"가격 : {_selectFurniture.Price:n0} 원";
     }
