@@ -34,7 +34,6 @@ public class FurnitureSelector : MonoBehaviour
 
     void OnTouch(InputAction.CallbackContext context)
     {
-        Debug.Log("OnTouch Call");
         RaycastHit hit;
         Vector2 tapposition = context.ReadValue<Vector2>();
         _pointerEventData.position = tapposition;
@@ -44,15 +43,12 @@ public class FurnitureSelector : MonoBehaviour
 
         if (true)
         {
-            Debug.Log("if true");
             if (results.Count > 0)
             {
-                Debug.Log("results.count > 0");
                 return;
             }
             else
             {
-                Debug.Log("results.count > 0 else");
                 if (!_isInteraction)
                 {
                     if (Physics.Raycast(_xrCamera.ScreenPointToRay(tapposition), out hit, 100f, Furniture))
