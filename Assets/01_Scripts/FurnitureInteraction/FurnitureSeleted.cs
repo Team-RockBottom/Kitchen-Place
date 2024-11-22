@@ -63,13 +63,6 @@ public class FurnitureSelected : MonoBehaviour
                         {
                             obj = hit.transform.gameObject;
                             ActivateUIPanel(obj);
-                            Debug.Log(hit.transform.gameObject.name);
-                            Renderer renderer = obj.GetComponent<Renderer>();
-                            if (renderer != null)
-                            {
-                                Material material = renderer.material;
-                                Color color = material.color;
-                            }
                         }
                     }
                 }
@@ -83,6 +76,7 @@ public class FurnitureSelected : MonoBehaviour
 
     void ActivateUIPanel(GameObject selectedObject)
     {
+        uiPanel.SetActive(false);
         uiPanel.SetActive(true);
         _gameSpawnUI.SetActive(false);
         uiPanel.GetComponent<UIPanelController>().SetTargetObject(selectedObject);
@@ -98,8 +92,4 @@ public class FurnitureSelected : MonoBehaviour
         _mainMenuCanvas.SetActive(false);
         _furnitureSpawnUI.SetActive(true);
     }
-    //public void FunitureInteraction()
-    //{
-    //    _isInteraction = !_isInteraction;
-    //}
 }

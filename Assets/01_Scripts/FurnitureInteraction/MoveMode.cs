@@ -16,20 +16,13 @@ public class MoveMode : MonoBehaviour
     private bool _isMoving = false;
     List<ARRaycastHit> _hits = new List<ARRaycastHit>();
 
-
-    //private void Start()
-    //{
-    //    _inputActionReference.action.performed += OnMoveClicked;
-    //}
     private void OnEnable()
     {
-        Debug.Log("MoveMode OnEnable");
         _inputActionReference.action.performed += OnMoveClicked;
     }
 
     private void OnDisable()
     {
-        Debug.Log("MoveMode OnDisable");
         _isMoving = false;
         _inputActionReference.action.performed -= OnMoveClicked;
     }
@@ -37,6 +30,7 @@ public class MoveMode : MonoBehaviour
     {   
         _targetObject = obj;
         _isMoving = true;
+        _targetObject.GetComponent<Outline>().enabled = true;
     }
 
     private void OnMoveClicked(InputAction.CallbackContext context)
@@ -50,10 +44,6 @@ public class MoveMode : MonoBehaviour
             {
                 if (tapPosition != null && _isMoving)
                 {
-                    //if(phyray,out hit,100f,)
-                    //Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(tapPosition.x, tapPosition.y, Camera.main.WorldToScreenPoint(_targetObject.transform.position).z));
-                    //_targetObject.transform.position = new Vector3(touchPosition.x, _targetObject.transform.position.y, touchPosition.z);
-
                     if (_arraycastManager.Raycast(ray, _hits, TrackableType.Planes))
                     {
                         if(_hits[0].trackable.TryGetComponent(out ARPlane plane))

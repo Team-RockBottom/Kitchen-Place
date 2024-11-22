@@ -16,7 +16,6 @@ public class UIPanelController : MonoBehaviour
     FurnitureSelector _furnitureSelector;
     [SerializeField] UI_BasketController _basketController;
     private int _furnitureIndex;
-    
 
     private void Start()
     {
@@ -27,31 +26,37 @@ public class UIPanelController : MonoBehaviour
         _DeletedButton.onClick.AddListener(OnFurnitureDeletedButton);
     }
 
+    private void OnDisable()
+    {
+        _targetObject.GetComponent<Outline>().enabled = false;
+    }
+
     public void SetTargetObject(GameObject obj)
     {
         _targetObject = obj;
         _furnitureIndex = _targetObject.GetComponent<FurnitureObject>().Spec.Index;
+        _targetObject.GetComponent<Outline>().enabled = true;
     }
 
     private void OnMoveButtonClicked()
     {
+        _modeSelectedCanvas.SetActive(false);
         _moveModeCanvas.SetActive(true);
         _moveModeCanvas.GetComponent<MoveMode>().Activate(_targetObject);
-        _modeSelectedCanvas.SetActive(false);
     }
 
     private void OnRotateButtonClicked()
     {
+        _modeSelectedCanvas.SetActive(false);
         _rotateModeCanvas.SetActive(true);
         _rotateModeCanvas.GetComponent<RotateMode>().Activate(_targetObject);
-        _modeSelectedCanvas.SetActive(false);
     }
 
     private void OnScaleButtonClicked()
     {
+        _modeSelectedCanvas.SetActive(false);
         _scaleModeCanvas.SetActive(true);
         _scaleModeCanvas.GetComponent<ScaleMode>().Activate(_targetObject);
-        _modeSelectedCanvas.SetActive(false);
     }
 
     private void OnFurnitureDeletedButton()
@@ -70,11 +75,6 @@ public class UIPanelController : MonoBehaviour
                     }
                 }
             }
-            //_basketController._uibasketSlotsDataList[_furnitureIndex].furnitureCount--;
-            //if (_basketController._uibasketSlotsDataList[_furnitureIndex].furnitureCount == 0)
-            //{
-            //    _basketController.DeleteBasket(_furnitureIndex);
-            //}
         }
         else
             _basketController.DeleteBasket(_furnitureIndex);

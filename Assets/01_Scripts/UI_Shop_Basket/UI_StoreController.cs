@@ -8,12 +8,12 @@ public class UI_StoreController : MonoBehaviour
 
     [Header("ShopUI")]
     [SerializeField] GameObject _mainMenuCanvas;    //메인메뉴 캔버스
-    [SerializeField] GameObject[] _shopCanvasArray; //상점 캔버스 배열
+    [SerializeField] public GameObject[] _shopCanvasArray; //상점 캔버스 배열
     [SerializeField] Button[] _furnitureButtonArray;//가구 버튼 배열
     [SerializeField] Button[] _previousButtonArray; //이전 버튼 배열
     [SerializeField] Button[] _nextButtonArray;     //다음 버튼 배열
     [SerializeField] Text[] _pageCountArray;        //상점 페이지 텍스트 배열
-    private int pageCount = 0;                      //상점 페이지 텍스트 인덱스
+    public int pageCount = 0;                      //상점 페이지 텍스트 인덱스
 
     [Header("FurnitureDataUI")]
     [SerializeField] GameObject _furnitureDataCanvas;       //가구 정보 캔버스
@@ -66,10 +66,6 @@ public class UI_StoreController : MonoBehaviour
             _shopCanvasArray[i].SetActive(false);
         }
     }
-    private void Update()
-    {
-        PageCountUpdate();
-    }
     /// <summary>
     /// 상점 UI 버튼 함수
     /// </summary>
@@ -107,6 +103,7 @@ public class UI_StoreController : MonoBehaviour
         }
         //상점 페이지 카운트 활성화
         _shopCanvasArray[pageCount].SetActive(true);
+        PageCountUpdate();
     }
     /// <summary>
     /// 상점 이전 페이지 버튼 함수
@@ -127,6 +124,7 @@ public class UI_StoreController : MonoBehaviour
         }
         //상점 페이지 카운트 활성화 
         _shopCanvasArray[pageCount].SetActive(true);
+        PageCountUpdate();
     }
     /// <summary>
     /// 담기 버튼 함수
@@ -191,7 +189,7 @@ public class UI_StoreController : MonoBehaviour
         _selectFurniture = _furnitureDataArray[index];
         furnitureImage.sprite = _selectFurniture.Sprite;
         furnitureNameText.text = _selectFurniture.Name;
-        furnitureDescriptionText.text = _selectFurniture.Description;
+        furnitureDescriptionText.text = _selectFurniture.Description.Replace("\\n", "\n");
         furnitureSizeText.text = $"규격 : W: {_selectFurniture.Size.x}, D: {_selectFurniture.Size.z}, H: {_selectFurniture.Size.y}";
         furniturePriceText.text = $"가격 : {_selectFurniture.Price:n0} 원";
     }
