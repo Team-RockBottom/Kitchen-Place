@@ -6,26 +6,36 @@ public class RotateMode : MonoBehaviour
 {
     [SerializeField] Slider rotationSlider;
     [SerializeField] TMP_Text _rotationSliderValueText;
-    private GameObject targetObject;
+    private GameObject _targetObject;
 
     public void Activate(GameObject obj)
     {
-        targetObject = obj;
+        _targetObject = obj;
         rotationSlider.gameObject.SetActive(true);
         rotationSlider.onValueChanged.AddListener(UpdateRotation);
-        rotationSlider.value = obj.transform.localEulerAngles.y;
         rotationSlider.minValue = 0;
         rotationSlider.maxValue = 360;
+        rotationSlider.value = NormlizeAngle(obj.transform.eulerAngles.y);
+        _targetObject.GetComponent<Outline>().enabled = true;
     }
 
     private void UpdateRotation(float value)
     {
         value = Mathf.Clamp(rotationSlider.value,rotationSlider.minValue,rotationSlider.maxValue);
-        if (targetObject != null)
+        if (_targetObject != null)
         {
-            targetObject.transform.rotation = Quaternion.Euler(0, value, 0);
+            _targetObject.transform.rotation = Quaternion.Euler(0, value, 0);
             _rotationSliderValueText.text = $"{value : ###}";
         }
+    }
+
+    private float NormlizeAngle(float angle)
+    {
+        if(angle < 0)
+        {
+            angle = 360f + angle;
+        }
+            return angle;
     }
 
     private void OnDisable()

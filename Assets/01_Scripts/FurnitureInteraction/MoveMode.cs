@@ -37,6 +37,7 @@ public class MoveMode : MonoBehaviour
     {   
         _targetObject = obj;
         _isMoving = true;
+        _targetObject.GetComponent<Outline>().enabled = true;
     }
 
     private void OnMoveClicked(InputAction.CallbackContext context)

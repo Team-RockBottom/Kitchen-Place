@@ -29,6 +29,8 @@ public class BackButtonManager : MonoBehaviour
     [SerializeField] FurnitureSelector _furnitureSelector;
     [SerializeField] UI_BasketController _uIBasketController;
 
+    private GameObject _selectedFurniture;
+
     void Start()
     {
         //_furnitureSelector = GetComponent<FurnitureSelector>();
@@ -73,6 +75,7 @@ public class BackButtonManager : MonoBehaviour
     private void OnModeSelectExitButton()
     {
         //_furnitureSelector.FunitureInteraction();
+        
         _furnitureSpawnUI.SetActive(true);
         _modeSelectCanvas.SetActive(false);
     }
@@ -114,4 +117,5 @@ public class BackButtonManager : MonoBehaviour
         _furnitureData.SetActive(false);
         _shop1.SetActive(true);
     }
+    //==========================================================
 }
