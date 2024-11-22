@@ -79,6 +79,7 @@ public class UI_BasketController : MonoBehaviour
             newSlot._count = 1;
             _basketSlots.Add(newSlot);
         }
+        TotalBasketCount();
     }
     /// <summary>
     /// 장바구니 UI 업데이트 함수

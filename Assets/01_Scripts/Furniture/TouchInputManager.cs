@@ -185,6 +185,10 @@ namespace CP.Furniture
             {
                 Destroy(_previewPrefeb);
             }
+            if(!_isPosivle)
+            {
+                _isPosivle = true;
+            }
         }
 
         private void ScrollSpawn()
