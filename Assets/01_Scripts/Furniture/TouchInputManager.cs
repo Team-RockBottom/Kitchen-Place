@@ -137,6 +137,11 @@ namespace CP.Furniture
                 {
                     Destroy(_previewPrefeb);
                 }
+                if (!_scrollRect.gameObject.activeSelf)
+                {
+                    _scrollRect.gameObject.SetActive(true);
+                    _scrollDummyUI.SetActive(false);
+                }
 
                 return;
             }
@@ -164,6 +169,11 @@ namespace CP.Furniture
                             _listIndex++;
                         }
                     }
+                    if (!_scrollRect.gameObject.activeSelf)
+                    {
+                        _scrollRect.gameObject.SetActive(true);
+                        _scrollDummyUI.SetActive(false);
+                    }
                 }
                 else
                 {
@@ -171,6 +181,11 @@ namespace CP.Furniture
                     if(_previewPrefeb)
                     {
                         Destroy(_previewPrefeb);
+                    }
+                    if (!_scrollRect.gameObject.activeSelf)
+                    {
+                        _scrollRect.gameObject.SetActive(true);
+                        _scrollDummyUI.SetActive(false);
                     }
                 }
             }
