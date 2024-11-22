@@ -82,5 +82,6 @@ public class UIPanelController : MonoBehaviour
         Destroy(_targetObject);
         _modeSelectedCanvas.SetActive(false);
         _mainMenuCanvas.SetActive(true);
+        _basketController.TotalBasketCount();
     }
 }
