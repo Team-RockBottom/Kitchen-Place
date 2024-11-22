@@ -363,7 +363,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b21b81da642484a4b8ec3fe8b11ff5b0,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2275221291734372152}
+      addedObject: {fileID: -6200338143578722934}
   m_SourcePrefab: {fileID: 100100000, guid: b21b81da642484a4b8ec3fe8b11ff5b0, type: 3}
 --- !u!1 &5940029730225953318 stripped
 GameObject:
@@ -404,21 +404,30 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2599999, y: 1.8947918, z: 0.79999995}
   m_Center: {x: 0.00021559, y: 0.9542849, z: 0.035640195}
---- !u!114 &2275221291734372152
-MonoBehaviour:
+--- !u!54 &-6200338143578722934
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5940029730225953318}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 0, g: 1, b: 0, a: 1}
-  outlineWidth: 4
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0

@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 7642003234944508808}
   - component: {fileID: 4859374329835835915}
   - component: {fileID: -7720220768733879944}
-  - component: {fileID: -4356274474649627539}
+  - component: {fileID: -4335763341707431867}
   m_Layer: 3
   m_Name: DoorTable
   m_TagString: Furniture
@@ -210,24 +210,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.8, y: 0.8034966, z: 0.5}
   m_Center: {x: 0.00048556924, y: 0.4002148, z: 0.000010669231}
---- !u!114 &-4356274474649627539
-MonoBehaviour:
+--- !u!54 &-4335763341707431867
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541898706583062944}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 0, g: 1, b: 0, a: 1}
-  outlineWidth: 4
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &2080145463397993784
 GameObject:
   m_ObjectHideFlags: 0
