@@ -61,7 +61,8 @@ namespace CP.Furniture
             if (furniture != null)
             {
                 obj = Instantiate(furniture.Prefeb);
-                obj.transform.localScale = Vector3.one / 5;
+                //obj.transform.localScale = Vector3.one / 5;
+                obj.layer = 0;
             }
             return obj;
         }

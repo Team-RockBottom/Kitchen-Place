@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 7908843172085703579}
   - component: {fileID: 8443509560752594702}
   - component: {fileID: 6677306400740985962}
+  - component: {fileID: -8195501196611056434}
   m_Layer: 3
   m_Name: Fryler
   m_TagString: Furniture
@@ -209,6 +210,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6017977, y: 0.9928175, z: 0.6004478}
   m_Center: {x: -0.0016535968, y: 0.49640876, z: 0.00006888807}
+--- !u!54 &-8195501196611056434
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3010548107926658403}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &3613391025781408581
 GameObject:
   m_ObjectHideFlags: 0

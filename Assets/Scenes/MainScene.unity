@@ -4855,6 +4855,8 @@ MonoBehaviour:
   _previewImage: {fileID: 533073005}
   _scrollRect: {fileID: 1666924262}
   _scrollDummyUI: {fileID: 785121019}
+  _imposisvleArea: {fileID: 2100000, guid: 1fbfed8ab9b8c084fa92e52b9a8eaba7, type: 2}
+  _posisvleArea: {fileID: 2100000, guid: a197a148871c61b418584ca380b1ec2c, type: 2}
 --- !u!224 &951654029
 RectTransform:
   m_ObjectHideFlags: 0
