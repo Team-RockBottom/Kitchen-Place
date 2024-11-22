@@ -119,7 +119,6 @@ public class UI_BasketSlot : MonoBehaviour
         _uibasketController.UpdateBasketCount(FurnitureIndex, FurnitureCount);
         _uibasketController.TotalPrice();
     }
-
     void OnMinus()
     {
         if (FurnitureCount > 1)

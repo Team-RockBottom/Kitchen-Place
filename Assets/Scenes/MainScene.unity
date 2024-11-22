@@ -9634,6 +9634,7 @@ MonoBehaviour:
   _mainMenuCanvas: {fileID: 2132553876}
   _furnitureSelector: {fileID: 39575107}
   _uIBasketController: {fileID: 5948713266318026904}
+  _uiStoreController: {fileID: 2070588636435818937}
 --- !u!4 &2045650382
 Transform:
   m_ObjectHideFlags: 0
@@ -11224,8 +11225,9 @@ MonoBehaviour:
   - {fileID: 6224139562011680491}
   - {fileID: 7444848983948194420}
   _pageCountArray:
-  - {fileID: 2405777771001018614}
   - {fileID: 442833509584733687}
+  - {fileID: 2405777771001018614}
+  pageCount: 0
   _furnitureDataCanvas: {fileID: 3759922816434368879}
   _furnitureDataArray:
   - {fileID: 11400000, guid: ca4cf8b3c3d864b47b2970e84f28205b, type: 2}
