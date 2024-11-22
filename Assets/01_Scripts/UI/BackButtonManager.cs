@@ -116,8 +116,7 @@ public class BackButtonManager : MonoBehaviour
     private void OnFurnitureDataExit()
     {
         _furnitureData.SetActive(false);
-        _shop1.SetActive(true);
-        _uiStoreController.pageCount = 0;
+        _uiStoreController._shopCanvasArray[_uiStoreController.pageCount].SetActive(true);
     }
     //==========================================================
 }

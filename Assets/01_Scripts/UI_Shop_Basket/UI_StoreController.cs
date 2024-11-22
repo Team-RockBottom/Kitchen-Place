@@ -8,7 +8,7 @@ public class UI_StoreController : MonoBehaviour
 
     [Header("ShopUI")]
     [SerializeField] GameObject _mainMenuCanvas;    //메인메뉴 캔버스
-    [SerializeField] GameObject[] _shopCanvasArray; //상점 캔버스 배열
+    [SerializeField] public GameObject[] _shopCanvasArray; //상점 캔버스 배열
     [SerializeField] Button[] _furnitureButtonArray;//가구 버튼 배열
     [SerializeField] Button[] _previousButtonArray; //이전 버튼 배열
     [SerializeField] Button[] _nextButtonArray;     //다음 버튼 배열
