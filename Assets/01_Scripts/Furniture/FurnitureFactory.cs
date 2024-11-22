@@ -8,7 +8,7 @@ namespace CP.Furniture
     {
         private FurnitureSpecRepository _repository; 
         private GameObject _furnitures; //부모로 삼을 빈 오브젝트
-        private GraphicRaycaster _graycast;
+        private GraphicRaycaster _graycast; //
         [SerializeField] UI_BasketController _basketController;
 
         private void Awake()
@@ -16,7 +16,6 @@ namespace CP.Furniture
             _repository = GetComponentInChildren<FurnitureSpecRepository>();
 
         }
-
 
         /// <summary>
         /// 오브젝트 생성 함수
