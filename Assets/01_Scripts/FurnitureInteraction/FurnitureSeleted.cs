@@ -80,10 +80,10 @@ public class FurnitureSelected : MonoBehaviour
 
     void ActivateUIPanel(GameObject selectedObject)
     {
+        uiPanel.SetActive(false);
         uiPanel.SetActive(true);
         _gameSpawnUI.SetActive(false);
         uiPanel.GetComponent<UIPanelController>().SetTargetObject(selectedObject);
-        //obj.GetComponent<Outline>().enabled = true;
         _mainMenuCanvas.SetActive(false);
     }
 

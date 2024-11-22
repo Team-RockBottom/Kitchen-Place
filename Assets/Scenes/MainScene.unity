@@ -10429,6 +10429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2063328974}
   - component: {fileID: 2063328978}
+  - component: {fileID: 2063328979}
   - component: {fileID: 2063328977}
   - component: {fileID: 2063328976}
   - component: {fileID: 2063328975}
@@ -10549,6 +10550,31 @@ MonoBehaviour:
   _scaleModeCanvas: {fileID: 1223572485}
   _mainMenuCanvas: {fileID: 2132553876}
   _basketController: {fileID: 5948713266318026904}
+--- !u!114 &2063328979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063328973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb5b21ca2d4a3b438fc18bd63b4f2f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiPanel: {fileID: 2063328973}
+  _tapStartPosition: {fileID: 2494954584338170553, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  _raycastManager: {fileID: 331264287}
+  _xrCamera: {fileID: 37359470}
+  _gameSpawnUI: {fileID: 760987819}
+  _furnitureSpawnButton: {fileID: 1623815835}
+  _furnitureSpawnUI: {fileID: 760987819}
+  _mainMenuCanvas: {fileID: 2132553876}
+  Furniture:
+    serializedVersion: 2
+    m_Bits: 8
+  _graphicRaycaster: {fileID: 2063328975}
 --- !u!1 &2088610847
 GameObject:
   m_ObjectHideFlags: 0
