@@ -30,6 +30,7 @@ public class UI_StoreController : MonoBehaviour
     [SerializeField] Button _popUpBasketButton;     //팝업 장바구니 버튼
 
     UI_BasketController _uibasketController;
+    [SerializeField] BackButtonManager _backButtonManager;
     private FurnitureSpec _selectFurniture;     //선택된 가구 저장
     [SerializeField] Button _putInButton;       //담기 버튼
     [SerializeField] Button _urlButton;         //URL 버튼
@@ -133,6 +134,9 @@ public class UI_StoreController : MonoBehaviour
     {
         _uibasketController.AddFurnitureBasket(_selectFurniture);
         _popUpImage.gameObject.SetActive(true);
+        _putInButton.GetComponent<Button>().interactable = false;
+        _urlButton.GetComponent<Button>().interactable = false;
+        _backButtonManager._furnitureDataExitButton.GetComponent<Button>().interactable = false;
     }
     /// <summary>
     /// 버튼 URL 이동 함수 
@@ -162,6 +166,9 @@ public class UI_StoreController : MonoBehaviour
     void OnPopUpDelete()
     {
         _popUpImage.gameObject.SetActive(false);
+        _putInButton.GetComponent<Button>().interactable = true;
+        _urlButton.GetComponent<Button>().interactable = true;
+        _backButtonManager._furnitureDataExitButton.GetComponent<Button>().interactable = true;
     }
     /// <summary>
     /// 팝업 창에서 장바구니 이동 시 함수
@@ -172,6 +179,9 @@ public class UI_StoreController : MonoBehaviour
         _popUpImage.SetActive(false);
         _furnitureDataCanvas.SetActive(false);
         _uibasketController.UpdateBasketUI();
+        _putInButton.GetComponent<Button>().interactable = true;
+        _urlButton.GetComponent<Button>().interactable = true;
+        _backButtonManager._furnitureDataExitButton.GetComponent<Button>().interactable = true;
     }
     /// <summary>
     /// 상점 페이지 텍스트 함수
