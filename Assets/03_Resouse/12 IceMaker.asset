@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa888b186462fd3428564863bbdb80d2, type: 3}
+  m_Name: 12 IceMaker
+  m_EditorClassIdentifier: 
+  <Index>k__BackingField: 12
+  <Name>k__BackingField: "\uC81C\uBE59\uAE30"
+  <Description>k__BackingField: "\uC5C5\uC18C\uC6A9 \uC81C\uBE59\uAE30 \\n\\n\uB9D1\uACE0
+    \uAE68\uB057\uD55C \uB300\uC6A9\uB7C9 \uC5BC\uC74C\uC81C\uBE59 \\n\uCEF4\uD329\uD55C
+    \uC0AC\uC774\uC988\uC640 \uAC04\uD3B8\uD55C \uC124\uCE58 \\n\uB6F0\uC5B4\uB09C
+    \uACBD\uC81C\uC131\uACFC \uD3B8\uB9AC\uAE30\uB2A5 \uD0D1\uC81C \\n\uD3B8\uB9AC\uD55C
+    \uB300\uC6A9\uB7C9 \uC5BC\uC74C \uBCF4\uAD00\uD1B5 \\n \uBE4C\uD2B8\uC778\uC774
+    \uAC00\uB2A5\uD55C \uC5B8\uB354\uCE74\uC6B4\uD130 \uD0C0\uC785"
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 5ad906b7436c8dd46805c9b1de182f72,
+    type: 3}
+  <Prefeb>k__BackingField: {fileID: 1903278143603908835, guid: 69d578dc0baf60143a2d114f67f285b7,
+    type: 3}
+  <Size>k__BackingField: {x: 520, y: 863, z: 635}
+  <Price>k__BackingField: 1375000
+  <URL>k__BackingField: https://www.grandwoosung.co.kr/shop/item.php?it_id=ICE0023
