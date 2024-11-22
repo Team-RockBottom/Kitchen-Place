@@ -16,7 +16,6 @@ public class UIPanelController : MonoBehaviour
     FurnitureSelector _furnitureSelector;
     [SerializeField] UI_BasketController _basketController;
     private int _furnitureIndex;
-    
 
     private void Start()
     {
@@ -76,11 +75,6 @@ public class UIPanelController : MonoBehaviour
                     }
                 }
             }
-            //_basketController._uibasketSlotsDataList[_furnitureIndex].furnitureCount--;
-            //if (_basketController._uibasketSlotsDataList[_furnitureIndex].furnitureCount == 0)
-            //{
-            //    _basketController.DeleteBasket(_furnitureIndex);
-            //}
         }
         else
             _basketController.DeleteBasket(_furnitureIndex);

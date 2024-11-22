@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
-
 public class FurnitureSelector : MonoBehaviour
 {
     [SerializeField] GameObject uiPanel;  // 움직임, 회전, 크기 조절 UI 패널
@@ -20,7 +19,6 @@ public class FurnitureSelector : MonoBehaviour
     [SerializeField] LayerMask Furniture;
     private GameObject obj;
     private bool _isInteraction = false;
-    //[SerializeField] GraphicRaycaster _graphicRaycaster;
     private PointerEventData _pointerEventData;
     [SerializeField] List<GraphicRaycaster> _graphicsRaycasters;
 
@@ -31,28 +29,21 @@ public class FurnitureSelector : MonoBehaviour
         _pointerEventData = new PointerEventData(EventSystem.current);
     }
 
-
     void OnTouch(InputAction.CallbackContext context)
     {
-        Debug.Log("OnTouch Call");
         RaycastHit hit;
         Vector2 tapposition = context.ReadValue<Vector2>();
         _pointerEventData.position = tapposition;
         List<RaycastResult> results = new List<RaycastResult>();
-        //_graphicRaycasters.Raycast(_pointerEventData, results);
-        
 
         if (true)
         {
-            Debug.Log("if true");
             if (results.Count > 0)
             {
-                Debug.Log("results.count > 0");
                 return;
             }
             else
             {
-                Debug.Log("results.count > 0 else");
                 if (!_isInteraction)
                 {
                     if (Physics.Raycast(_xrCamera.ScreenPointToRay(tapposition), out hit, 100f, Furniture))
@@ -61,7 +52,6 @@ public class FurnitureSelector : MonoBehaviour
                         {
                             obj = hit.transform.gameObject;
                             ActivateUIPanel(obj);
-                            Debug.Log(hit.transform.gameObject.name);
                             Renderer renderer = obj.GetComponent<Renderer>();
                             if (renderer != null)
                             {
@@ -73,32 +63,6 @@ public class FurnitureSelector : MonoBehaviour
                 }
             }
         }
-        else
-        {
-
-        }
-    
-
-
-
-        //if (!_isInteraction)
-        //{
-        //    if (Physics.Raycast(_xrCamera.ScreenPointToRay(tapposition), out hit, 100f, Furniture))
-        //    {
-        //        if (hit.collider.tag == "Furniture")
-        //        {
-        //            obj = hit.transform.gameObject;
-        //            ActivateUIPanel(obj);
-        //            Debug.Log(hit.transform.gameObject.name);
-        //            Renderer renderer = obj.GetComponent<Renderer>();
-        //            if (renderer != null)
-        //            {
-        //                Material material = renderer.material;
-        //                Color color = material.color;
-        //            }
-        //        }
-        //    }
-        //}
     }
 
     void ActivateUIPanel(GameObject selectedObject)

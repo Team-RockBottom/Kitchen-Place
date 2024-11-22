@@ -34,7 +34,6 @@ public class BackButtonManager : MonoBehaviour
 
     void Start()
     {
-        //_furnitureSelector = GetComponent<FurnitureSelector>();
         _tryapplicationExitButton.onClick.AddListener(OnTryApplicationExitButton);
         _applicationExitButton.onClick.AddListener(OnApplicationExitButton);
         _applicationExitCansleButton.onClick.AddListener(OnCansleApplicationExit);
@@ -51,13 +50,11 @@ public class BackButtonManager : MonoBehaviour
 
     private void OnTryApplicationExitButton()
     {
-        //_furnitureSelector.FunitureInteraction();
         _tryExitCanvas.SetActive(true);
         _mainMenuCanvas.SetActive(false);
     }
     private void OnCansleApplicationExit()
     {
-        //_furnitureSelector.FunitureInteraction();
         _tryExitCanvas.SetActive(false);
         _mainMenuCanvas.SetActive(true);
         _uIBasketController.TotalBasketCount();
@@ -75,8 +72,6 @@ public class BackButtonManager : MonoBehaviour
     }
     private void OnModeSelectExitButton()
     {
-        //_furnitureSelector.FunitureInteraction();
-        
         _furnitureSpawnUI.SetActive(true);
         _modeSelectCanvas.SetActive(false);
     }
@@ -95,7 +90,6 @@ public class BackButtonManager : MonoBehaviour
         _modeSelectCanvas.SetActive(true);
         _scaleModeCanvas.SetActive(false);
     }
-    //=========================================================================
     private void OnExitShop1()
     {
         _shop1.SetActive(false);
@@ -118,5 +112,4 @@ public class BackButtonManager : MonoBehaviour
         _furnitureData.SetActive(false);
         _uiStoreController._shopCanvasArray[_uiStoreController.pageCount].SetActive(true);
     }
-    //==========================================================
 }

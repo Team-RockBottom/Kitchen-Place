@@ -92,8 +92,4 @@ public class FurnitureSelected : MonoBehaviour
         _mainMenuCanvas.SetActive(false);
         _furnitureSpawnUI.SetActive(true);
     }
-    //public void FunitureInteraction()
-    //{
-    //    _isInteraction = !_isInteraction;
-    //}
 }

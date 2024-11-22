@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class ScaleMode : MonoBehaviour
 {
-    //[SerializeField] FurnitureSpecRepository _furnitureSpecRepository;
     [SerializeField] GameObject _noticePanel;
     [SerializeField] Slider _scaleSlider;
     [SerializeField] Button _xButton;
@@ -70,14 +69,12 @@ public class ScaleMode : MonoBehaviour
             _targetObject.transform.localScale = newScale;
         }
     }
-
     private void OnDisable()
     {
         _scaleSlider.onValueChanged.RemoveListener(UpdateScale);
         _xButton.onClick.RemoveListener(() => SetScaleAxis("x"));
         _zButton.onClick.RemoveListener(() => SetScaleAxis("z"));
     }
-
     private void OnCheckButton()
     {
         _scaleSlider.enabled = true;
