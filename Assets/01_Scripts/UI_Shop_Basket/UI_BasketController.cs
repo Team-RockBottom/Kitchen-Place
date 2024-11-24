@@ -17,22 +17,19 @@ public class UI_BasketController : MonoBehaviour
     [SerializeField] Text _totalPrice; //총 가격 텍스트
     [SerializeField] GameObject _totalBasketImage; //총 장바구니 게임오브젝트 
     [SerializeField] Text _totalBasketCount; //총 장바구니 담긴 갯수 텍스트
+    [SerializeField] Button _buyButton; //구매하기 버튼
+    [SerializeField] GameObject _payCanvas; //결제하기 캔버스
+    [SerializeField] Text _totalPriceButton; //총 가격 결제하기 텍스트
 
     List<UI_BasketSlot> _basketSlots; //추가된 장바구니 슬롯 리스트
     public List<UI_FurnitureSlotData> _uibasketSlotsDataList; //장바구니 리스트 데이터
-
-    [Header("SaveSystem")]
-    string _basketDataPath; //장바구니 데이터 파일 경로
     #endregion
-    private void Awake()
-    {
-        //장바구니 데이터 파일 경로 설정
-        _basketDataPath = Application.persistentDataPath + "/BasketData.json";
-    }
     private void Start()
     {
         _basketCanvas.SetActive(false);
+        _payCanvas.SetActive(false);
         _basketButton.onClick.AddListener(OnBasket);
+        _buyButton.onClick.AddListener(OnPay);
         _basketSlots = new List<UI_BasketSlot>();
         _uibasketSlotsDataList = new List<UI_FurnitureSlotData>();
         _totalBasketImage.SetActive(false);
@@ -45,6 +42,11 @@ public class UI_BasketController : MonoBehaviour
         _basketCanvas.SetActive(true);
         _mainMenuCanvas.SetActive(!_mainMenuCanvas.activeSelf);
         UpdateBasketUI();
+    }
+    void OnPay()
+    {
+        _basketCanvas.SetActive(false);
+        _payCanvas.SetActive(true);
     }
     /// <summary>
     /// 장바구니 리스트에 담기
@@ -147,8 +149,8 @@ public class UI_BasketController : MonoBehaviour
             totalPrice += furnitureSpec.Price * slotData.furnitureCount;
         }
         _totalPrice.text = $"총 가격 : {totalPrice:n0} 원 ";
+        _totalPriceButton.text = $"{totalPrice:n0}원 결제하기";
     }
-
     /// <summary>
     /// 총 장바구니 갯수 텍스트 함수
     /// </summary>
