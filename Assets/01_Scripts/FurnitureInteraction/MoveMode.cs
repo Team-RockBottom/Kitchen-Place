@@ -46,7 +46,7 @@ public class MoveMode : MonoBehaviour
                 {
                     if (_arraycastManager.Raycast(ray, _hits, TrackableType.Planes))
                     {
-                        if(_hits[0].trackable.TryGetComponent(out ARPlane plane))
+                        if (_hits[0].hitType == TrackableType.Planes)
                         {
                             _targetObject.transform.position = new Vector3(_hits[0].pose.position.x, _targetObject.transform.position.y, _hits[0].pose.position.z);
                         }
