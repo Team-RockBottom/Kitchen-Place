@@ -133,10 +133,10 @@ public class UI_StoreController : MonoBehaviour
     void OnPutIn()
     {
         _uibasketController.AddFurnitureBasket(_selectFurniture);
-        _popUpImage.gameObject.SetActive(true);
-        _putInButton.GetComponent<Button>().interactable = false;
-        _urlButton.GetComponent<Button>().interactable = false;
-        _backButtonManager._furnitureDataExitButton.GetComponent<Button>().interactable = false;
+        _popUpImage.SetActive(true);
+        _putInButton.interactable = false;
+        _urlButton.interactable = false;
+        _backButtonManager._furnitureDataExitButton.interactable = false;
     }
     /// <summary>
     /// 버튼 URL 이동 함수 
@@ -165,10 +165,10 @@ public class UI_StoreController : MonoBehaviour
     /// </summary>
     void OnPopUpDelete()
     {
-        _popUpImage.gameObject.SetActive(false);
-        _putInButton.GetComponent<Button>().interactable = true;
-        _urlButton.GetComponent<Button>().interactable = true;
-        _backButtonManager._furnitureDataExitButton.GetComponent<Button>().interactable = true;
+        _popUpImage.SetActive(false);
+        _putInButton.interactable = true;
+        _urlButton.interactable = true;
+        _backButtonManager._furnitureDataExitButton.interactable = true;
     }
     /// <summary>
     /// 팝업 창에서 장바구니 이동 시 함수
@@ -179,9 +179,9 @@ public class UI_StoreController : MonoBehaviour
         _popUpImage.SetActive(false);
         _furnitureDataCanvas.SetActive(false);
         _uibasketController.UpdateBasketUI();
-        _putInButton.GetComponent<Button>().interactable = true;
-        _urlButton.GetComponent<Button>().interactable = true;
-        _backButtonManager._furnitureDataExitButton.GetComponent<Button>().interactable = true;
+        _putInButton.interactable = true;
+        _urlButton.interactable = true;
+        _backButtonManager._furnitureDataExitButton.interactable = true;
     }
     /// <summary>
     /// 상점 페이지 텍스트 함수
