@@ -13,6 +13,9 @@ public class BackButtonManager : MonoBehaviour
     [SerializeField] Button _shop1ExitButton;
     [SerializeField] Button _shop2ExitButton;
     [SerializeField] Button _basketExitButton;
+    [SerializeField] public Button _payCanvasExitButton;
+    [SerializeField] Button _checkButton;
+
     [SerializeField] public Button _furnitureDataExitButton;
     [SerializeField] Button _furnitureSpawnExitButton;
     [SerializeField] GameObject _tryExitCanvas; //어플리케이션 종료를 시도하면 나오는 확인 Canvas
@@ -26,6 +29,8 @@ public class BackButtonManager : MonoBehaviour
     [SerializeField] GameObject _furnitureData;
     [SerializeField] GameObject _furnitureSpawnUI;
     [SerializeField] GameObject _mainMenuCanvas;
+    [SerializeField] GameObject _payCanvas;
+    [SerializeField] GameObject _payPopUpImage;
     [SerializeField] FurnitureSelector _furnitureSelector;
     [SerializeField] UI_BasketController _uIBasketController;
     [SerializeField] UI_StoreController _uiStoreController;
@@ -46,6 +51,8 @@ public class BackButtonManager : MonoBehaviour
         _basketExitButton.onClick.AddListener(OnBasketExit);
         _furnitureDataExitButton.onClick.AddListener(OnFurnitureDataExit);
         _furnitureSpawnExitButton.onClick.AddListener(OnFurnitureSpawnExit);
+        _payCanvasExitButton.onClick.AddListener(OnPayCanvasExit);
+        _checkButton.onClick.AddListener(OnCheck);
     }
 
     private void OnTryApplicationExitButton()
@@ -111,5 +118,17 @@ public class BackButtonManager : MonoBehaviour
     {
         _furnitureData.SetActive(false);
         _uiStoreController._shopCanvasArray[_uiStoreController.pageCount].SetActive(true);
+    }
+    private void OnPayCanvasExit()
+    {
+        _payCanvas.SetActive(false);
+        _basket.SetActive(true);
+    }
+    private void OnCheck()
+    {
+        _mainMenuCanvas.SetActive(true);
+        _payPopUpImage.SetActive(false);
+        _payCanvas.SetActive(false);
+        _uIBasketController._payButton.interactable = false;
     }
 }

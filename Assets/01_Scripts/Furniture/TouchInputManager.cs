@@ -57,7 +57,8 @@ namespace CP.Furniture
                 _xrCamera = Camera.main;
             }
             _furnitureFactory = GetComponent<FurnitureFactory>();
-            //_tapStartPosition.action.started += OnTouch;
+            //_tapStartPosition.action.started += OnDrag;
+            //_tapStartPosition.action.performed += OnDrag;
 
             _dragCurrentPosition.action.started += OnTouch;
             _dragCurrentPosition.action.canceled += OffTouch;
@@ -113,7 +114,6 @@ namespace CP.Furniture
         }
         private void OnDrag(InputAction.CallbackContext context)
         {
-            
         }
 
         private void OffTouch(InputAction.CallbackContext context)
