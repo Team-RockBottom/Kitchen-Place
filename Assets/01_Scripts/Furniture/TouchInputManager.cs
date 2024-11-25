@@ -148,6 +148,8 @@ namespace CP.Furniture
             _ped.position = _mousePosi; // 레이캐스트 위치설정
             _rrListStart.Clear(); //리스트 클리어
             _graycast.Raycast(_ped, _rrListStart); //그래픽 레이캐스트의 결과를 리스트에 저장
+            PreviewDisable(); // 미리보기를 삭제한다.
+            ScrollSpawn(); // 비활성화된 스크롤뷰를 활성화
 
             if (_rrListStart.Count > 1) return; // UI안이라면 리턴
 
@@ -166,8 +168,10 @@ namespace CP.Furniture
                     }
                 }
             }
-            PreviewDisable(); // 미리보기를 삭제한다.
-            ScrollSpawn(); // 비활성화된 스크롤뷰를 활성화
+            if (!_isPosivle)
+            {
+                _isPosivle = true;
+            }
         }
 
         private void SelecteSlot(FurnitureSlot slot) // 슬롯을 선택할때 불러오는 함수
@@ -188,10 +192,7 @@ namespace CP.Furniture
             {
                 Destroy(_previewPrefeb);
             }
-            if (!_isPosivle)
-            {
-                _isPosivle = true;
-            }
+            
             _previewImage.enabled = false;
         }
 
