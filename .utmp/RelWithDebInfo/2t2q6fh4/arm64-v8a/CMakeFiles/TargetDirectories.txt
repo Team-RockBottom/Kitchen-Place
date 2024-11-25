@@ -1,0 +1,5 @@
+C:/Users/M57/Documents/GitHub/Kitchen-Place/.utmp/RelWithDebInfo/2t2q6fh4/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/M57/Documents/GitHub/Kitchen-Place/.utmp/RelWithDebInfo/2t2q6fh4/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/M57/Documents/GitHub/Kitchen-Place/.utmp/RelWithDebInfo/2t2q6fh4/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/M57/Documents/GitHub/Kitchen-Place/.utmp/RelWithDebInfo/2t2q6fh4/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/M57/Documents/GitHub/Kitchen-Place/.utmp/RelWithDebInfo/2t2q6fh4/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

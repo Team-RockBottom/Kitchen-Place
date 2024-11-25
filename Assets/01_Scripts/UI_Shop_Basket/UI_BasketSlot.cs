@@ -48,9 +48,8 @@ public class UI_BasketSlot : MonoBehaviour
         get => _url;
         set => _url = value;
     }
-
+    
     UI_BasketController _uibasketController;
-    UI_StoreController _uistoreController;
 
     [SerializeField] Image _image;
     [SerializeField] Text _nameText;
@@ -68,8 +67,8 @@ public class UI_BasketSlot : MonoBehaviour
     #endregion
     private void Awake()
     {
-        _uibasketController = FindObjectOfType<UI_BasketController>();
-        _uistoreController = FindObjectOfType<UI_StoreController>();
+        _uibasketController = FindAnyObjectByType<UI_BasketController>();
+
         if (_image == null)
         {
             _image = transform.GetChild(0).GetComponent<Image>();
@@ -113,13 +112,18 @@ public class UI_BasketSlot : MonoBehaviour
         _deleteButton.onClick.AddListener(OnDelete);
         _urlButton.onClick.AddListener(OnPay);
     }
+    /// <summary>
+    /// +버튼 함수
+    /// </summary>
     void OnPlus()
     {
         FurnitureCount++;
         _uibasketController.UpdateBasketCount(FurnitureIndex, FurnitureCount);
         _uibasketController.TotalPrice();
     }
-
+    /// <summary>
+    /// -버튼 함수 
+    /// </summary>
     void OnMinus()
     {
         if (FurnitureCount > 1)
