@@ -51,7 +51,6 @@ public class UI_BasketController : MonoBehaviour
         {
             _inputfieldText[i].onValueChanged.AddListener(CheckInputField);
         }
-        _payButton.interactable = false;
 
         _inputfieldText[1].characterLimit = 11;
     }
@@ -70,6 +69,7 @@ public class UI_BasketController : MonoBehaviour
         _basketCanvas.SetActive(false);
         _payCanvas.SetActive(true);
         _payPopUpImage.SetActive(false);
+        _payButton.interactable = false;
     }
     /// <summary>
     /// 구매버튼 클릭 함수
