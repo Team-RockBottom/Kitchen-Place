@@ -259,6 +259,19 @@ public class UI_BasketController : MonoBehaviour
     /// <param name="value"></param>
     void CheckInputField(string value)
     {
+        string text = _inputfieldText[1].text;
+
+        if (text.Length == 4 || text.Length == 8)
+        {
+            text = text.Insert(3, "-");
+
+            if (text.Length > 7)
+            {
+                text = text.Insert(7, "-");
+            }
+        }
+        _inputfieldText[1].SetTextWithoutNotify(text);
+
         foreach (var inputField in _inputfieldText)
         {
             if (string.IsNullOrEmpty(inputField.text))
@@ -267,7 +280,7 @@ public class UI_BasketController : MonoBehaviour
                 return;
             }
         }
-
+        
         _payButton.interactable = true;
     }
 }
