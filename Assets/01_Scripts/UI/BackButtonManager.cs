@@ -13,7 +13,7 @@ public class BackButtonManager : MonoBehaviour
     [SerializeField] Button _shop1ExitButton;
     [SerializeField] Button _shop2ExitButton;
     [SerializeField] Button _basketExitButton;
-    [SerializeField] Button _furnitureDataExitButton;
+    [SerializeField] public Button _furnitureDataExitButton;
     [SerializeField] Button _furnitureSpawnExitButton;
     [SerializeField] GameObject _tryExitCanvas; //어플리케이션 종료를 시도하면 나오는 확인 Canvas
     [SerializeField] GameObject _modeSelectCanvas; //모드 선택창 캔버스

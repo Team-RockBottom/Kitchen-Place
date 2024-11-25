@@ -146,7 +146,7 @@ public class UI_BasketController : MonoBehaviour
             FurnitureSpec furnitureSpec = _uifurnitureSpecRepository.Get(slotData.furnitureIndex);
             totalPrice += furnitureSpec.Price * slotData.furnitureCount;
         }
-        _totalPrice.text = $"Total Price : {totalPrice:n0} ¿ø ";
+        _totalPrice.text = $"ÃÑ °¡°Ý : {totalPrice:n0} ¿ø ";
     }
 
     /// <summary>

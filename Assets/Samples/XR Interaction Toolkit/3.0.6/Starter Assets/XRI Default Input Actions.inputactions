@@ -63,7 +63,7 @@
                     "name": "Eye Gaze Is Tracked",
                     "type": "Button",
                     "id": "ea26ba43-844b-4585-817a-2f124b571813",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -3019,7 +3019,7 @@
                     "name": "Spawn Object",
                     "type": "Button",
                     "id": "1415f3c5-fc5f-4f58-a044-4a69560151f2",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -3039,7 +3039,7 @@
                 },
                 {
                     "name": "One Modifier",
-                    "id": "f3375fb2-923e-46c3-9e30-b2a8338908e1",
+                    "id": "ccaca70d-b804-4cda-9dd1-ee9152fa6ec8",
                     "path": "OneModifier",
                     "interactions": "",
                     "processors": "",
@@ -3050,7 +3050,7 @@
                 },
                 {
                     "name": "modifier",
-                    "id": "fe5e5535-a41d-43ae-a527-5faa58e56768",
+                    "id": "30c845d9-0972-4e51-92bf-2eee8171abc7",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
@@ -3061,41 +3061,8 @@
                 },
                 {
                     "name": "binding",
-                    "id": "8ea931fb-9304-4c4e-a710-a5aded1269bb",
+                    "id": "9ab23efd-1004-4423-b9b9-b070db6cde4e",
                     "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Tap Start Position",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "One Modifier",
-                    "id": "65533717-7769-4aa5-930c-b36ed5ba301a",
-                    "path": "OneModifier",
-                    "interactions": "Tap",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Tap Start Position",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "modifier",
-                    "id": "81c979e2-545d-4179-8bad-d55fce01e1d5",
-                    "path": "<Touchscreen>/primaryTouch/tap",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Tap Start Position",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "binding",
-                    "id": "3963dfd6-aa30-449e-b79e-df512fbde618",
-                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
