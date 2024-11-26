@@ -52,7 +52,7 @@ public class UI_BasketController : MonoBehaviour
             _inputfieldText[i].onValueChanged.AddListener(CheckInputField);
         }
 
-        _inputfieldText[1].characterLimit = 11;
+        _inputfieldText[1].characterLimit = 13;
     }
     /// <summary>
     /// 장바구니 UI 버튼
@@ -260,16 +260,29 @@ public class UI_BasketController : MonoBehaviour
     void CheckInputField(string value)
     {
         string text = _inputfieldText[1].text;
+        char hypen = '-';
+        int hypenCount = text.Count(c => c == hypen);
 
-        if (text.Length == 4 || text.Length == 8)
+        if (text.Length == 4)
         {
-            text = text.Insert(3, "-");
-
-            if (text.Length > 7)
+            if (!text.Contains(hypen))
             {
-                text = text.Insert(7, "-");
+                text = text.Insert(3, "-");
+                _inputfieldText[1].SetTextWithoutNotify(text);
+                _inputfieldText[1].caretPosition = 5;
             }
         }
+
+        if (text.Length == 9)
+        {
+            if(hypenCount == 1)
+            {
+                text = text.Insert(8, "-");
+                _inputfieldText[1].SetTextWithoutNotify(text);
+                _inputfieldText[1].caretPosition = 10;
+            }
+        }
+
         _inputfieldText[1].SetTextWithoutNotify(text);
 
         foreach (var inputField in _inputfieldText)
