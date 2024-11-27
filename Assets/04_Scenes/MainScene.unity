@@ -6239,7 +6239,7 @@ MonoBehaviour:
     type: 3}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   _graycast: {fileID: 760987820}
   _previewImage: {fileID: 533073005}
   _scrollRect: {fileID: 1666924262}

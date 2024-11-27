@@ -21,14 +21,14 @@ public class FurnitureObject : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!other.gameObject.GetComponent<ARPlane>() && other.gameObject.layer == 0)
+        if (!other.gameObject.GetComponent<ARPlane>() && other.gameObject.layer == 7)
         {
             TouchInputManager.instance.PrefebColliderCheckFalse();
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if(!other.gameObject.GetComponent<ARPlane>() && other.gameObject.layer == 0)
+        if(!other.gameObject.GetComponent<ARPlane>() && other.gameObject.layer == 7)
         {
             rb.linearVelocity = Vector3.zero; //떨어졌을때 움직이지 않게
             TouchInputManager.instance.PrefebColliderCheckTrue();

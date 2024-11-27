@@ -62,7 +62,11 @@ namespace CP.Furniture
             {
                 obj = Instantiate(furniture.Prefeb);
                 //obj.transform.localScale = Vector3.one / 5;
-                obj.layer = 0;
+                if (obj.TryGetComponent(out FurnitureObject furobj))
+                {
+                    furobj.Spec = furniture;
+                }
+                obj.layer = 7;
             }
             return obj;
         }

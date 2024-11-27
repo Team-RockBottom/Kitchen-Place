@@ -34,7 +34,7 @@ namespace CP.Furniture
         [SerializeField] private Material _posisvleArea; // 가능함을 표시하는 마테리얼(녹색)
         private bool _isPosivle = false; // 마테리얼의 변환을 컨트롤하는 bool형
         private bool _isTrigger = false; // 설치된 오브젝트에서 겹쳤는지 안겹쳤는지 알려주는 bool형
-
+        private int _checkLRN = 0;
 
 
         private void Awake()
@@ -102,39 +102,67 @@ namespace CP.Furniture
                         _previewImage.transform.position = _mousePosi; // 이미지가 마우스를 따라가게
                         return; // 리턴시켜 이 밑의 코드를 실행시키지않도록
                     }
-
-                    if (_arRaycastManager.Raycast(_xrCamera.ScreenPointToRay(_mousePosi), _hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
+                    if (Physics.Raycast(Camera.main.ScreenPointToRay(_mousePosi), out _hit, 100f, _layerMask))
                     {
-                        if (_hits[0].trackable.TryGetComponent(out ARPlane plane)) // AR레이캐스트 인식
+                        
+                        _previewPrefeb.transform.SetParent(_hit.transform.parent, true);
+                        
+                        float prefebSizeX = _previewPrefeb.GetComponent<FurnitureObject>().Spec.Size.x / 2000;
+                        float targetSizeX = _hit.transform.parent.GetComponent<FurnitureObject>().Spec.Size.x / 2000;
+                        float newSizeX =  prefebSizeX + targetSizeX;
+                        if (_hit.collider.GetComponent<AreaActiveRight>())
                         {
-                            if (!_isTrigger) // 오브젝트와 오브젝트가 부딪힐때는 비활성화
-                            {
-                                if (plane.alignment != UnityEngine.XR.ARSubsystems.PlaneAlignment.Vertical) //평면인식기능
-                                {
-                                    _isPosivle = true; // 설치가능
-                                }
-                                else
-                                {
-                                    _isPosivle = false; // 설치불가
-                                }
-                            }
-                            Vector3 direction = Camera.main.transform.position - _hits[0].pose.position; //카메라와의 방향 계산
-                            direction.y = 0; //Y축 회전을 고정하여 오브젝트가 위아래로 기울어지지 않도록 함
-                            Quaternion rotation = Quaternion.LookRotation(direction); //오브젝트가 카메라를 바라보도록 회전
-                            _previewPrefeb.transform.rotation = rotation; //PreviewPrefeb 회전 적용
-                            if (_scrollRect.gameObject.activeSelf) // AR레이캐스트가 인식되면 스크롤뷰 비활성화
-                            {
-                                _scrollRect.gameObject.SetActive(false);
-                                _scrollDummyUI.SetActive(true);
-                            }
-                            if (_previewPrefeb) // 미리보기 프리펩 활성화
-                            {
-                                _previewPrefeb.SetActive(true);
-                            }
-                            _previewImage.enabled = false; // 이미지 비활성화
-                            _previewPrefeb.transform.position = _hits[0].pose.position; // 미리보기 프리펩이 커서를 따라오게
+                            _checkLRN = 1;
+                            _previewPrefeb.transform.localPosition = new Vector3(-newSizeX, 0, 0);
+                        }
+                        else if (_hit.collider.gameObject.GetComponent<AreaActiveLeft>())
+                        {
+                            _checkLRN = 2;
+                            _previewPrefeb.transform.localPosition = new Vector3(newSizeX, 0, 0);
+                        }
+                        _previewPrefeb.transform.localRotation = Quaternion.identity;
+                        if(!_isTrigger)
+                        {
+                            _isPosivle = true;
                         }
                     }
+                    else
+                    {
+                        if (_arRaycastManager.Raycast(_xrCamera.ScreenPointToRay(_mousePosi), _hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
+                        {
+                            if (_hits[0].trackable.TryGetComponent(out ARPlane plane)) // AR레이캐스트 인식
+                            {
+                                _checkLRN = 0;
+                                if (!_isTrigger) // 오브젝트와 오브젝트가 부딪힐때는 비활성화
+                                {
+                                    if (plane.alignment != UnityEngine.XR.ARSubsystems.PlaneAlignment.Vertical) //평면인식기능
+                                    {
+                                        _isPosivle = true; // 설치가능
+                                    }
+                                    else
+                                    {
+                                        _isPosivle = false; // 설치불가
+                                    }
+                                }
+                                Vector3 direction = Camera.main.transform.position - _hits[0].pose.position; //카메라와의 방향 계산
+                                direction.y = 0; //Y축 회전을 고정하여 오브젝트가 위아래로 기울어지지 않도록 함
+                                Quaternion rotation = Quaternion.LookRotation(direction); //오브젝트가 카메라를 바라보도록 회전
+                                _previewPrefeb.transform.rotation = rotation; //PreviewPrefeb 회전 적용
+                                if (_scrollRect.gameObject.activeSelf) // AR레이캐스트가 인식되면 스크롤뷰 비활성화
+                                {
+                                    _scrollRect.gameObject.SetActive(false);
+                                    _scrollDummyUI.SetActive(true);
+                                }
+                                if (_previewPrefeb) // 미리보기 프리펩 활성화
+                                {
+                                    _previewPrefeb.SetActive(true);
+                                }
+                                _previewImage.enabled = false; // 이미지 비활성화
+                                _previewPrefeb.transform.position = _hits[0].pose.position; // 미리보기 프리펩이 커서를 따라오게
+                            }
+                        }
+                    }
+                    
                 }
             }
             IsPosivleMaterial(); // isPosivle의 값에 따라 마테리얼을 변경
@@ -153,16 +181,44 @@ namespace CP.Furniture
 
             if (_rrListStart.Count > 1) return; // UI안이라면 리턴
 
+            
+
             if (_arRaycastManager.Raycast(_xrCamera.ScreenPointToRay(_mousePosi), _hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
             {
                 if (_hits[0].trackable.TryGetComponent(out ARPlane plane))
                 {
                     if (_isPosivle)
                     {
-                        if (_selectedSlot)
+                        if (_previewPrefeb)
                         {
+                            
+                            if (_objs)
+                            {
+                                if(_objs.GetComponentInChildren<AreaActiveRight>())
+                                {
+                                    _objs.GetComponentInChildren<AreaActiveRight>().OffArea();
+                                }
+                                if(_objs.GetComponentInChildren<AreaActiveLeft>())
+                                {
+                                    _objs.GetComponentInChildren<AreaActiveLeft>().OffArea();
+                                }
+                            }
                             _objs = _furnitureFactory.CreateFurniture(_selectedSlot.FurnitureIndex, _hits[0].pose.position, plane);
                             _objs.GetComponent<BoxCollider>().isTrigger = true; // 생성된후는 트리거를 활성화 시켜 서로 겹쳐있어도 함수를 콜하지 않도록
+                            _objs.GetComponentInChildren<AreaActiveRight>().OnArea();
+                            _objs.GetComponentInChildren<AreaActiveLeft>().OnArea();
+
+                            _objs.transform.position = _previewPrefeb.transform.position;
+                            _objs.transform.rotation = _previewPrefeb.transform.rotation;
+                            if (_checkLRN == 1)
+                            {
+                                _objs.GetComponentInChildren<AreaActiveLeft>().OffArea();
+                            }
+                            else if (_checkLRN == 2)
+                            {
+                                _objs.GetComponentInChildren<AreaActiveRight>().OffArea();
+                            }
+
                             _selectedSlot = null;
                         }
                     }

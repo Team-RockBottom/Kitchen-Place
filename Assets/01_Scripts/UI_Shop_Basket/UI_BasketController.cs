@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem.iOS;
 using UnityEngine.UI;
 using static UI_FurnitureSlotDataModel;
 
