@@ -4655,6 +4655,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _graphicRaycaster: {fileID: 760987820}
+  _touchInputManager: {fileID: 951654028}
 --- !u!1 &774594313
 GameObject:
   m_ObjectHideFlags: 0
@@ -12545,6 +12546,7 @@ MonoBehaviour:
   _furnitureSelector: {fileID: 39575107}
   _uIBasketController: {fileID: 5948713266318026904}
   _uiStoreController: {fileID: 2070588636435818937}
+  _touchInputManager: {fileID: 951654028}
 --- !u!4 &2045650382
 Transform:
   m_ObjectHideFlags: 0
@@ -12795,6 +12797,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _graphicRaycaster: {fileID: 2063328975}
+  _touchInputManager: {fileID: 951654028}
 --- !u!1 &2088610847
 GameObject:
   m_ObjectHideFlags: 0
@@ -13301,6 +13304,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _graphicRaycaster: {fileID: 2132553878}
+  _touchInputManager: {fileID: 951654028}
 --- !u!114 &32070301756534855
 MonoBehaviour:
   m_ObjectHideFlags: 0
