@@ -21,6 +21,7 @@ public class AreaActiveRight : MonoBehaviour
     public void OffArea()
     {
         rb.isKinematic = true;
-        gameObject.SetActive(false);
+        meshRenderer.enabled = false;
+        boxCollider.enabled = false;
     }
 }

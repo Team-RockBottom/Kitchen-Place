@@ -20,7 +20,8 @@ public class AreaActiveLeft : MonoBehaviour
     }
     public void OffArea()
     {
-        gameObject.SetActive(false);
+        meshRenderer.enabled = false;
+        boxCollider.enabled = false;
         rb.isKinematic  = true;
     }
 }

@@ -1,3 +1,4 @@
+using CP.Furniture;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -22,6 +23,7 @@ public class FurnitureSelected : MonoBehaviour
     private bool _isInteraction = false;
     [SerializeField] GraphicRaycaster _graphicRaycaster;
     private PointerEventData _pointerEventData;
+    [SerializeField] TouchInputManager _touchInputManager;
 
     private void Start()
     {
@@ -76,6 +78,7 @@ public class FurnitureSelected : MonoBehaviour
 
     void ActivateUIPanel(GameObject selectedObject)
     {
+        _touchInputManager.OffArea();
         uiPanel.SetActive(false);
         uiPanel.SetActive(true);
         _gameSpawnUI.SetActive(false);

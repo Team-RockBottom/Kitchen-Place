@@ -1,3 +1,4 @@
+using CP.Furniture;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,6 +35,7 @@ public class BackButtonManager : MonoBehaviour
     [SerializeField] FurnitureSelector _furnitureSelector;
     [SerializeField] UI_BasketController _uIBasketController;
     [SerializeField] UI_StoreController _uiStoreController;
+    [SerializeField] TouchInputManager _touchInputManager;
 
     private GameObject _selectedFurniture;
 
@@ -73,6 +75,7 @@ public class BackButtonManager : MonoBehaviour
     //========================================
     private void OnFurnitureSpawnExit()
     {
+        _touchInputManager.OffArea();
         _furnitureSpawnUI.SetActive(false);
         _mainMenuCanvas.SetActive(true);
         _uIBasketController.TotalBasketCount();

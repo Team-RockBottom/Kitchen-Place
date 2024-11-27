@@ -286,5 +286,20 @@ namespace CP.Furniture
         /// 오브젝트와 오브젝트가 겹쳤을때 호출하는 함수(설치 불가)
         /// </summary>
         public void PrefebColliderCheckFalse() { _isPosivle = false; _isTrigger = true; }
+
+        public void OffArea()
+        {
+            if (_objs)
+            {
+                if (_objs.GetComponentInChildren<AreaActiveRight>())
+                {
+                    _objs.GetComponentInChildren<AreaActiveRight>().OffArea();
+                }
+                if (_objs.GetComponentInChildren<AreaActiveLeft>())
+                {
+                    _objs.GetComponentInChildren<AreaActiveLeft>().OffArea();
+                }
+            }
+        }
     }
 }
