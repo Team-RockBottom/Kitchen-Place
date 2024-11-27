@@ -51,7 +51,7 @@ public class UI_BasketController : MonoBehaviour
             _inputfieldText[i].onValueChanged.AddListener(CheckInputField);
         }
 
-        _inputfieldText[1].characterLimit = 11;
+        _inputfieldText[1].characterLimit = 13;
     }
     /// <summary>
     /// 장바구니 UI 버튼
@@ -258,6 +258,32 @@ public class UI_BasketController : MonoBehaviour
     /// <param name="value"></param>
     void CheckInputField(string value)
     {
+        string text = _inputfieldText[1].text;
+        char hypen = '-';
+        int hypenCount = text.Count(c => c == hypen);
+
+        if (text.Length == 4)
+        {
+            if (!text.Contains(hypen))
+            {
+                text = text.Insert(3, "-");
+                _inputfieldText[1].SetTextWithoutNotify(text);
+                _inputfieldText[1].caretPosition = 5;
+            }
+        }
+
+        if (text.Length == 9)
+        {
+            if(hypenCount == 1)
+            {
+                text = text.Insert(8, "-");
+                _inputfieldText[1].SetTextWithoutNotify(text);
+                _inputfieldText[1].caretPosition = 10;
+            }
+        }
+
+        _inputfieldText[1].SetTextWithoutNotify(text);
+
         foreach (var inputField in _inputfieldText)
         {
             if (string.IsNullOrEmpty(inputField.text))
@@ -266,7 +292,7 @@ public class UI_BasketController : MonoBehaviour
                 return;
             }
         }
-
+        
         _payButton.interactable = true;
     }
 }
